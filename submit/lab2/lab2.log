@@ -1,0 +1,214 @@
+Script started on 2019-08-31 15:13:43-04:00 [TERM="xterm" TTY="/dev/pts/3" COLUMNS="100" LINES="35"]
+ctran20@remote02:~/i220a/work/lab2$ ca[K[Kd
+bash: d: command not found
+ctran20@remote02:~/i220a/work/lab2$ ex4
+bash: ex4: command not found
+ctran20@remote02:~/i220a/work/lab2$ cd ex
+bash: cd: ex: No such file or directory
+ctran20@remote02:~/i220a/work/lab2$ cd ex3[K4
+ctran20@remote02:~/i220a/work/lab2/ex4$ ls
+key-value.c  key-value.h  main.c  Makefile  process-file.c  process-file.h  README
+ctran20@remote02:~/i220a/work/lab2/ex4$ make
+cc -g -Wall -std=c11   -c -o key-value.o key-value.c
+cc -g -Wall -std=c11   -c -o process-file.o process-file.c
+cc -g -Wall -std=c11   -c -o main.o main.c
+cc key-value.o process-file.o main.o -lm -o key-value
+ctran20@remote02:~/i220a/work/lab2/ex4$ make
+make: 'key-value' is up to date.
+ctran20@remote02:~/i220a/work/lab2/ex4$ make dist
+tar -cf key-value.tar main.c Makefile key-value.c key-value.h process-file.c process-file.h README
+gzip -f key-value.tar
+ctran20@remote02:~/i220a/work/lab2/ex4$ clear
+[H[2J[3Jctran20@remote02:~/i220a/work/lab2/ex4$ ls
+key-value    key-value.h  key-value.tar.gz  main.o    process-file.c  process-file.o
+key-value.c  key-value.o  main.c	    Makefile  process-file.h  README
+ctran20@remote02:~/i220a/work/lab2/ex4$ cat Makefile
+PROJECT = key-value
+SRC_FILES = main.c Makefile key-value.c key-value.h process-file.c process-file.h README
+
+CFLAGS = -g -Wall -std=c11
+LDFLAGS = -lm
+
+$(PROJECT):	key-value.o process-file.o main.o
+		$(CC) key-value.o process-file.o main.o $(LDFLAGS) -o $@
+
+clean:
+		rm -f *.o $(PROJECT) $(PROJECT).tar.gz
+
+depend:
+		$(CC) -MM $(CPPFLAGS) *.c
+
+dist:		$(PROJECT).tar.gz
+
+$(PROJECT).tar.gz:	$(SRC_FILES)
+			tar -cf $(PROJECT).tar $(SRC_FILES)
+			gzip -f $(PROJECT).tar
+
+
+
+#automatically generated dependencies produced by make depend
+key-value.o: key-value.c key-value.h
+main.o: main.c process-file.h
+process-file.o: process-file.c key-value.h process-file.h
+
+
+
+
+
+
+ctran20@remote02:~/i220a/work/lab2/ex4$ make clean
+rm -f *.o key-value key-value.tar.gz
+ctran20@remote02:~/i220a/work/lab2/ex4$ cd ..
+ctran20@remote02:~/i220a/work/lab2$ cd ex3
+ctran20@remote02:~/i220a/work/lab2/ex3$ cat Makefl[Kile
+PROJECT = quadr
+SRC_FILES = main.c	Makefile  quadr.c  quadr.h  README  test.data
+CFLAGS = -g -Wall -std=c11
+LDFLAGS = -lm
+
+$(PROJECT):	quadr.o main.o
+		$(CC) quadr.o main.o $(LDFLAGS) -o $@
+
+clean:
+		rm -f *.o $(PROJECT) $(PROJECT).tar.gz
+
+depend:
+		$(CC) -MM $(CPPFLAGS) *.c
+
+dist:		$(PROJECT).tar.gz
+
+ $(PROJECT).tar.gz:		$(SRC_FILES)
+				 tar -cf $(PROJECT).tar $(SRC_FILES)
+				gzip -f $(PROJECT).tar
+
+#automatically generated dependencies produced by make depend
+main.o: main.c quadr.h
+quadr.o: quadr.c quadr.h
+
+
+ctran20@remote02:~/i220a/work/lab2/ex3$ l[Kclear
+[H[2J[3Jctran20@remote02:~/i220a/work/lab2/ex3$ ls
+ main.c  '#Makefile#'   Makefile   quadr.c   quadr.h   quadr.tar.gz   README   test.data
+ctran20@remote02:~/i220a/work/lab2/ex3$ cd ..
+ctran20@remote02:~/i220a/work/lab2$ cd ex2
+ctran20@remote02:~/i220a/work/lab2/ex2$ ls
+Makefile  Makefile~
+ctran20@remote02:~/i220a/work/lab2/ex2$ cat Makefile
+all:
+	echo "hello $$USER"
+ctran20@remote02:~/i220a/work/lab2/ex2$ make
+echo "hello $USER"
+hello ctran20
+ctran20@remote02:~/i220a/work/lab2/ex2$ cd ..
+ctran20@remote02:~/i220a/work/lab2$ cd ex3
+ctran20@remote02:~/i220a/work/lab2/ex3$ cat Makefile
+PROJECT = quadr
+SRC_FILES = main.c	Makefile  quadr.c  quadr.h  README  test.data
+CFLAGS = -g -Wall -std=c11
+LDFLAGS = -lm
+
+$(PROJECT):	quadr.o main.o
+		$(CC) quadr.o main.o $(LDFLAGS) -o $@
+
+clean:
+		rm -f *.o $(PROJECT) $(PROJECT).tar.gz
+
+depend:
+		$(CC) -MM $(CPPFLAGS) *.c
+
+dist:		$(PROJECT).tar.gz
+
+ $(PROJECT).tar.gz:		$(SRC_FILES)
+				 tar -cf $(PROJECT).tar $(SRC_FILES)
+				gzip -f $(PROJECT).tar
+
+#automatically generated dependencies produced by make depend
+main.o: main.c quadr.h
+quadr.o: quadr.c quadr.h
+
+
+ctran20@remote02:~/i220a/work/lab2/ex3$ make
+cc -g -Wall -std=c11   -c -o quadr.o quadr.c
+cc -g -Wall -std=c11   -c -o main.o main.c
+cc quadr.o main.o -lm -o quadr
+ctran20@remote02:~/i220a/work/lab2/ex3$ make
+make: 'quadr' is up to date.
+ctran20@remote02:~/i220a/work/lab2/ex3$ cd ..
+ctran20@remote02:~/i220a/work/lab2$ cd ex12[K
+ctran20@remote02:~/i220a/work/lab2/ex1$ ks[K[Kls
+hello  hello.c
+ctran20@remote02:~/i220a/work/lab2/ex1$ ls =l
+ls: cannot access '=l': No such file or directory
+ctran20@remote02:~/i220a/work/lab2/ex1$ ls =l[1Pl-l
+total 24
+-rwxr-xr-x 1 ctran20 ctran20 16608 Aug 29 10:38 hello
+-rw-r--r-- 1 ctran20 ctran20    75 Aug 29 10:37 hello.c
+ctran20@remote02:~/i220a/work/lab2/ex1$ file ge[K[Khello
+hello: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=a9500b0c7cccf0bba863e8a1dced42b7d7806988, not stripped
+ctran20@remote02:~/i220a/work/lab2/ex1$ ./hello
+hello world
+ctran20@remote02:~/i220a/work/lab2/ex1$ clear
+[H[2J[3Jctran20@remote02:~/i220a/work/lab2/ex1$ cd ..
+ctran20@remote02:~/i220a/work/lab2$ ls
+ex1  ex2  ex3  ex4  lab2.log  Makefile
+ctran20@remote02:~/i220a/work/lab2$ mv[K[Kcd ..
+ctran20@remote02:~/i220a/work$ ls
+lab2
+ctran20@remote02:~/i220a/work$ m[Kgit mv worklav[Kb2[K[K[K[K/lab2 submit
+fatal: bad source, source=work/work/lab2, destination=work/submit
+ctran20@remote02:~/i220a/work$ cd ..
+ctran20@remote02:~/i220a$ cd ..git mv work/lab2 submit
+fatal: source directory is empty, source=work/lab2, destination=submit/lab2
+ctran20@remote02:~/i220a$ ls
+README.md  submit  work
+ctran20@remote02:~/i220a$ lsgit mv work/lab2 submit[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd ..git mv work/lab2 submit[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd la[K[Ksubmit
+ctran20@remote02:~/i220a/submit$ cd[K[Kmv[K[Kgit mv lav[Kb2 /../submir[Kt
+fatal: '/../submit' is outside repository
+ctran20@remote02:~/i220a/submit$ ls
+lab1
+ctran20@remote02:~/i220a/submit$ cd ..
+ctran20@remote02:~/i220a$ ls
+README.md  submit  work
+ctran20@remote02:~/i220a$ cd work
+ctran20@remote02:~/i220a/work$ ;s
+bash: syntax error near unexpected token `;'
+ctran20@remote02:~/i220a/work$ ;s[K[Kcd ..
+ctran20@remote02:~/i220a$ cd submit
+ctran20@remote02:~/i220a/submit$ ls
+lab1
+ctran20@remote02:~/i220a/submit$ cd w[K..
+ctran20@remote02:~/i220a$ cd work
+ctran20@remote02:~/i220a/work$ ls
+lab2
+ctran20@remote02:~/i220a/work$ cd ..
+ctran20@remote02:~/i220a$ git mv woe[Krk/work[C[C[C[C/lab2 submit
+fatal: Invalid path '/work': No such file or directory
+ctran20@remote02:~/i220a$ git mv /work/lab2 submit[1P
+fatal: source directory is empty, source=work/lab2, destination=submit/lab2
+ctran20@remote02:~/i220a$ ;[Kls
+README.md  submit  work
+ctran20@remote02:~/i220a$ cd s[K[K[K[Klsgit mv work/lab2 submit[1P[1P[1P[1P
+ctran20@remote02:~/i220a$ ls
+README.md  submit  work
+ctran20@remote02:~/i220a$ cd work
+ctran20@remote02:~/i220a/work$ ls
+ctran20@remote02:~/i220a/work$ cd ..
+ctran20@remote02:~/i220a$ cd submit
+ctran20@remote02:~/i220a/submit$ ;s[K[Kls
+lab1  lab2
+ctran20@remote02:~/i220a/submit$ cd /.[K[K[K ..
+ctran20@remote02:~/i220a$ git commit -m 'submitted lab2[K 2'
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+	[31msubmit/[m
+
+nothing added to commit but untracked files present
+ctran20@remote02:~/i220a$ git commit -m 'submitted lab 2'[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kgit -A add[K[K[K[K[K[Kadd -A
+ctran20@remote02:~/i220a$ git add -Acommit -m 'submitted lab 2'
+[master 0cdab89] submitted lab 2
+ 23 files changed, 418 insertions(+)
+ create mode 100644 submit/lab2/Makefile
+ create mode 100755 submit/lab2/ex1/hello
+ create mode 100644 submi
