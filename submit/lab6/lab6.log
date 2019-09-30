@@ -1,0 +1,312 @@
+Script started on 2019-09-26 10:19:07-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+ctran20@g7-12:~/i220a/work/lab6$ clear
+[H[2J[3Jctran20@g7-12:~/i220a/work/lab6$ ls
+brk  bug-program  lab6.log  process-memory
+ctran20@g7-12:~/i220a/work/lab6$ cd process-memory/
+ctran20@g7-12:~/i220a/work/lab6/process-memory$ make
+cc -g -Wall -std=c11 -O1    process-memory.c   -o process-memory
+ctran20@g7-12:~/i220a/work/lab6/process-memory$ ./process-memory 10 &
+[1] 13159
+ctran20@g7-12:~/i220a/work/lab6/process-memory$ 10 MB allocated at 0x7f41d7b2f010
+[Kctran20@g7-12:~/i220a/work/lab6/process-memory$ [Kctran20@g7-12:~/i220a/work/lab6/process-memory$ [Kctran20@g7-12:~/i220a/work/lab6/process-memory$ 
+[1]+  Done                    ./process-memory 10
+ctran20@g7-12:~/i220a/work/lab6/process-memory$ ps -FP[Kp PID
+error: process ID list syntax error
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+ctran20@g7-12:~/i220a/work/lab6/process-memory$ ps -Fp PID[K[K[K[K
+error: list of process IDs must follow -p
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+ctran20@g7-12:~/i220a/work/lab6/process-memory$ man ps
+[?1049h[22;0;0t[?1h=PS(1)                            User Commands                            PS(1)[m
+[m
+[1mNAME[0m[m
+       ps - report a snapshot of the current processes.[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mps[0m [[4moptions[24m][m
+[m
+[1mDESCRIPTION[0m[m
+       [1mps[0m displays information about a selection of the active processes.  If[m
+       you want a repetitive update of the selection and the displayed[m
+       information, use [4mtop[24m(1) instead.[m
+[m
+       This version of [1mps[0m accepts several kinds of options:[m
+[m
+       1   UNIX options, which may be grouped and must be preceded by a dash.[m
+       2   BSD options, which may be grouped and must not be used with a dash.[m
+       3   GNU long options, which are preceded by two dashes.[m
+[m
+       Options of different types may be freely mixed, but conflicts can[m
+       appear.  There are some synonymous options, which are functionally[m
+       identical, due to the many standards and [1mps[0m implementations that this [1mps[0m[m
+       is compatible with.[m
+[m
+[7m Manual page ps(1) line 1 (press h for help or q to quit)[27m[K[K-[Klog file: [K[7m Manual page ps(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0tctran20@g7-12:~/i220a/work/lab6/process-memory$ ./man psps -Fp PID./process-memory 10 &0 &
+[1] 13588
+ctran20@g7-12:~/i220a/work/lab6/process-memory$ 100 MB allocated at 0x7faa16d5f010
+cd ..
+ctran20@g7-12:~/i220a/work/lab6$ ls
+brk  bug-program  lab6.log  process-memory
+ctran20@g7-12:~/i220a/work/lab6$ mkdir [K[K[K[K[K[Kgedit lab6_output.txt
+^C
+[1]+  Done                    ./process-memory 100  (wd: ~/i220a/work/lab6/process-memory)
+(wd now: ~/i220a/work/lab6)
+ctran20@g7-12:~/i220a/work/lab6$ gedit lab6_output.txt
+
+(gedit:13925): Gtk-[1;33mWARNING[0m **: [34m10:26:37.388[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: Method "Inhibit" with signature "susu" on interface "org.xfce.Session.Manager" doesn't exist
+
+psctran20@g7-12:~/i220a/work/lab6$ ps -p
+error: list of process IDs must follow -p
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+ctran20@g7-12:~/i220a/work/lab6$ ps -FP [K[Kp PID
+error: process ID list syntax error
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+ctran20@g7-12:~/i220a/work/lab6$ ls
+brk  bug-program  lab6.log  lab6_output.txt  process-memory
+ctran20@g7-12:~/i220a/work/lab6$ cd biu[K[Kug-program/
+ctran20@g7-12:~/i220a/work/lab6/bug-program$ ls
+bug-program.c  Makefile
+ctran20@g7-12:~/i220a/work/lab6/bug-program$ make
+cc -g -Wall -std=c11 -O1    bug-program.c   -o bug-program
+ctran20@g7-12:~/i220a/work/lab6/bug-program$ ./bug-program 
+outgrabe: 22
+raths: 21
+mome: 20
+the: 19
+and: 18
+borogoves: 17
+the: 16
+were: 15
+mimsy: 14
+all: 13
+wabe: 12
+the: 11
+in: 10
+gimble: 9
+and: 8
+gyre: 7
+did: 6
+toves: 5
+slithy: 4
+the: 3
+and: 2
+brillig: 1
+twas: 0
+ctran20@g7-12:~/i220a/work/lab6/bug-program$ ls
+ bug-program  '#bug-program.c#'   bug-program.c   Makefile
+ctran20@g7-12:~/i220a/work/lab6/bug-program$ b[Kvim bug-program.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;25r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[25;1H"bug-program.c" 76L, 2199C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<errno.h>[m
+[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<stdlib.h>[m
+[35m#include [m[31m<string.h>[m
+
+[34m/** A struct used to form a linear chain of key-value pairs. */[m
+[32mstruct[m KeyValue {
+  [32mconst[m [32mchar[m *key;[7C[34m/** string key */[m
+  [32mint[m value;[13C[34m/** integer value */[m
+  [32mstruct[m KeyValue *succ; [34m/** next key-value in chain */[m
+};
+
+[34m/** Given some chain keyValues of key-value struct's, add the
+ *  key-value (k, v) at head of chain keyValues and return the
+ *  resulting chain.
+ */[m
+[32mstatic[m [32mstruct[m KeyValue *
+add_key_value([32mstruct[m KeyValue *keyValues, [32mconst[m [32mchar[m *k, [32mint[m v)
+{
+  [34m//allocate storage for new KeyValue struct[m
+  [32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue *));
+
+  [34m//allocate storage for string pointed to by k[m
+  [32mchar[m *s = malloc(strlen(k));[25;65H1,1[11CTop]2;bug-program.c (~/git-repos/i220a/work/lab6/bug-program) - VIM]1;bug-program.c[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002h[27m[23m[29m[m[H[2J[?25l[1;1H[38;5;81m#include [m[95m<errno.h>[m
+[38;5;81m#include [m[95m<stdio.h>[m
+[38;5;81m#include [m[95m<stdlib.h>[m
+[38;5;81m#include [m[95m<string.h>[m
+
+[96m/** A struct used to form a linear chain of key-value pairs. */[m
+[38;5;121mstruct[m KeyValue {
+  [38;5;121mconst[m [38;5;121mchar[m *key;[7C[96m/** string key */[m
+  [38;5;121mint[m value;[13C[96m/** integer value */[m
+  [38;5;121mstruct[m KeyValue *succ; [96m/** next key-value in chain */[m
+};
+
+[96m/** Given some chain keyValues of key-value struct's, add the
+ *  key-value (k, v) at head of chain keyValues and return the
+ *  resulting chain.
+ */[m
+[38;5;121mstatic[m [38;5;121mstruct[m KeyValue *
+add_key_value([38;5;121mstruct[m KeyValue *keyValues, [38;5;121mconst[m [38;5;121mchar[m *k, [38;5;121mint[m v)
+{
+  [96m//allocate storage for new KeyValue struct[m
+  [38;5;121mstruct[m KeyValue *kv = malloc([93msizeof[m([38;5;121mstruct[m KeyValue *));
+
+  [96m//allocate storage for string pointed to by k[m
+  [38;5;121mchar[m *s = malloc(strlen(k));[25;65H1,1[11CTop"bug-program.c" 76L, 2199C[1;1H[?25h[?25l[25;55H~@k[1;1H[25;55H   [2;1H[25;65H2[2;1H[?25h[?25l[25;55H~@k[2;1H[25;55H   [3;1H[25;65H3[3;1H[?25h[?25l[25;55H~@k[3;1H[25;55H   [4;1H[25;65H4[4;1H[?25h[?25l[25;55H~@k[4;1H[25;55H   [5;1H[25;65H5,0-1[5;1H[?25h[?25l[25;55H~@k[5;1H[25;55H   [6;1H[25;65H6,1  [6;1H[?25h[?25l[25;55H~@k[6;1H[25;55H   [7;1H[25;65H7[7;1H[?25h[?25l[25;55H~@k[7;1H[25;55H   [8;1H[25;65H8[8;1H[?25h[?25l[25;55H~@k[8;1H[25;55H   [9;1H[25;65H9[9;1H[?25h[?25l[25;55H~@k[9;1H[25;55H   [10;1H[25;65H10,1[10;1H[?25h[?25l[25;55H~@k[10;1H[25;55H   [11;1H[7;17H[46m{[11;1H}[m[25;66H1[11;1H[?25h[?25l[25;55H~@k[11;1H[25;55H   [12;1H[7;17H{[11;1H}[25;66H2,0-1[12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [13;1H[25;66H3,1  [13;1H[?25h[?25l[25;55H~@k[13;1H[25;55H   [14;1H[25;66H4[14;1H[?25h[?25l[25;55H~@k[14;1H[25;55H   [15;1H[25;66H5[15;1H[?25h[?25l[25;55H~@k[15;1H[25;55H   [16;1H[25;66H6[16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [17;1H[25;66H7[17;1H[?25h[?25l[25;55H~@k[17;1H[25;55H   [18;1H[25;66H8[18;1H[?25h[?25l[25;55H~@k[18;1H[25;55H   [19;1H[25;66H9[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [19;1H[1;24r[24;1H
+[1;25r[25;1H[K[25;65H20,1[11C1%[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [19;1H[1;24r[24;1H
+[1;25r[24;3H[93mif[m (kv == [95mNULL[m || s == [95mNULL[m) { [96m//check if allocations succeeded[m[25;65H[K[25;65H21,1[11C3%[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [19;1H[1;24r[24;1H
+[1;25r[24;5Hfprintf([95mstderr[m, [95m"malloc failure: [m[38;5;224m%s\n[m[95m"[m, strerror(errno));[25;65H[K[25;65H22,0-1[9C5%[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [19;1H[1;24r[24;1H
+[1;25r[24;5Hexit([95m1[m);[25;65H[K[25;65H23,1[11C7%[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [19;1H[1;24r[24;1H
+[1;25r[24;3H}[25;65H[K[25;65H24,1[11C9%[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [18;1H[25;66H3[18;1H[?25h[?25l[25;55H~@k[18;1H[25;55H   [18;2H[25;68H2[18;2H[?25h[?25l[25;55H~@k[18;2H[25;55H   [18;3H[25;68H3[18;3H[?25h[?25l[25;55H~@k[18;3H[25;55H   [18;4H[25;68H4[18;4H[?25h[?25l[25;55H~@k[18;4H[25;55H   [18;5H[25;68H5[18;5H[?25h[?25l[25;55H~@k[18;5H[25;55H   [18;6H[25;68H6[18;6H[?25h[?25l[25;55H~@k[18;6H[25;55H   [18;7H[25;68H7[18;7H[?25h[?25l[25;55H~@k[18;7H[25;55H   [18;8H[25;68H8[18;8H[?25h[?25l[25;55H~@k[18;8H[25;55H   [18;9H[25;68H9[18;9H[?25h[?25l[25;55H~@k[18;9H[25;55H   [18;10H[25;68H10[18;10H[?25h[?25l[25;55H~@k[18;10H[25;55H   [18;11H[25;69H1[18;11H[?25h[?25l[25;55H~@k[18;11H[25;55H   [18;12H[25;69H2[18;12H[?25h[?25l[25;55H~@k[18;12H[25;55H   [18;13H[25;69H3[18;13H[?25h[?25l[25;55H~@k[18;13H[25;55H   [18;14H[25;69H4[18;14H[?25h[?25l[25;55H~@k[18;14H[25;55H   [18;15H[25;69H5[18;15H[?25h[?25l[25;55H~@k[18;15H[25;55H   [18;16H[25;69H6[18;16H[?25h[?25l[25;55H~@k[18;16H[25;55H   [18;17H[25;69H7[18;17H[?25h[?25l[25;55H~@k[18;17H[25;55H   [18;18H[25;69H8[18;18H[?25h[?25l[25;55H~@k[18;18H[25;55H   [18;19H[25;69H9[18;19H[?25h[?25l[25;55H~@k[18;19H[25;55H   [18;20H[25;68H20[18;20H[?25h[?25l[25;55H~@k[18;20H[25;55H   [18;21H[25;69H1[18;21H[?25h[?25l[25;55H~@k[18;21H[25;55H   [18;22H[25;69H2[18;22H[?25h[?25l[25;55H~@k[18;22H[25;55H   [18;23H[25;69H3[18;23H[?25h[?25l[25;55H~@k[18;23H[25;55H   [18;24H[25;69H4[18;24H[?25h[?25l[25;55H~@k[18;24H[25;55H   [18;25H[25;69H5[18;25H[?25h[?25l[25;55H~@k[18;25H[25;55H   [18;26H[25;69H6[18;26H[?25h[?25l[25;55H~@k[18;26H[25;55H   [18;27H[25;69H7[18;27H[?25h[?25l[25;55H~@k[18;27H[25;55H   [18;28H[25;69H8[18;28H[?25h[?25l[25;55H~@k[18;28H[25;55H   [18;29H[25;69H9[18;29H[?25h[?25l[25;55H~@k[18;29H[25;55H   [18;30H[25;68H30[18;30H[?25h[?25l[25;55H~@k[18;30H[25;55H   [18;31H[25;69H1[18;31H[?25h[?25l[25;55H~@k[18;31H[25;55H   [17;1H[25;66H2,0-1[17;1H[?25h[?25l[25;55H~@k[17;1H[25;55H   [16;31H[46m([25C)[m[25;66H1,31 [16;31H[?25h[?25l[25;55H~@k[16;31H[25;55H   [16;32H([25C)[25;69H2[16;32H[?25h[?25l[25;55H~@k[16;32H[25;55H   [16;33H[25;69H3[16;33H[?25h[?25l[25;55H~@k[16;33H[25;55H   [16;34H[25;69H4[16;34H[?25h[?25l[25;55H~@k[16;34H[25;55H   [16;35H[25;69H5[16;35H[?25h[?25l[25;55H~@k[16;35H[25;55H   [16;36H[25;69H6[16;36H[?25h[?25l[25;55H~@k[16;36H[25;55H   [16;37H[25;69H7[16;37H[?25h[?25l[25;55H~@k[16;37H[25;55H   [16;38H[46m([17C)[m[25;69H8[16;38H[?25h[?25l[25;55H~@k[16;38H[25;55H   [16;39H([17C)[25;69H9[16;39H[?25h[?25l[25;55H~@k[16;39H[25;55H   [16;40H[25;68H40[16;40H[?25h[?25l[25;55H~@k[16;40H[25;55H   [16;41H[25;69H1[16;41H[?25h[?25l[25;55H~@k[16;41H[25;55H   [16;42H[25;69H2[16;42H[?25h[?25l[25;55H~@k[16;42H[25;55H   [16;43H[25;69H3[16;43H[?25h[?25l[25;55H~@k[16;43H[25;55H   [16;44H[25;69H4[16;44H[?25h[?25l[25;55H~@k[16;44H[25;55H   [16;45H[25;69H5[16;45H[?25h[?25l[25;55H~@k[16;45H[25;55H   [16;46H[25;69H6[16;46H[?25h[?25l[25;55H~@k[16;46H[25;55H   [16;47H[25;69H7[16;47H[?25h[?25l[25;55H~@k[16;47H[25;55H   [16;48H[25;69H8[16;48H[?25h[?25l[25;55H~@k[16;48H[25;55H   [16;49H[25;69H9[16;49H[?25h[?25l[25;55H~@k[16;49H[25;55H   [16;50H[25;68H50[16;50H[?25h[?25l[25;55H~@k[16;50H[25;55H   [16;51H[25;69H1[16;51H[?25h[?25l[25;55H~@k[16;51H[25;55H   [16;52H[25;69H2[16;52H[?25h[?25l[25;55H~@k[16;52H[25;55H   [16;53H[25;69H3[16;53H[?25h[?25l[25;55H~@k[16;53H[25;55H   [16;54H[25;69H4[16;54H[?25h[?25l[25;55H~@k[16;54H[25;55H   [16;55H[25;69H5[16;55H[?25h[?25l[25;55H~@k[16;55H[25;55H   [16;56H[16;38H[46m([17C)[m[25;69H6[16;56H[?25h[?25l[25;55H~@k[16;56H[25;55H   [16;55H[16;38H([17C)[25;69H5[16;55H[?25h[?25l[25;55H~@k[16;55H[25;55H   [16;54H[25;69H4[16;54H[?25h[?25l[25;55H~@k[16;54H[25;55H   [16;54H[25;1H[1m-- INSERT --[m[25;65H[K[25;65H21,54[10C9%[16;54H[?25h[?25l[25;69H5[16;55H[?25h[?25l[16;38H[46m([17C)[m[25;69H6[16;56H[?25h[?25l)[1C;[16;58H[K[16;55H[46m)[m)[25;69H5]2;bug-program.c + (~/git-repos/i220a/work/lab6/bug-program) - VIM]1;bug-program.c[16;55H[?25h[?25l)[1C;[16;57H[K[16;54H[46m)[m)[25;69H4[16;54H[?25h[25;1H[K[16;53H[?25l[25;55H^[[16;53H[25;55H  [16;54H[16;38H([15C)[25;65H21,53[10C9%[16;53H[?25h[?25l[25;55H^[[16;53H[25;55H  [16;53H[25;55H^[[16;53H[25;55H  [16;53H[?25h[?25l[25;55H:[16;53H[25;55H[K[25;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1006l[?1002l[?2004l"bug-program.c" 76L, 2197C written]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@g7-12:~/i220a/work/lab6/bug-program$ vim bug-program.cls[K./bug-program make[K[2Plsmake
+cc -g -Wall -std=c11 -O1    bug-program.c   -o bug-program
+ctran20@g7-12:~/i220a/work/lab6/bug-program$ makevim bug-program.cls[K./bug-program 
+outgrabe: 22
+raths: 21
+mome: 20
+the: 19
+and: 18
+borogoves: 17
+the: 16
+were: 15
+mimsy: 14
+all: 13
+wabe: 12
+the: 11
+in: 10
+gimble: 9
+and: 8
+gyre: 7
+did: 6
+toves: 5
+slithy: 4
+the: 3
+and: 2
+brillig: 1
+twas: 0
+ctran20@g7-12:~/i220a/work/lab6/bug-program$ ./bug-program make[Kvim bug-program.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;25r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[25;1H"bug-program.c" 76L, 2197C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdlib.h>[m
+[35m#include [m[31m<string.h>[m
+
+[34m/** A struct used to form a linear chain of key-value pairs. */[m
+[32mstruct[m KeyValue {
+  [32mconst[m [32mchar[m *key;[7C[34m/** string key */[m
+  [32mint[m value;[13C[34m/** integer value */[m
+  [32mstruct[m KeyValue *succ; [34m/** next key-value in chain */[m
+};
+
+[34m/** Given some chain keyValues of key-value struct's, add the
+ *  key-value (k, v) at head of chain keyValues and return the
+ *  resulting chain.
+ */[m
+[32mstatic[m [32mstruct[m KeyValue *
+add_key_value([32mstruct[m KeyValue *keyValues, [32mconst[m [32mchar[m *k, [32mint[m v)
+{
+  [34m//allocate storage for new KeyValue struct[m
+  [32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue));
+
+  [34m//allocate storage for string pointed to by k[m
+  [32mchar[m *s = malloc(strlen(k));
+
+  [38;5;130mif[m (kv == [31mNULL[m || s == [31mNULL[m) { [34m//check if allocations succeeded[m[25;65H21,53[10C3%]2;bug-program.c (~/git-repos/i220a/work/lab6/bug-program) - VIM]1;bug-program.c[19;53H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002h[27m[23m[29m[m[H[2J[?25l[1;1H[38;5;81m#include [m[95m<stdlib.h>[m
+[38;5;81m#include [m[95m<string.h>[m
+
+[96m/** A struct used to form a linear chain of key-value pairs. */[m
+[38;5;121mstruct[m KeyValue {
+  [38;5;121mconst[m [38;5;121mchar[m *key;[7C[96m/** string key */[m
+  [38;5;121mint[m value;[13C[96m/** integer value */[m
+  [38;5;121mstruct[m KeyValue *succ; [96m/** next key-value in chain */[m
+};
+
+[96m/** Given some chain keyValues of key-value struct's, add the
+ *  key-value (k, v) at head of chain keyValues and return the
+ *  resulting chain.
+ */[m
+[38;5;121mstatic[m [38;5;121mstruct[m KeyValue *
+add_key_value([38;5;121mstruct[m KeyValue *keyValues, [38;5;121mconst[m [38;5;121mchar[m *k, [38;5;121mint[m v)
+{
+  [96m//allocate storage for new KeyValue struct[m
+  [38;5;121mstruct[m KeyValue *kv = malloc([93msizeof[m([38;5;121mstruct[m KeyValue));
+
+  [96m//allocate storage for string pointed to by k[m
+  [38;5;121mchar[m *s = malloc(strlen(k));
+
+  [93mif[m (kv == [95mNULL[m || s == [95mNULL[m) { [96m//check if allocations succeeded[m[25;65H21,53[10C3%"bug-program.c" 76L, 2197C[19;53H[?25h[?25l[25;55H~@k[19;53H[25;55H   [19;1H[1;24r[24;1H
+[1;25r[24;5Hfprintf([95mstderr[m, [95m"malloc failure: [m[38;5;224m%s\n[m[95m"[m, strerror(errno));[25;1H[K[25;65H22,0-1[9C5%[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [18;1H[25;66H1,1  [18;1H[?25h[?25l[25;55H~@k[18;1H[25;55H   [17;1H[25;66H0[17;1H[?25h[?25l[25;55H~@k[17;1H[25;55H   [16;1H[25;65H19[16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [17;1H[25;65H20[17;1H[?25h[?25l[25;55H~@k[17;1H[25;55H   [18;1H[25;66H1[18;1H[?25h[?25l[25;55H~@k[18;1H[25;55H   [18;2H[25;68H2[18;2H[?25h[?25l[25;55H~@k[18;2H[25;55H   [18;3H[25;68H3[18;3H[?25h[?25l[25;55H~@k[18;3H[25;55H   [18;4H[25;68H4[18;4H[?25h[?25l[25;55H~@k[18;4H[25;55H   [17;4H[25;66H0[17;4H[?25h[?25l[25;55H~@k[17;4H[25;55H   [16;1H[25;65H19,1[16;1H[?25h[?25l[25;55H~@k[16;1H[25;55H   [15;4H[25;66H8,4[15;4H[?25h[?25l[25;55H~@k[15;4H[25;55H   [14;4H[25;66H7[14;4H[?25h[?25l[25;55H~@k[14;4H[25;55H   [13;3H[25;66H6,3[13;3H[?25h[?25l[25;55H~@k[13;3H[25;55H   [12;4H[25;66H5,4[12;4H[?25h[?25l[25;55H~@k[12;4H[25;55H   [11;4H[25;66H4[11;4H[?25h[?25l[25;55H~@k[11;4H[25;55H   [10;4H[25;66H3[10;4H[?25h[?25l[25;55H~@k[10;4H[25;55H   [9;1H[25;66H2,0-1[9;1H[?25h[?25l[25;55H~@k[9;1H[25;55H   [8;2H[25;66H1,2  [8;2H[?25h[?25l[25;55H~@k[8;2H[25;55H   [7;4H[25;66H0,4[7;4H[?25h[?25l[25;55H~@k[7;4H[25;55H   [6;4H[25;65H9,4 [6;4H[?25h[?25l[25;55H~@k[6;4H[25;55H   [6;4H[1;24r[1;1H[L[1;25r[1;1H[38;5;81m#include [m[95m<stdlib.h>[m[25;65H[K[25;65H8,4[12C3%[6;4H[?25h[?25l[25;55H~@k[6;4H[25;55H   [6;4H[1;24r[1;1H[L[1;25r[1;1H[38;5;81m#include [m[95m<stdio.h>[m[25;65H[K[25;65H7,4[12C1%[6;4H[?25h[?25l[25;55H~@k[6;4H[25;55H   [6;4H[1;24r[1;1H[L[1;25r[1;1H[38;5;81m#include [m[95m<errno.h>[m[25;65H[K[25;65H6,4[11CTop[6;4H[?25h[?25l[25;55H~@k[6;4H[25;55H   [5;1H[25;65H5,0-1[5;1H[?25h[?25l[25;55H~@k[5;1H[25;55H   [4;4H[25;65H4,4  [4;4H[?25h[?25l[25;55H~@k[4;4H[25;55H   [3;4H[25;65H3[3;4H[?25h[?25l[25;55H~@k[3;4H[25;55H   [4;4H[25;65H4[4;4H[?25h[?25l[25;55H~@k[4;4H[25;55H   [5;1H[25;65H5,0-1[5;1H[?25h[?25l[25;55H~@k[5;1H[25;55H   [6;4H[25;65H6,4  [6;4H[?25h[?25l[25;55H~@k[6;4H[25;55H   [7;4H[25;65H7[7;4H[?25h[?25l[25;55H~@k[7;4H[25;55H   [8;4H[25;65H8[8;4H[?25h[?25l[25;55H~@k[8;4H[25;55H   [9;4H[25;65H9[9;4H[?25h[?25l[25;55H~@k[9;4H[25;55H   [10;4H[25;65H10,4[10;4H[?25h[?25l[25;55H~@k[10;4H[25;55H   [11;2H[25;66H1,2[11;2H[?25h[?25l[25;55H~@k[11;2H[25;55H   [12;1H[25;66H2,0-1[12;1H[?25h[?25l[25;55H~@k[12;1H[25;55H   [13;4H[25;66H3,4  [13;4H[?25h[?25l[25;55H~@k[13;4H[25;55H   [14;4H[25;66H4[14;4H[?25h[?25l[25;55H~@k[14;4H[25;55H   [15;4H[25;66H5[15;4H[?25h[?25l[25;55H~@k[15;4H[25;55H   [16;3H[25;66H6,3[16;3H[?25h[?25l[25;55H~@k[16;3H[25;55H   [17;4H[25;66H7,4[17;4H[?25h[?25l[25;55H~@k[17;4H[25;55H   [18;4H[25;66H8[18;4H[?25h[?25l[25;55H~@k[18;4H[25;55H   [19;1H[25;66H9,1[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [19;4H[1;24r[24;1H
+[1;25r[25;65H[K[25;65H20,4[11C1%[19;4H[?25h[?25l[25;55H~@k[19;4H[25;55H   [19;4H[1;24r[24;1H
+[1;25r[24;3H[93mif[m (kv == [95mNULL[m || s == [95mNULL[m) { [96m//check if allocations succeeded[m[25;65H[K[25;65H21,4[11C3%[19;4H[?25h[?25l[25;55H~@k[19;4H[25;55H   [19;1H[1;24r[24;1H
+[1;25r[24;5Hfprintf([95mstderr[m, [95m"malloc failure: [m[38;5;224m%s\n[m[95m"[m, strerror(errno));[25;65H[K[25;65H22,0-1[9C5%[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [19;4H[1;24r[24;1H
+[1;25r[24;5Hexit([95m1[m);[25;65H[K[25;65H23,4[11C7%[19;4H[?25h[?25l[25;55H~@k[19;4H[25;55H   [19;4H[1;24r[24;1H
+[1;25r[24;3H}[25;65H[K[25;65H24,4[11C9%[19;4H[?25h[?25l[25;55H~@k[19;4H[25;55H   [18;4H[25;66H3[18;4H[?25h[?25l[25;55H~@k[18;4H[25;55H   [17;1H[25;66H2,0-1[17;1H[?25h[?25l[25;55H~@k[17;1H[25;55H   [16;4H[25;66H1,4  [16;4H[?25h[?25l[25;55H~@k[16;4H[25;55H   [16;5H[25;68H5[16;5H[?25h[?25l[25;55H~@k[16;5H[25;55H   [16;6H[25;68H6[16;6H[?25h[?25l[25;55H~@k[16;6H[25;55H   [16;7H[25;68H7[16;7H[?25h[?25l[25;55H~@k[16;7H[25;55H   [16;8H[25;68H8[16;8H[?25h[?25l[25;55H~@k[16;8H[25;55H   [16;9H[25;68H9[16;9H[?25h[?25l[25;55H~@k[16;9H[25;55H   [16;10H[25;68H10[16;10H[?25h[?25l[25;55H~@k[16;10H[25;55H   [16;11H[25;69H1[16;11H[?25h[?25l[25;55H~@k[16;11H[25;55H   [16;12H[25;69H2[16;12H[?25h[?25l[25;55H~@k[16;12H[25;55H   [16;13H[25;69H3[16;13H[?25h[?25l[25;55H~@k[16;13H[25;55H   [16;14H[25;69H4[16;14H[?25h[?25l[25;55H~@k[16;14H[25;55H   [16;15H[25;69H5[16;15H[?25h[?25l[25;55H~@k[16;15H[25;55H   [16;16H[25;69H6[16;16H[?25h[?25l[25;55H~@k[16;16H[25;55H   [16;17H[25;69H7[16;17H[?25h[?25l[25;55H~@k[16;17H[25;55H   [16;18H[25;69H8[16;18H[?25h[?25l[25;55H~@k[16;18H[25;55H   [16;19H[25;69H9[16;19H[?25h[?25l[25;55H~@k[16;19H[25;55H   [16;20H[25;68H20[16;20H[?25h[?25l[25;55H~@k[16;20H[25;55H   [16;21H[25;69H1[16;21H[?25h[?25l[25;55H~@k[16;21H[25;55H   [16;22H[25;69H2[16;22H[?25h[?25l[25;55H~@k[16;22H[25;55H   [16;23H[25;69H3[16;23H[?25h[?25l[25;55H~@k[16;23H[25;55H   [16;24H[25;69H4[16;24H[?25h[?25l[25;55H~@k[16;24H[25;55H   [16;25H[25;69H5[16;25H[?25h[?25l[25;55H~@k[16;25H[25;55H   [16;26H[25;69H6[16;26H[?25h[?25l[25;55H~@k[16;26H[25;55H   [16;27H[25;69H7[16;27H[?25h[?25l[25;55H~@k[16;27H[25;55H   [16;28H[25;69H8[16;28H[?25h[?25l[25;55H~@k[16;28H[25;55H   [16;29H[25;69H9[16;29H[?25h[?25l[25;55H~@k[16;29H[25;55H   [16;30H[25;68H30[16;30H[?25h[?25l[25;55H~@k[16;30H[25;55H   [16;31H[46m([23C)[m[25;69H1[16;31H[?25h[?25l[25;55H~@k[16;31H[25;55H   [16;32H([23C)[25;69H2[16;32H[?25h[?25l[25;55H~@k[16;32H[25;55H   [16;33H[25;69H3[16;33H[?25h[?25l[25;55H~@k[16;33H[25;55H   [16;34H[25;69H4[16;34H[?25h[?25l[25;55H~@k[16;34H[25;55H   [16;35H[25;69H5[16;35H[?25h[?25l[25;55H~@k[16;35H[25;55H   [16;36H[25;69H6[16;36H[?25h[?25l[25;55H~@k[16;36H[25;55H   [16;37H[25;69H7[16;37H[?25h[?25l[25;55H~@k[16;37H[25;55H   [16;38H[46m([15C)[m[25;69H8[16;38H[?25h[?25l[25;55H~@k[16;38H[25;55H   [16;39H([15C)[25;69H9[16;39H[?25h[?25l[25;55H~@k[16;39H[25;55H   [16;40H[25;68H40[16;40H[?25h[?25l[25;55H~@k[16;40H[25;55H   [16;41H[25;69H1[16;41H[?25h[?25l[25;55H~@k[16;41H[25;55H   [16;42H[25;69H2[16;42H[?25h[?25l[25;55H~@k[16;42H[25;55H   [16;43H[25;69H3[16;43H[?25h[?25l[25;55H~@k[16;43H[25;55H   [16;44H[25;69H4[16;44H[?25h[?25l[25;55H~@k[16;44H[25;55H   [16;45H[25;69H5[16;45H[?25h[?25l[25;55H~@k[16;45H[25;55H   [16;46H[25;69H6[16;46H[?25h[?25l[25;55H~@k[16;46H[25;55H   [16;47H[25;69H7[16;47H[?25h[?25l[25;55H~@k[16;47H[25;55H   [16;48H[25;69H8[16;48H[?25h[?25l[25;55H~@k[16;48H[25;55H   [16;49H[25;69H9[16;49H[?25h[?25l[25;55H~@k[16;49H[25;55H   [16;50H[25;68H50[16;50H[?25h[?25l[25;55H~@k[16;50H[25;55H   [16;51H[25;69H1[16;51H[?25h[?25l[25;55H~@k[16;51H[25;55H   [16;52H[25;69H2[16;52H[?25h[?25l[25;55H~@k[16;52H[25;55H   [16;53H[25;69H3[16;53H[?25h[?25l[25;55H~@k[16;53H[25;55H   [16;54H[16;38H[46m([15C)[m[25;69H4[16;54H[?25h[?25l[25;55H<20>[16;54H[25;55H    [16;55H[16;31H[46m([m[6C([15C)[46m)[m[25;69H5[16;55H[?25h[?25l[25;55H~@k[16;55H[25;55H   [16;54H[16;31H([6C[46m([15C)[m)[25;69H4[16;54H[?25h[?25l[25;55H~@k[16;54H[25;55H   [16;54H[25;1H[1m-- INSERT --[m[25;65H[K[25;65H21,54[10C9%[16;54H[?25h[?25l[46m [m)); [46m)[m[25;69H5]2;bug-program.c + (~/git-repos/i220a/work/lab6/bug-program) - VIM]1;bug-program.c[16;55H[?25h[?25l[46m*[m));*[46m)[m[25;69H6[16;56H[?25h[25;1H[K[16;55H[?25l[25;55H^[[16;55H[25;55H  [16;56H[16;38H([17C)[25;65H21,55[10C9%[16;55H[?25h[?25l[25;55H:[16;55H[25;55H[K[25;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1006l[?1002l[?2004l"bug-program.c" 76L, 2199C written]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@g7-12:~/i220a/work/lab6/bug-program$ vim bug-program.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;25r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[25;1H"bug-program.c" 76L, 2199C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdlib.h>[m
+[35m#include [m[31m<string.h>[m
+
+[34m/** A struct used to form a linear chain of key-value pairs. */[m
+[32mstruct[m KeyValue {
+  [32mconst[m [32mchar[m *key;[7C[34m/** string key */[m
+  [32mint[m value;[13C[34m/** integer value */[m
+  [32mstruct[m KeyValue *succ; [34m/** next key-value in chain */[m
+};
+
+[34m/** Given some chain keyValues of key-value struct's, add the
+ *  key-value (k, v) at head of chain keyValues and return the
+ *  resulting chain.
+ */[m
+[32mstatic[m [32mstruct[m KeyValue *
+add_key_value([32mstruct[m KeyValue *keyValues, [32mconst[m [32mchar[m *k, [32mint[m v)
+{
+  [34m//allocate storage for new KeyValue struct[m
+  [32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue *));
+
+  [34m//allocate storage for string pointed to by k[m
+  [32mchar[m *s = malloc(strlen(k));
+
+  [38;5;130mif[m (kv == [31mNULL[m || s == [31mNULL[m) { [34m//check if allocations succeeded[m[25;65H21,55[10C3%]2;bug-program.c (~/git-repos/i220a/work/lab6/bug-program) - VIM]1;bug-program.c[19;55H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002h[27m[23m[29m[m[H[2J[?25l[1;1H[38;5;81m#include [m[95m<stdlib.h>[m
+[38;5;81m#include [m[95m<string.h>[m
+
+[96m/** A struct used to form a linear chain of key-value pairs. */[m
+[38;5;121mstruct[m KeyValue {
+  [38;5;121mconst[m [38;5;121mchar[m *key;[7C[96m/** string key */[m
+  [38;5;121mint[m value;[13C[96m/** integer value */[m
+  [38;5;121mstruct[m KeyValue *succ; [96m/** next key-value in chain */[m
+};
+
+[96m/** Given some chain keyValues of key-value struct's, add the
+ *  key-value (k, v) at head of chain keyValues and return the
+ *  resulting chain.
+ */[m
+[38;5;121mstatic[m [38;5;121mstruct[m KeyValue *
+add_key_value([38;5;121mstruct[m KeyValue *keyValues, [38;5;121mconst[m [38;5;121mchar[m *k, [38;5;121mint[m v)
+{
+  [96m//allocate storage for new KeyValue struct[m
+  [38;5;121mstruct[m KeyValue *kv = malloc([93msizeof[m([38;5;121mstruct[m KeyValue *));
+
+  [96m//allocate storage for string pointed to by k[m
+  [38;5;121mchar[m *s = malloc(strlen(k));
+
+  [93mif[m (kv == [95mNULL[m || s == [95mNULL[m) { [96m//check if allocations succeeded[m[25;65H21,55[10C3%"bug-program.c" 76L, 2199C[19;55H[?25h[?25l[25;55H~@k[19;55H[25;55H   [19;1H[1;24r[24;1H
+[1;25r[24;5Hfprintf([95mstderr[m, [95m"malloc failure: [m[38;5;224m%s\n[m[95m"[m, strerror(errno));[25;1H[K[25;65H22,0-1[9C5%[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [19;1H[1;24r[24;1H
+[1;25r[24;5Hexit([95m1[m);[25;65H[K[25;65H23,1[11C7%[19;1H[?25h[?25l[25;55H~@k[19;1H[25;55H   [19;2H[25;68H2[19;2H[?25h[?25l[25;55H~@k[19;2H[25;55H   [19;2H[1;24r[24;1H
+[1;25r[24;3H}[25;65H[K[25;65H24,2[11C9%[19;2H[?25h[?25l[25;55H~@k[19;2H[25;55H   [19;3H[25;68H3[19;3H[?25h[?25l[25;55H~@k[19;3H[25;55H   [19;4H[25;68H4[19;4H[?25h[?25l[25;55H~@k[19;4H[25;55H   [19;5H[25;68H5[19;5H[?25h[?25l[25;55H~@k[19;5H[25;55H   [19;6H[25;68H6[19;6H[?25h[?25l[25;55H~@k[19;6H[25;55H   [19;7H[25;68H7[19;7H[?25h[?25l[25;55H~@k[19;7H[25;55H   [19;8H[25;68H8[19;8H[?25h[?25l[25;55H~@k[19;8H[25;55H   [19;9H[25;68H9[19;9H[?25h[?25l[25;55H~@k[19;9H[25;55H   [19;10H[25;68H10[19;10H[?25h[?25l[25;55H~@k[19;10H[25;55H   [19;11H[25;69H1[19;11H[?25h[?25l[25;55H~@k[19;11H[25;55H   [19;12H[25;69H2[19;12H[?25h[?25l[25;55H~@k[19;12H[25;55H   [19;13H[25;69H3[19;13H[?25h[?25l[25;55H~@k[19;13H[25;55H   [19;14H[25;69H4[19;14H[?25h[?25l[25;55H~@k[19;14H[25;55H   [19;15H[25;69H5[19;15H[?25h[?25l[25;55H~@k[19;15H[25;55H   [19;16H[25;69H6[19;16H[?25h[?25l[25;55H~@k[19;16H[25;55H   [19;17H[25;69H7[19;17H[?25h[?25l[25;55H~@k[19;17H[25;55H   [19;18H[25;69H8[19;18H[?25h[?25l[25;55H~@k[19;18H[25;55H   [19;19H[46m([9C)[m[25;69H9[19;19H[?25h[?25l[25;55H~@k[19;19H[25;55H   [19;20H([9C)[25;68H20[19;20H[?25h[?25l[25;55H~@k[19;20H[25;55H   [19;21H[25;69H1[19;21H[?25h[?25l[25;55H~@k[19;21H[25;55H   [19;22H[25;69H2[19;22H[?25h[?25l[25;55H~@k[19;22H[25;55H   [19;23H[25;69H3[19;23H[?25h[?25l[25;55H~@k[19;23H[25;55H   [19;24H[25;69H4[19;24H[?25h[?25l[25;55H~@k[19;24H[25;55H   [19;25H[25;69H5[19;25H[?25h[?25l[25;55H~@k[19;25H[25;55H   [19;26H[46m([mk[46m)[m[25;69H6[19;26H[?25h[?25l[25;55H~@k[19;26H[25;55H   [19;27H(k)[25;69H7[19;27H[?25h[?25l[25;55H~@k[19;27H[25;55H   [19;28H[46m([mk[46m)[m[25;69H8[19;28H[?25h[?25l[25;55H~@k[19;28H[25;55H   [19;29H[19;19H[46m([mstrlen(k)[46m)[m[25;69H9[19;29H[?25h[?25l[25;55H+[19;29H[25;55H [19;1H[1;24r[24;1H
