@@ -1,0 +1,10 @@
+Ex3: Because the f.c function convert all int to double.
+
+Ex6:
+$1 = (int (*)(int, const char **)) 0x401bf6 <main>
+$2 = (void (*)(int *, int *, int *, int)) 0x401f1f <addvec>
+$3 = (void (*)(int *, int *, int *, int)) 0x401f8e <multvec>
+
+$1 = (int (*)(int, const char **)) 0x11ee <main>
+$2 = (<text variable, no debug info> *) 0x1060 <addvec@plt>
+$3 = (<text variable, no debug info> *) 0x1050 <multvec@plt>
