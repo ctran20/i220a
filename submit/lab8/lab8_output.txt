@@ -1,0 +1,265 @@
+--------Creating and Cloning a Bare Repository--------
+
+in: git init --bare
+-> Initialized empty Git repository in /import/linux/home1/ctran20/git-repos/lab8.git/
+
+in:  git remote -v
+-> origin  ssh://ctran20@remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git (fetch)
+ origin  ssh://ctran20@remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git (push)
+
+in: git status
+-> On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        ../
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+in: git status --short
+-> A  README.md
+
+in: git commit -m 'added README'
+-> [master (root-commit) d56e0dd] added README
+ 1 file changed, 4 insertions(+)
+ create mode 100644 work/lab8/README.md
+
+in:  git branch -l
+-> * master
+
+in: git push --set-upstream origin master
+-> To ssh://remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+--------Saying Hello--------
+
+in: make
+-> cc -g -Wall -std=c11    hello.c   -o hello
+hello.c: In function ‘main’:
+hello.c:5:5: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
+     printf("usage: %s NAME\n", argv[0]);
+     ^~~~~~
+hello.c:5:5: warning: incompatible implicit declaration of built-in function ‘printf’
+hello.c:5:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+hello.c:1:1:
++#include <stdio.h>
+ int
+hello.c:5:5:
+     printf("usage: %s NAME\n", argv[0]);
+     ^~~~~~
+hello.c:6:5: warning: implicit declaration of function ‘exit’ [-Wimplicit-function-declaration]
+     exit(1);
+     ^~~~
+hello.c:6:5: warning: incompatible implicit declaration of built-in function ‘exit’
+hello.c:6:5: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+hello.c:1:1:
++#include <stdlib.h>
+ int
+hello.c:6:5:
+     exit(1);
+     ^~~~
+hello.c:8:3: warning: incompatible implicit declaration of built-in function ‘printf’
+   printf("hello %s\n", argv[1]);
+   ^~~~~~
+hello.c:8:3: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+
+in: ./hello
+->usage: ./hello NAME
+
+in: ./hello john
+-> hello john
+
+in: git status -s
+-> ?? Makefile
+?? hello
+?? hello.c
+
+in: git add .
+git status -s
+->A  Makefile
+A  hello
+A  hello.c
+
+in: git log
+-> commit 3f0cbd3fe0fa2efb3560716003c3257c183d69d0 (HEAD -> master, origin/master)
+Author: Cat Tran <ctran20@binghamton.edu>
+Date:   Sun Oct 13 09:58:38 2019 -0400
+
+    working with warnings
+
+commit d56e0dd7dd3a0eb75f2107551ad44978a068a5ed
+Author: Cat Tran <ctran20@binghamton.edu>
+Date:   Sun Oct 13 09:34:17 2019 -0400
+
+    added README
+
+in: vim hello.c
+make
+-> cc -g -Wall -std=c11    hello.c   -o hello
+
+in: ./hello sue
+-> hello sue
+
+in: git status -s
+->  M hello
+ M hello.c
+
+in: git log hello.c 
+-> commit e344e9c7cf4383dc88f91949bc2ee65c72334940 (HEAD -> master, origin/master)
+Author: Cat Tran <ctran20@binghamton.edu>
+Date:   Sun Oct 13 10:07:31 2019 -0400
+
+    working clean compile
+
+commit 3f0cbd3fe0fa2efb3560716003c3257c183d69d0
+Author: Cat Tran <ctran20@binghamton.edu>
+Date:   Sun Oct 13 09:58:38 2019 -0400
+
+    working with warnings
+
+in: ./hello
+-> usage: ./hello NAME
+
+in: ./hello >/dev/null
+->usage: ./hello NAME
+
+in: git diff
+-> diff --git a/work/lab8/hello.c b/work/lab8/hello.c
+index 14e4e73..707ef29 100644
+--- a/work/lab8/hello.c
++++ b/work/lab8/hello.c
+@@ -5,7 +5,7 @@ int
+ main(int argc, const char *argv[])
+ {
+   if (argc != 2) {
+-    printf("usage: %s NAME\n", argv[0]);
++    fprintf(stderr, "usage: %s NAME\n", argv[0]);
+     exit(1);
+   }
+   printf("hello %s\n", argv[1]);
+
+in: git shortlog
+-> Cat Tran (4):
+      added README
+      working with warnings
+      working clean compile
+      send usage message to stderr
+
+--------A Feature Branch--------
+
+in: git checkout -b hello-multi
+->Switched to a new branch 'hello-multi'
+
+in: git branch -l
+-> * hello-multi
+  master
+
+in: ./hello john sue
+->hello john
+hello sue
+
+--------Continuing Development on master--------
+
+in: ./hello john sue
+-> usage: ./hello NAME
+
+in: tail -4 hello.c
+-> printf("hello %s\n", argv[1]);
+
+  return 0;
+}
+
+in: ./hello sue
+-> hello sue
+
+--------Merging Master Changes to Feature Branch--------
+
+in: git checkout hello-multi
+-> Switched to branch 'hello-multi'
+Your branch is up to date with 'origin/hello-multi'.
+
+in: git merge master
+-> Auto-merging hello.c
+CONFLICT (content): Merge conflict in hello.c
+Automatic merge failed; fix conflicts and then commit the result.
+
+in: tail -5 hello.c
+-> for (int i = 1; i < argc; i++) {
+    printf("hello %s\n", argv[i]);
+  }
+  return 0;
+}
+
+in: ./hello john sue
+-> hello john
+hello sue
+
+--------Merge Feature Branch into Master--------
+
+in: git merge hello-multi
+-> Updating bb80833..889a02c
+Fast-forward
+ work/lab8/hello   | Bin 19136 -> 19216 bytes
+ work/lab8/hello.c |   9 +++++----
+ 2 files changed, 5 insertions(+), 4 deletions(-)
+
+in: ./hello john sue
+-> hello john
+hello sue
+
+in: git shortlog hello.c
+-> Cat Tran (6):
+      working with warnings
+      working clean compile
+      send usage message to stderr
+      allow greeting multiple names
+      added return at the end of main()
+      merged master
+
+in: git commit -a -m 'merged hello-multi'
+-> On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+--------Getting Your Lab8 Repository into Your i220X Repository--------
+
+in: git log hello.c
+-> commit 889a02c12f2aa17f257300a782779d0399cb2856 (lab8/master)
+Author: Cat Tran <ctran20@binghamton.edu>
+Date:   Sun Oct 13 11:05:35 2019 -0400
+
+    merged master
+
+commit 578f69c21f75d2685867d707ef4f90ba9b5c4263
+Author: Cat Tran <ctran20@binghamton.edu>
+Date:   Sun Oct 13 10:55:54 2019 -0400
+
+    allow greeting multiple names
+
+commit bb80833ab89f49a61b38f66a5ffe5e4c53a9241c
+Author: Cat Tran <ctran20@binghamton.edu>
+Date:   Sun Oct 13 10:23:01 2019 -0400
+
+    added return at the end of main()
+
+commit 7171bd17475a32229a504850168b4d0a9aeb994e
+Author: Cat Tran <ctran20@binghamton.edu>
+Date:   Sun Oct 13 10:15:32 2019 -0400
+
+    send usage message to stderr
+
+commit e344e9c7cf4383dc88f91949bc2ee65c72334940
+Author: Cat Tran <ctran20@binghamton.edu>
+Date:   Sun Oct 13 10:07:31 2019 -0400
+
+    working clean compile
+
+commit 3f0cbd3fe0fa2efb3560716003c3257c183d69d0
+Author: Cat Tran <ctran20@binghamton.edu>
+Date:   Sun Oct 13 09:58:38 2019 -0400

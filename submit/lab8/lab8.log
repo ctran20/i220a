@@ -1,0 +1,647 @@
+Script started on 2019-10-13 09:24:53-04:00 [TERM="xterm" TTY="/dev/pts/14" COLUMNS="100" LINES="35"]
+ctran20@remote05:~/i220a/work/lab8$ cd ~/git-repos/
+ctran20@remote05:~/git-repos$ mkdir lab8.git
+ctran20@remote05:~/git-repos$ cd lab8.git/
+ctran20@remote05:~/git-repos/lab8.git$ git init --bare
+Initialized empty Git repository in /import/linux/home1/ctran20/git-repos/lab8.git/
+ctran20@remote05:~/git-repos/lab8.git$ mkdir -p ~/tmp #create temp dir
+ctran20@remote05:~/git-repos/lab8.git$ cd ~tma[K[K[K/tmp
+ctran20@remote05:~/tmp$ git clone\[K \\[Kssh://ctran20@remote.cs.binghamton.edu/home/L[Kctran20/git-repos/lab 8.git
+Cloning into 'lab8'...
+ctran20@remote.cs.binghamton.edu's password: 
+warning: You appear to have cloned an empty repository.
+ctran20@remote05:~/tmp$ cd lab8/
+ctran20@remote05:~/tmp/lab8$ git remote -v #[K[K[Kv
+origin	ssh://ctran20@remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git (fetch)
+origin	ssh://ctran20@remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git (push)
+ctran20@remote05:~/tmp/lab8$ ls -a
+.  ..  .git
+ctran20@remote05:~/tmp/lab8$ mkdir -p work/lab8
+ctran20@remote05:~/tmp/lab8$ cd l[Kwork/lab8/
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+ctran20@remote05:~/tmp/lab8/work/lab8$ cp ![K~/cs220/labs/lab8/files/README.md .
+ctran20@remote05:~/tmp/lab8/work/lab8$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	[31m../[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ git add README.md 
+ctran20@remote05:~/tmp/lab8/work/lab8$ git status --short
+[32mA[m  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ git commit -m 'added README'
+[master (root-commit) d56e0dd] added README
+ 1 file changed, 4 insertions(+)
+ create mode 100644 work/lab8/README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ git branch -l
+[?1h=* [32mmaster[m[m
+[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ git push --set-upstream origin master
+ctran20@remote.cs.binghamton.edu's password: 
+Permission denied, please try again.
+ctran20@remote.cs.binghamton.edu's password: 
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)   Counting objects:  40% (2/5)   Counting objects:  60% (3/5)   Counting objects:  80% (4/5)   Counting objects: 100% (5/5)   Counting objects: 100% (5/5), done.
+Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects:  80% (4/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 333 bytes | 166.00 KiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ git status -s
+ctran20@remote05:~/tmp/lab8/work/lab8$ cp ~/cs220/labs [K/lab8/files/Makefile .
+ctran20@remote05:~/tmp/lab8/work/lab8$ cp ~/cs220/labs/lab8/files/Makefile .[K[K[K[K[K[K[K[K[K[Khello-one.c hello.c
+ctran20@remote05:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+[01m[Khello.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Khello.c:5:5:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kprintf[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+     [01;35m[Kprintf[m[K("usage: %s NAME\n", argv[0]);
+     [01;35m[K^~~~~~[m[K
+[01m[Khello.c:5:5:[m[K [01;35m[Kwarning: [m[Kincompatible implicit declaration of built-in function ‘[01m[Kprintf[m[K’
+[01m[Khello.c:5:5:[m[K [01;36m[Knote: [m[Kinclude ‘[01m[K<stdio.h>[m[K’ or provide a declaration of ‘[01m[Kprintf[m[K’
+[01m[Khello.c:1:1:[m[K
++[32m[K#include <stdio.h>[m[K
+ int
+[01m[Khello.c:5:5:[m[K
+     [01;36m[Kprintf[m[K("usage: %s NAME\n", argv[0]);
+     [01;36m[K^~~~~~[m[K
+[01m[Khello.c:6:5:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kexit[m[K’ [[01;35m[K-Wimplicit-function-declaration[m[K]
+     [01;35m[Kexit[m[K(1);
+     [01;35m[K^~~~[m[K
+[01m[Khello.c:6:5:[m[K [01;35m[Kwarning: [m[Kincompatible implicit declaration of built-in function ‘[01m[Kexit[m[K’
+[01m[Khello.c:6:5:[m[K [01;36m[Knote: [m[Kinclude ‘[01m[K<stdlib.h>[m[K’ or provide a declaration of ‘[01m[Kexit[m[K’
+[01m[Khello.c:1:1:[m[K
++[32m[K#include <stdlib.h>[m[K
+ int
+[01m[Khello.c:6:5:[m[K
+     [01;36m[Kexit[m[K(1);
+     [01;36m[K^~~~[m[K
+[01m[Khello.c:8:3:[m[K [01;35m[Kwarning: [m[Kincompatible implicit declaration of built-in function ‘[01m[Kprintf[m[K’
+   [01;35m[Kprintf[m[K("hello %s\n", argv[1]);
+   [01;35m[K^~~~~~[m[K
+[01m[Khello.c:8:3:[m[K [01;36m[Knote: [m[Kinclude ‘[01m[K<stdio.h>[m[K’ or provide a declaration of ‘[01m[Kprintf[m[K’
+ctran20@remote05:~/tmp/lab8/work/lab8$ On branch master
+bash: On: command not found
+ctran20@remote05:~/tmp/lab8/work/lab8$ 
+ctran20@remote05:~/tmp/lab8/work/lab8$ No commits yet
+bash: No: command not found
+ctran20@remote05:~/tmp/lab8/work/lab8$ 
+ctran20@remote05:~/tmp/lab8/work/lab8$ Untracked files:
+bash: Untracked: command not found
+ctran20@remote05:~/tmp/lab8/work/lab8$   (use "git add <file>..." to include in what will be committed)
+bash: use: command not found
+ctran20@remote05:~/tmp/lab8/work/lab8$ 
+ctran20@remote05:~/tmp/lab8/work/lab8$         ../
+bash: ../: Is a directory
+ctran20@remote05:~/tmp/lab8/work/lab8$ 
+ctran20@remote05:~/tmp/lab8/work/lab8$ nothing added to commit but untracked files present (use "git add" to track)[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KTo ssh://remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git
+bash: To: command not found
+ctran20@remote05:~/tmp/lab8/work/lab8$  * [new branch]      master -> master
+bash: hello: command not found
+ctran20@remote05:~/tmp/lab8/work/lab8$ Branch 'master' set up to track remote branch 'master' from 'origin'.[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K./hello H[KJa[K[Kjohn[K[K[K[K[K
+usage: ./hello NAME
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello john
+hello john
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello john[1PohnJohn
+hello John
+ctran20@remote05:~/tmp/lab8/work/lab8$ git status -ws[K[Ks
+[31m??[m Makefile
+[31m??[m hello
+[31m??[m hello.c
+[31m??[m master
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+hello  hello.c	Makefile  master  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ m[Kstatus [K[K[K[K[K[K[Kgit status -s
+[31m??[m Makefile
+[31m??[m hello
+[31m??[m hello.c
+[31m??[m master
+ctran20@remote05:~/tmp/lab8/work/lab8$ git push --set-upstream origin master
+ctran20@remote.cs.binghamton.edu's password: 
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Everything up-to-date
+ctran20@remote05:~/tmp/lab8/work/lab8$ git push --set-upstream origin masterstatus -s[K
+[31m??[m Makefile
+[31m??[m hello
+[31m??[m hello.c
+[31m??[m master
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+hello  hello.c	Makefile  master  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ git add .
+ctran20@remote05:~/tmp/lab8/work/lab8$ git status -s
+[32mA[m  Makefile
+[32mA[m  hello
+[32mA[m  hello.c
+[32mA[m  master
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls -l
+total 32
+-rwxr-x--- 1 ctran20 ctran20 17808 Oct 13 09:37 hello
+-rw-r----- 1 ctran20 ctran20   153 Oct 13 09:37 hello.c
+-rw-r----- 1 ctran20 ctran20    97 Oct 13 09:37 Makefile
+-rw-r----- 1 ctran20 ctran20     0 Oct 13 09:49 master
+-rw-r----- 1 ctran20 ctran20    36 Oct 13 09:33 README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ mk[K[Krm master
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+hello  hello.c	Makefile  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ lsrm master[4Pls -l
+total 32
+-rwxr-x--- 1 ctran20 ctran20 17808 Oct 13 09:37 hello
+-rw-r----- 1 ctran20 ctran20   153 Oct 13 09:37 hello.c
+-rw-r----- 1 ctran20 ctran20    97 Oct 13 09:37 Makefile
+-rw-r----- 1 ctran20 ctran20    36 Oct 13 09:33 README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls -l[Krm master[4Pls -lgit status -s
+[32mA[m  Makefile
+[32mA[m  hello
+[32mA[m  hello.c
+[32mA[m[31mD[m master
+ctran20@remote05:~/tmp/lab8/work/lab8$ git status -s[8Pls -l[Krm master[4Pls -lgit status -s[4Padd .ls[Kgit add .
+ctran20@remote05:~/tmp/lab8/work/lab8$ git add .status -s
+[32mA[m  Makefile
+[32mA[m  hello
+[32mA[m  hello.c
+ctran20@remote05:~/tmp/lab8/work/lab8$ git commit -m 'working with wrni[K[K[Karnings'
+[master 3f0cbd3] working with warnings
+ 3 files changed, 19 insertions(+)
+ create mode 100644 work/lab8/Makefile
+ create mode 100755 work/lab8/hello
+ create mode 100644 work/lab8/hello.c
+ctran20@remote05:~/tmp/lab8/work/lab8$ git commit -m 'working with warnings'status -s[K
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+hello  hello.c	Makefile  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ git push #[K[K[K[K[K[K[K[K[K[Kgit branch -l
+[?1h=* [32mmaster[m[m
+[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+hello  hello.c	Makefile  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ git push --set-upstream origin master
+ctran20@remote.cs.binghamton.edu's password: 
+Enumerating objects: 10, done.
+Counting objects:  10% (1/10)   Counting objects:  20% (2/10)   Counting objects:  30% (3/10)   Counting objects:  40% (4/10)   Counting objects:  50% (5/10)   Counting objects:  60% (6/10)   Counting objects:  70% (7/10)   Counting objects:  80% (8/10)   Counting objects:  90% (9/10)   Counting objects: 100% (10/10)   Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects:  20% (1/5)   Compressing objects:  40% (2/5)   Compressing objects:  60% (3/5)   Compressing objects:  80% (4/5)   Compressing objects: 100% (5/5)   Compressing objects: 100% (5/5), done.
+Writing objects:  14% (1/7)   Writing objects:  28% (2/7)   Writing objects:  42% (3/7)   Writing objects:  57% (4/7)   Writing objects:  71% (5/7)   Writing objects:  85% (6/7)   Writing objects: 100% (7/7)   Writing objects: 100% (7/7), 3.53 KiB | 1.18 MiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git
+   d56e0dd..3f0cbd3  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+hello  hello.c	Makefile  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ mas[K[K[Kls
+hello  hello.c	Makefile  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ git push
+ctran20@remote.cs.binghamton.edu's password: 
+Everything up-to-date
+ctran20@remote05:~/tmp/lab8/work/lab8$ git log
+[?1h=[33mcommit 3f0cbd3fe0fa2efb3560716003c3257c183d69d0[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m[m
+Author: Cat Tran <ctran20@binghamton.edu>[m
+Date:   Sun Oct 13 09:58:38 2019 -0400[m
+[m
+    working with warnings[m
+[m
+[33mcommit d56e0dd7dd3a0eb75f2107551ad44978a068a5ed[m[m
+Author: Cat Tran <ctran20@binghamton.edu>[m
+Date:   Sun Oct 13 09:34:17 2019 -0400[m
+[m
+    added README[m
+[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+hello  hello.c	Makefile  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ vim hee[Kllo.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"hello.c" 9L, 153C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[32mint[m
+main([32mint[m argc, [32mconst[m [32mchar[m *argv[])
+{
+  [33mif[m (argc != [31m2[m) {
+    printf([31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);
+    exit([31m1[m);
+  }
+  printf([31m"hello [m[35m%s\n[m[31m"[m, argv[[31m1[m]);
+}
+[1m[34m~                                                                                                   [11;1H~                                                                                                   [12;1H~                                                                                                   [13;1H~                                                                                                   [14;1H~                                                                                                   [15;1H~                                                                                                   [16;1H~                                                                                                   [17;1H~                                                                                                   [18;1H~                                                                                                   [19;1H~                                                                                                   [20;1H~                                                                                                   [21;1H~                                                                                                   [22;1H~                                                                                                   [23;1H~                                                                                                   [24;1H~                                                                                                   [25;1H~                                                                                                   [26;1H~                                                                                                   [27;1H~                                                                                                   [28;1H~                                                                                                   [29;1H~                                                                                                   [30;1H~                                                                                                   [31;1H~                                                                                                   [32;1H~                                                                                                   [33;1H~                                                                                                   [34;1H~                                                                                                   [m[35;83H1,1[11CAll[1;1H[?25h[?25l[35;73H~@k[1;1H[35;73H   [1;1H[35;1H[1m-- INSERT --[m[35;13H[K[35;83H1,1[11CAll[1;1H[?25h[?25l[2;34r[2;1H[L[1;35r[1;1H[K[2;9H[32mint[m[35;83H[K[35;83H2,2-9[9CAll[2;9H[?25h[?25l[32mint[m[2;9H[K[35;85H1  [2;1H[?25h[?25l[35;83H1[1;1H[?25h[?25l#[35;85H2[1;2H[?25h[?25li[35;85H3[1;3H[?25h[?25ln[35;85H4[1;4H[?25h[?25lc[35;85H5[1;5H[?25h[?25ll[35;85H6[1;6H[?25h[?25lu[35;85H7[1;7H[?25h[?25ld[35;85H8[1;8H[?25h[?25le[35;85H9[1;9H[?25h[?25l[35;85H10[1;10H[?25h[?25l[35;86H1[1;11H[?25h[?25l[35;86H0[1;10H[?25h[?25l[35m#include <[m[35;86H1[1;11H[?25h[?25ls[35;86H2[1;12H[?25h[?25lt[35;86H3[1;13H[?25h[?25ld[35;86H4[1;14H[?25h[?25li[35;86H5[1;15H[?25h[?25lo[35;86H6[1;16H[?25h[?25l.[35;86H7[1;17H[?25h[?25lh[35;86H8[1;18H[?25h[?25l[1;10H[31m<stdio.h>[m[35;86H9[1;19H[?25h[?25l[2;34r[2;1H[L[1;35r[35;83H[K[35;83H2,1[11CAll[2;1H[?25h[?25l#[35;85H2[2;2H[?25h[?25li[35;85H3[2;3H[?25h[?25ln[35;85H4[2;4H[?25h[?25lc[35;85H5[2;5H[?25h[?25ll[35;85H6[2;6H[?25h[?25lu[35;85H7[2;7H[?25h[?25ld[35;85H8[2;8H[?25h[?25le[35;85H9[2;9H[?25h[?25l[35;85H10[2;10H[?25h[?25l[35m#include <[m[35;86H1[2;11H[?25h[?25ls[35;86H2[2;12H[?25h[?25lt[35;86H3[2;13H[?25h[?25ld[35;86H4[2;14H[?25h[?25ll[35;86H5[2;15H[?25h[?25li[35;86H6[2;16H[?25h[?25lb[35;86H7[2;17H[?25h[?25l.[35;86H8[2;18H[?25h[?25lh[35;86H9[2;19H[?25h[?25l[2;10H[31m<stdlib.h>[m[35;85H20[2;20H[?25h[?25l[3;34r[3;1H[L[1;35r[35;83H[K[35;83H3,1[11CAll[3;1H[?25h[35;1H[K[3;1H[?25l[35;73H^[[3;1H[35;73H  [3;1H[35;83H3,0-1[9CAll[3;1H[?25h[?25l[35;73H:[3;1H[35;73H[K[35;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1000l[?2004l"hello.c" 12L, 193C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@remote05:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello sue
+hello sue
+ctran20@remote05:~/tmp/lab8/work/lab8$ git status -s
+ [31mM[m hello
+ [31mM[m hello.c
+ctran20@remote05:~/tmp/lab8/work/lab8$ git commit -a -m'[K 'working clean compilk[Ke'
+[master e344e9c] working clean compile
+ 2 files changed, 3 insertions(+)
+ctran20@remote05:~/tmp/lab8/work/lab8$ git push
+ctran20@remote.cs.binghamton.edu's password: 
+Enumerating objects: 11, done.
+Counting objects:   9% (1/11)   Counting objects:  18% (2/11)   Counting objects:  27% (3/11)   Counting objects:  36% (4/11)   Counting objects:  45% (5/11)   Counting objects:  54% (6/11)   Counting objects:  63% (7/11)   Counting objects:  72% (8/11)   Counting objects:  81% (9/11)   Counting objects:  90% (10/11)   Counting objects: 100% (11/11)   Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 1.63 KiB | 836.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git
+   3f0cbd3..e344e9c  master -> master
+ctran20@remote05:~/tmp/lab8/work/lab8$ git log hello.c
+[?1h=[33mcommit e344e9c7cf4383dc88f91949bc2ee65c72334940[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m[m
+Author: Cat Tran <ctran20@binghamton.edu>[m
+Date:   Sun Oct 13 10:07:31 2019 -0400[m
+[m
+    working clean compile[m
+[m
+[33mcommit 3f0cbd3fe0fa2efb3560716003c3257c183d69d0[m[m
+Author: Cat Tran <ctran20@binghamton.edu>[m
+Date:   Sun Oct 13 09:58:38 2019 -0400[m
+[m
+    working with warnings[m
+[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ git log -1 hello.c
+[?1h=[33mcommit e344e9c7cf4383dc88f91949bc2ee65c72334940[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m[m
+Author: Cat Tran <ctran20@binghamton.edu>[m
+Date:   Sun Oct 13 10:07:31 2019 -0400[m
+[m
+    working clean compile[m
+[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ make clean
+rm -f *.o 
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./ h[K[Khello
+usage: ./hello NAME
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello >dev[K[K[K/dev/null
+ctran20@remote05:~/tmp/lab8/work/lab8$ git diff
+[?1h=[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ vim hello.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"hello.c" 12L, 193C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<stdlib.h>[m
+
+[32mint[m
+main([32mint[m argc, [32mconst[m [32mchar[m *argv[])
+{
+  [33mif[m (argc != [31m2[m) {
+    printf([31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);
+    exit([31m1[m);
+  }
+  printf([31m"hello [m[35m%s\n[m[31m"[m, argv[[31m1[m]);
+}
+[1m[34m~                                                                                                   [14;1H~                                                                                                   [15;1H~                                                                                                   [16;1H~                                                                                                   [17;1H~                                                                                                   [18;1H~                                                                                                   [19;1H~                                                                                                   [20;1H~                                                                                                   [21;1H~                                                                                                   [22;1H~                                                                                                   [23;1H~                                                                                                   [24;1H~                                                                                                   [25;1H~                                                                                                   [26;1H~                                                                                                   [27;1H~                                                                                                   [28;1H~                                                                                                   [29;1H~                                                                                                   [30;1H~                                                                                                   [31;1H~                                                                                                   [32;1H~                                                                                                   [33;1H~                                                                                                   [34;1H~                                                                                                   [m[35;83H3,0-1[9CAll[3;1H[?25h[?25l[35;73H~@k[3;1H[35;73H   [4;1H[35;83H4,1  [4;1H[?25h[?25l[35;73H~@k[4;1H[35;73H   [5;1H[35;83H5[5;1H[?25h[?25l[35;73H~@k[5;1H[35;73H   [6;1H[46m{[12;1H}[m[35;83H6[6;1H[?25h[?25l[35;73H~@k[6;1H[35;73H   [7;1H[6;1H{[12;1H}[35;83H7[7;1H[?25h[?25l[35;73H~@k[7;1H[35;73H   [8;1H[35;83H8[8;1H[?25h[?25l[35;73H~@k[8;1H[35;73H   [8;2H[35;85H2[8;2H[?25h[?25l[35;73H~@k[8;2H[35;73H   [8;3H[35;85H3[8;3H[?25h[?25l[35;73H~@k[8;3H[35;73H   [8;4H[35;85H4[8;4H[?25h[?25l[35;73H~@k[8;4H[35;73H   [8;4H[35;1H[1m-- INSERT --[m[35;13H[K[35;83H8,4[11CAll[8;4H[?25h[?25l[35;85H5[8;5H[?25h[?25l[35;85H6[8;6H[?25h[?25l[35;85H7[8;7H[?25h[?25l[35;85H6[8;6H[?25h[?25l[35;85H5[8;5H[?25h[?25lfprintf([31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);[35;85H6[8;6H[?25h[?25l[35;85H7[8;7H[?25h[?25l[35;85H8[8;8H[?25h[?25l[35;85H9[8;9H[?25h[?25l[35;85H10[8;10H[?25h[?25l[35;86H1[8;11H[?25h[?25lf[46m([27C)[m[35;86H2[8;12H[?25h[?25l[35;86H3[8;13H[?25h[?25l([27C)[35;86H4[8;14H[?25h[?25l[35;86H5[8;15H[?25h[?25l[35;86H6[8;16H[?25h[?25l[35;86H5[8;15H[?25h[?25l[35;86H4[8;14H[?25h[?25l[35;86H5[8;15H[?25h[?25l[35;86H4[8;14H[?25h[?25l[46m([27C)[m[35;86H3[8;13H[?25h[?25l([27C)[35;86H4[8;14H[?25h[?25l[46m([27C)[m[35;86H3[8;13H[?25h[?25l[35;86H2[8;12H[?25h[?25l[35;86H3[8;13H[?25h[?25ls[31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m[46m][m);[8;12H([27C][35;86H4[8;14H[?25h[?25lt[31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);[35;86H5[8;15H[?25h[?25ld[31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);[35;86H6[8;16H[?25h[?25le[31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);[35;86H7[8;17H[?25h[?25lr[31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);[35;86H8[8;18H[?25h[?25l[31mstderr"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);[35;86H9[8;19H[?25h[?25l,[31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);[35;85H20[8;20H[?25h[?25l [31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);[35;86H1[8;21H[?25h[35;1H[K[8;20H[?25l[35;73H^[[8;20H[35;73H  [8;21H[35;83H8,20[10CAll[8;20H[?25h[?25l[35;73H:[8;20H[35;73H[K[35;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1000l[?2004l"hello.c" 12L, 202C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@remote05:~/tmp/lab8/work/lab8$ vim hello.c[3Pgit diffvim hello.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"hello.c" 12L, 202C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<stdlib.h>[m
+
+[32mint[m
+main([32mint[m argc, [32mconst[m [32mchar[m *argv[])
+{
+  [33mif[m (argc != [31m2[m) {
+    fprintf([31mstderr[m, [31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);
+    exit([31m1[m);
+  }
+  printf([31m"hello [m[35m%s\n[m[31m"[m, argv[[31m1[m]);
+}
+[1m[34m~                                                                                                   [14;1H~                                                                                                   [15;1H~                                                                                                   [16;1H~                                                                                                   [17;1H~                                                                                                   [18;1H~                                                                                                   [19;1H~                                                                                                   [20;1H~                                                                                                   [21;1H~                                                                                                   [22;1H~                                                                                                   [23;1H~                                                                                                   [24;1H~                                                                                                   [25;1H~                                                                                                   [26;1H~                                                                                                   [27;1H~                                                                                                   [28;1H~                                                                                                   [29;1H~                                                                                                   [30;1H~                                                                                                   [31;1H~                                                                                                   [32;1H~                                                                                                   [33;1H~                                                                                                   [34;1H~                                                                                                   [m[35;83H8,20[10CAll[8;20H[?25h[?25l[35;73H^[[8;20H[35;73H  [8;20H[35;73H^[[8;20H[35;73H  [8;20H[?25h[?25l[35;73H:[8;20H[35;1H[K[35;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1000l[?2004l"hello.c" 12L, 202C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@remote05:~/tmp/lab8/work/lab8$ vim hello.c[3Pgit diff./hello >/dev/null[K
+usage: ./hello NAME
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hellovim hello.c[3Pgit diff./hello >/dev/null
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello >/dev/null[Kvim hello.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"hello.c" 12L, 202C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<stdlib.h>[m
+
+[32mint[m
+main([32mint[m argc, [32mconst[m [32mchar[m *argv[])
+{
+  [33mif[m (argc != [31m2[m) {
+    fprintf([31mstderr[m, [31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);
+    exit([31m1[m);
+  }
+  printf([31m"hello [m[35m%s\n[m[31m"[m, argv[[31m1[m]);
+}
+[1m[34m~                                                                                                   [14;1H~                                                                                                   [15;1H~                                                                                                   [16;1H~                                                                                                   [17;1H~                                                                                                   [18;1H~                                                                                                   [19;1H~                                                                                                   [20;1H~                                                                                                   [21;1H~                                                                                                   [22;1H~                                                                                                   [23;1H~                                                                                                   [24;1H~                                                                                                   [25;1H~                                                                                                   [26;1H~                                                                                                   [27;1H~                                                                                                   [28;1H~                                                                                                   [29;1H~                                                                                                   [30;1H~                                                                                                   [31;1H~                                                                                                   [32;1H~                                                                                                   [33;1H~                                                                                                   [34;1H~                                                                                                   [m[35;83H8,20[10CAll[8;20H[?25h[?25l[35;73H^[[8;20H[35;73H  [8;20H[35;73H^[[8;20H[35;73H  [8;20H[?25h[?25l[35;73H:[8;20H[35;1H[K[35;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1000l[?2004l"hello.c" 12L, 202C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@remote05:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+ctran20@remote05:~/tmp/lab8/work/lab8$ make clean
+rm -f *.o 
+ctran20@remote05:~/tmp/lab8/work/lab8$ make clean[K[K[K[K[K./hello
+usage: ./hello NAME
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello >/dev/null
+usage: ./hello NAME
+ctran20@remote05:~/tmp/lab8/work/lab8$ git diff
+[?1h=[1mdiff --git a/work/lab8/hello b/work/lab8/hello[m[m
+[1mindex 24b3859..7da36d5 100755[m[m
+Binary files a/work/lab8/hello and b/work/lab8/hello differ[m
+[1mdiff --git a/work/lab8/hello.c b/work/lab8/hello.c[m[m
+[1mindex 14e4e73..707ef29 100644[m[m
+[1m--- a/work/lab8/hello.c[m[m
+[1m+++ b/work/lab8/hello.c[m[m
+[36m@@ -5,7 +5,7 @@[m [mint[m[m
+ main(int argc, const char *argv[])[m[m
+ {[m[m
+   if (argc != 2) {[m[m
+[31m-    printf("usage: %s NAME\n", argv[0]);[m[m
+[32m+[m[32m    fprintf(stderr, "usage: %s NAME\n", argv[0]);[m[m
+     exit(1);[m[m
+   }[m[m
+   printf("hello %s\n", argv[1]);[m[m
+[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ [Kctran20@remote05:~/tmp/lab8/work/lab8$ git commit -a -m 'send usage message to stderr'
+[master 7171bd1] send usage message to stderr
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ctran20@remote05:~/tmp/lab8/work/lab8$ push
+bash: push: command not found
+ctran20@remote05:~/tmp/lab8/work/lab8$ git push
+ctran20@remote.cs.binghamton.edu's password: 
+Permission denied, please try again.
+ctran20@remote.cs.binghamton.edu's password: 
+Enumerating objects: 11, done.
+Counting objects:   9% (1/11)   Counting objects:  18% (2/11)   Counting objects:  27% (3/11)   Counting objects:  36% (4/11)   Counting objects:  45% (5/11)   Counting objects:  54% (6/11)   Counting objects:  63% (7/11)   Counting objects:  72% (8/11)   Counting objects:  81% (9/11)   Counting objects:  90% (10/11)   Counting objects: 100% (11/11)   Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 1.58 KiB | 540.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git
+   e344e9c..7171bd1  master -> master
+ctran20@remote05:~/tmp/lab8/work/lab8$ git push[4Ppush[K[K[K[Kgit shortlog
+[?1h=Cat Tran (4):[m
+      added README[m
+      working with warnings[m
+      working clean compile[m
+      send usage message to stderr[m
+[m
+[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ git checkout master
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ make
+make: Nothing to be done for 'all'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./ hello john sue
+bash: ./: Is a directory
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./ hello john sue[1P
+usage: ./hello NAME
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+hello  hello.c	Makefile  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ vim hello.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"hello.c" 12L, 202C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<stdlib.h>[m
+
+[32mint[m
+main([32mint[m argc, [32mconst[m [32mchar[m *argv[])
+{
+  [33mif[m (argc != [31m2[m) {
+    fprintf([31mstderr[m, [31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);
+    exit([31m1[m);
+  }
+  printf([31m"hello [m[35m%s\n[m[31m"[m, argv[[31m1[m]);
+}
+[1m[34m~                                                                                                      [14;1H~                                                                                                      [15;1H~                                                                                                      [16;1H~                                                                                                      [17;1H~                                                                                                      [18;1H~                                                                                                      [19;1H~                                                                                                      [20;1H~                                                                                                      [21;1H~                                                                                                      [22;1H~                                                                                                      [23;1H~                                                                                                      [24;1H~                                                                                                      [25;1H~                                                                                                      [26;1H~                                                                                                      [27;1H~                                                                                                      [28;1H~                                                                                                      [29;1H~                                                                                                      [30;1H~                                                                                                      [31;1H~                                                                                                      [32;1H~                                                                                                      [33;1H~                                                                                                      [34;1H~                                                                                                      [m[35;86H8,20[10CAll[8;20H[?25h[?25l[35;76H~@k[8;20H[35;76H   [8;21H[35;89H1[8;21H[?25h[?25l[35;76H~@k[8;21H[35;76H   [8;22H[35;89H2[8;22H[?25h[?25l[35;76H~@k[8;22H[35;76H   [8;23H[35;89H3[8;23H[?25h[?25l[35;76H~@k[8;23H[35;76H   [8;24H[35;89H4[8;24H[?25h[?25l[35;76H~@k[8;24H[35;76H   [8;25H[35;89H5[8;25H[?25h[?25l[35;76H~@k[8;25H[35;76H   [8;26H[35;89H6[8;26H[?25h[?25l[35;76H~@k[8;26H[35;76H   [8;27H[35;89H7[8;27H[?25h[?25l[35;76H~@k[8;27H[35;76H   [8;28H[35;89H8[8;28H[?25h[?25l[35;76H~@k[8;28H[35;76H   [8;29H[35;89H9[8;29H[?25h[?25l[35;76H~@k[8;29H[35;76H   [8;30H[35;88H30[8;30H[?25h[?25l[35;76H~@k[8;30H[35;76H   [9;12H[35;86H9,12[9;12H[?25h[?25l[35;76H~@k[9;12H[35;76H   [10;3H[7;18H[46m{[10;3H}[m[35;86H10,3[10;3H[?25h[?25l[35;76H~@k[10;3H[35;76H   [11;30H[7;18H{[10;3H}[11;28H[46m[[1C][m[35;87H1,30[11;30H[?25h[?25l[35;76H~@k[11;30H[35;76H   [12;1H[6;1H[46m{[m[11;28H[[1C]
+[46m}[m[35;87H2,1 [12;1H[?25h[?25l[35;76H~@k[12;1H[35;76H   [11;30H[6;1H{[11;28H[46m[[1C][m
+}[35;87H1,30[11;30H[?25h[?25l[35;76H~@k[11;30H[35;76H   [11;30H[35;1H[1m-- INSERT --[m[35;13H[K[35;86H11,30[9CAll[11;30H[?25h[?25l[11;9H[46m([m[18C[[1C][46m)[m[35;90H1[11;31H[?25h[?25l[35;90H2[11;32H[?25h[?25l[11;9H([21C)[35;90H3[11;33H[?25h[?25l[12;34r[12;1H[L[1;35r[35;86H[K[35;86H12,3[10CAll[12;3H[?25h[?25l[13;34r[13;1H[L[1;35r[35;86H[K[35;86H13,3[10CAll[13;3H[?25h[?25lr[35;89H4[13;4H[?25h[?25le[35;89H5[13;5H[?25h[?25lt[35;89H6[13;6H[?25h[?25lu[35;89H7[13;7H[?25h[?25lr[35;89H8[13;8H[?25h[?25l  [33mreturn[m[35;89H9[13;9H[?25h[?25l[35;89H10[13;10H[?25h[?25l[31m0[m[35;90H1[13;11H[?25h[?25l;[35;90H2[13;12H[?25h[35;1H[K[13;11H[?25l[35;76H^[[13;11H[35;76H  [13;12H[35;86H13,11[9CAll[13;11H[?25h[?25l[35;76H:[13;11H[35;76H[K[35;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1000l[?2004l"hello.c" 14L, 215C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@remote05:~/tmp/lab8/work/lab8$ tail -3 hello.c
+
+  return 0;
+}
+ctran20@remote05:~/tmp/lab8/work/lab8$ tail -3 hello.c[4Pvim[C[C[C[C[C[C[C[C
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"hello.c" 14L, 215C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<stdlib.h>[m
+
+[32mint[m
+main([32mint[m argc, [32mconst[m [32mchar[m *argv[])
+{
+  [33mif[m (argc != [31m2[m) {
+    fprintf([31mstderr[m, [31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);
+    exit([31m1[m);
+  }
+  printf([31m"hello [m[35m%s\n[m[31m"[m, argv[[31m1[m]);
+
+  [33mreturn[m [31m0[m;
+}
+[1m[34m~                                                                                                      [16;1H~                                                                                                      [17;1H~                                                                                                      [18;1H~                                                                                                      [19;1H~                                                                                                      [20;1H~                                                                                                      [21;1H~                                                                                                      [22;1H~                                                                                                      [23;1H~                                                                                                      [24;1H~                                                                                                      [25;1H~                                                                                                      [26;1H~                                                                                                      [27;1H~                                                                                                      [28;1H~                                                                                                      [29;1H~                                                                                                      [30;1H~                                                                                                      [31;1H~                                                                                                      [32;1H~                                                                                                      [33;1H~                                                                                                      [34;1H~                                                                                                      [m[35;86H13,11[9CAll[13;11H[?25h[?25l[35;76H^[[13;11H[35;76H  [13;11H[35;76H^[[13;11H[35;76H  [13;11H[?25h[?25l[35;76H:[13;11H[35;1H[K[35;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1000l[?2004l"hello.c" 14L, 215C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@remote05:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello
+usage: ./hello NAME
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./helo [Ko[K[K[Klo[Klo due
+hello due
+ctran20@remote05:~/tmp/lab8/work/lab8$ git commit -a 0m[K[K-m \'added return ay[Kt the end of main()'
+bash: syntax error near unexpected token `('
+ctran20@remote05:~/tmp/lab8/work/lab8$ git commit -a -m \'added return at the end of main()'[1P
+[master bb80833] added return at the end of main()
+ 2 files changed, 2 insertions(+)
+ctran20@remote05:~/tmp/lab8/work/lab8$ git push
+ctran20@remote.cs.binghamton.edu's password: 
+Enumerating objects: 11, done.
+Counting objects:   9% (1/11)   Counting objects:  18% (2/11)   Counting objects:  27% (3/11)   Counting objects:  36% (4/11)   Counting objects:  45% (5/11)   Counting objects:  54% (6/11)   Counting objects:  63% (7/11)   Counting objects:  72% (8/11)   Counting objects:  81% (9/11)   Counting objects:  90% (10/11)   Counting objects: 100% (11/11)   Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 608 bytes | 304.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git
+   7171bd1..bb80833  master -> master
+ctran20@remote05:~/tmp/lab8/work/lab8$ [Kctran20@remote05:~/tmp/lab8/work/lab8$ [Kctran20@remote05:~/tmp/lab8/work/lab8$ [Kctran20@remote05:~/tmp/lab8/work/lab8$ git checkout hello-multi
+error: pathspec 'hello-multi' did not match any file(s) known to git
+ctran20@remote05:~/tmp/lab8/work/lab8$ git checkout -b hello-multi
+Switched to a new branch 'hello-multi'
+ctran20@remote05:~/tmp/lab8/work/lab8$ git brancx[Kh -l
+[?1h=* [32mhello-multi[m[m
+  master[m[m
+[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ cp ~/cs220/labs/lab8/files/hello-multi.c hello.c
+ctran20@remote05:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello
+usage: ./hello NAME...
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello john sue
+hello john
+hello sue
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello john sue[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kgit commit -a -m 'allow fr[K[Kgreeting multiple names'
+[hello-multi 578f69c] allow greeting multiple names
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+ctran20@remote05:~/tmp/lab8/work/lab8$ push[K[K[K[Kgit push -u origin hello-multi
+ctran20@remote.cs.binghamton.edu's password: 
+Enumerating objects: 11, done.
+Counting objects:   9% (1/11)   Counting objects:  18% (2/11)   Counting objects:  27% (3/11)   Counting objects:  36% (4/11)   Counting objects:  45% (5/11)   Counting objects:  54% (6/11)   Counting objects:  63% (7/11)   Counting objects:  72% (8/11)   Counting objects:  81% (9/11)   Counting objects:  90% (10/11)   Counting objects: 100% (11/11)   Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 1.14 KiB | 584.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git
+ * [new branch]      hello-multi -> hello-multi
+Branch 'hello-multi' set up to track remote branch 'hello-multi' from 'origin'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ git checkout hello-multi
+Switched to branch 'hello-multi'
+Your branch is up to date with 'origin/hello-multi'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ ^C
+ctran20@remote05:~/tmp/lab8/work/lab8$ git merge master
+Already up to date.
+ctran20@remote05:~/tmp/lab8/work/lab8$ git merge mastercheckout hello-multi[5Pmasterpush -u origin hello-multi[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcheckout he[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kls
+hello  hello.c	Makefile  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ help[K[K[K[Kb[Kvimhg[K[K g[Khello.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"hello.c" 14L, 245C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<stdlib.h>[m
+
+[32mint[m
+main([32mint[m argc, [32mconst[m [32mchar[m *argv[])
+{
+  [33mif[m (argc < [31m2[m) {
+    fprintf([31mstderr[m, [31m"usage: [m[35m%s[m[31m NAME...[m[35m\n[m[31m"[m, argv[[31m0[m]);
+    exit([31m1[m);
+  }
+  [33mfor[m ([32mint[m i = [31m1[m; i < argc; i++) [46m{[m
+    printf([31m"hello [m[35m%s\n[m[31m"[m, argv[i]);
+  [46m}[m
+}
+[1m[34m~                                                                                                      [16;1H~                                                                                                      [17;1H~                                                                                                      [18;1H~                                                                                                      [19;1H~                                                                                                      [20;1H~                                                                                                      [21;1H~                                                                                                      [22;1H~                                                                                                      [23;1H~                                                                                                      [24;1H~                                                                                                      [25;1H~                                                                                                      [26;1H~                                                                                                      [27;1H~                                                                                                      [28;1H~                                                                                                      [29;1H~                                                                                                      [30;1H~                                                                                                      [31;1H~                                                                                                      [32;1H~                                                                                                      [33;1H~                                                                                                      [34;1H~                                                                                                      [m[35;86H13,3[10CAll[13;3H[?25h[?25l[35;76H^[[13;3H[35;76H  [13;3H[35;76H^[[13;3H[35;76H  [13;3H[?25h[?25l[35;76H:[13;3H[35;1H[K[35;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1000l[?2004l"hello.c" 14L, 245C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@remote05:~/tmp/lab8/work/lab8$ vim hello.cls[K[K[Kgit checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ git checkout master[8Pvim hello.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"hello.c" 14L, 215C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<stdlib.h>[m
+
+[32mint[m
+main([32mint[m argc, [32mconst[m [32mchar[m *argv[])
+{
+  [33mif[m (argc != [31m2[m) {
+    fprintf([31mstderr[m, [31m"usage: [m[35m%s[m[31m NAME[m[35m\n[m[31m"[m, argv[[31m0[m]);
+    exit([31m1[m);
+  }
+  printf([31m"hello [m[35m%s\n[m[31m"[m, argv[[31m1[m]);
+
+  [33mreturn[m [31m0[m;
+}
+[1m[34m~                                                                                                      [16;1H~                                                                                                      [17;1H~                                                                                                      [18;1H~                                                                                                      [19;1H~                                                                                                      [20;1H~                                                                                                      [21;1H~                                                                                                      [22;1H~                                                                                                      [23;1H~                                                                                                      [24;1H~                                                                                                      [25;1H~                                                                                                      [26;1H~                                                                                                      [27;1H~                                                                                                      [28;1H~                                                                                                      [29;1H~                                                                                                      [30;1H~                                                                                                      [31;1H~                                                                                                      [32;1H~                                                                                                      [33;1H~                                                                                                      [34;1H~                                                                                                      [m[35;86H13,3[10CAll[13;3H[?25h[?25l[35;76H^[[13;3H[35;76H  [13;3H[35;76H^[[13;3H[35;76H  [13;3H[?25h[?25l[35;76H:[13;3H[35;1H[K[35;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1000l[?2004l"hello.c" 14L, 215C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@remote05:~/tmp/lab8/work/lab8$ vim hello.cgit checkout master[8Pvim hello.cls[Kgit merge masterls[Kvim hello.cgit checkout master[K[K[K[K[K[Khello-multi
+Switched to branch 'hello-multi'
+Your branch is up to date with 'origin/hello-multi'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ git merge master
+Already up to date.
+ctran20@remote05:~/tmp/lab8/work/lab8$ git merge master[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmake
+cc -g -Wall -std=c11    hello.c   -o hello
+ctran20@remote05:~/tmp/lab8/work/lab8$ makegit merge master
+Already up to date.
+ctran20@remote05:~/tmp/lab8/work/lab8$ ls
+hello  hello.c	Makefile  README.md
+ctran20@remote05:~/tmp/lab8/work/lab8$ bi[K[Kvim hello.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"hello.c" 14L, 245C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<stdlib.h>[m
+
+[32mint[m
+main([32mint[m argc, [32mconst[m [32mchar[m *argv[])
+{
+  [33mif[m (argc < [31m2[m) {
+    fprintf([31mstderr[m, [31m"usage: [m[35m%s[m[31m NAME...[m[35m\n[m[31m"[m, argv[[31m0[m]);
+    exit([31m1[m);
+  }
+  [33mfor[m ([32mint[m i = [31m1[m; i < argc; i++) [46m{[m
+    printf([31m"hello [m[35m%s\n[m[31m"[m, argv[i]);
+  [46m}[m
+}
+[1m[34m~                                                                                                      [16;1H~                                                                                                      [17;1H~                                                                                                      [18;1H~                                                                                                      [19;1H~                                                                                                      [20;1H~                                                                                                      [21;1H~                                                                                                      [22;1H~                                                                                                      [23;1H~                                                                                                      [24;1H~                                                                                                      [25;1H~                                                                                                      [26;1H~                                                                                                      [27;1H~                                                                                                      [28;1H~                                                                                                      [29;1H~                                                                                                      [30;1H~                                                                                                      [31;1H~                                                                                                      [32;1H~                                                                                                      [33;1H~                                                                                                      [34;1H~                                                                                                      [m[35;86H13,3[10CAll[13;3H[?25h[?25l[35;76H^[[13;3H[35;76H  [13;3H[35;76H^[[13;3H[35;76H  [13;3H[?25h[?25l[35;76H:[13;3H[35;1H[K[35;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1000l[?2004l"hello.c" 14L, 245C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@remote05:~/tmp/lab8/work/lab8$ make clean
+rm -f *.o 
+ctran20@remote05:~/tmp/lab8/work/lab8$ make cleanvim hello.cls[Kgit merge master
+Already up to date.
+ctran20@remote05:~/tmp/lab8/work/lab8$ git merge master[6Pmake cleanvim hello.cls[Kvim hello.c
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;35r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[35;1H"hello.c" 14L, 245C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[35m#include [m[31m<stdio.h>[m
+[35m#include [m[31m<stdlib.h>[m
+
+[32mint[m
+main([32mint[m argc, [32mconst[m [32mchar[m *argv[])
+{
+  [33mif[m (argc < [31m2[m) {
+    fprintf([31mstderr[m, [31m"usage: [m[35m%s[m[31m NAME...[m[35m\n[m[31m"[m, argv[[31m0[m]);
+    exit([31m1[m);
+  }
+  [33mfor[m ([32mint[m i = [31m1[m; i < argc; i++) [46m{[m
+    printf([31m"hello [m[35m%s\n[m[31m"[m, argv[i]);
+  [46m}[m
+}
+[1m[34m~                                                                                                      [16;1H~                                                                                                      [17;1H~                                                                                                      [18;1H~                                                                                                      [19;1H~                                                                                                      [20;1H~                                                                                                      [21;1H~                                                                                                      [22;1H~                                                                                                      [23;1H~                                                                                                      [24;1H~                                                                                                      [25;1H~                                                                                                      [26;1H~                                                                                                      [27;1H~                                                                                                      [28;1H~                                                                                                      [29;1H~                                                                                                      [30;1H~                                                                                                      [31;1H~                                                                                                      [32;1H~                                                                                                      [33;1H~                                                                                                      [34;1H~                                                                                                      [m[35;86H13,3[10CAll[13;3H[?25h[?25l[11;34H{
+
+  }[35;87H1,10[11;10H[?25h[?25l[24C[46m{
+
+[m  [46m}[m[35;87H3,3 [13;3H[?25h[?25l[35;76H~@k[13;3H[35;76H   [14;1H[6;1H[46m{[m[11;34H{
+
+  }
+[46m}[m[35;87H4,1[14;1H[?25h[?25l[35;76H~@k[14;1H[35;76H   [13;3H[6;1H{[11;34H[46m{
+
+[m  [46m}[m
+}[35;87H3,3[13;3H[?25h[?25l[35;76H~@k[13;3H[35;76H   [13;3H[?25h[?25l[35;76H^M[13;3H[35;76H  [14;1H[6;1H[46m{[m[11;34H{
+
+  }
+[46m}[m[35;87H4,1[14;1H[?25h[?25l[35;76H~@k[14;1H[35;76H   [13;1H[6;1H{[14;1H}[35;87H3[13;1H[?25h[?25l[35;76H~@k[13;1H[35;76H   [13;2H[35;89H2[13;2H[?25h[?25l[35;76H~@k[13;2H[35;76H   [13;2H[35;1H[1m-- INSERT --[m[35;13H[K[35;86H13,2[10CAll[13;2H[?25h[?25l[11;34H[46m{
+
+[m  [46m}[m[35;89H3[13;3H[?25h[?25l[35;89H4[13;4H[?25h[?25l[14;34r[14;1H[L[1;35r[35;86H[K[35;86H14,3[10CAll[11;34H{
+
+  }
+  [?25h[?25lr[35;89H4[14;4H[?25h[?25le[35;89H5[14;5H[?25h[?25lt[35;89H6[14;6H[?25h[?25lu[35;89H7[14;7H[?25h[?25lr[35;89H8[14;8H[?25h[?25l  [33mreturn[m[35;89H9[14;9H[?25h[?25l[35;89H10[14;10H[?25h[?25l[31m0[m[35;90H1[14;11H[?25h[?25l;[35;90H2[14;12H[?25h[35;1H[K[14;11H[?25l[35;76H^[[14;11H[35;76H  [14;12H[35;86H14,11[9CAll[14;11H[?25h[?25l[35;76H:[14;11H[35;76H[K[35;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1000l[?2004l"hello.c" 15L, 257C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@remote05:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+ctran20@remote05:~/tmp/lab8/work/lab8$ Switched to branch 'hello-multi'
+bash: Switched: command not found
+ctran20@remote05:~/tmp/lab8/work/lab8$ Your branch is up to date with 'origin/hello-multi'.[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ktail -5 hello.c
+  for (int i = 1; i < argc; i++) {
+    printf("hello %s\n", argv[i]);
+  }
+  return 0;
+}
+ctran20@remote05:~/tmp/lab8/work/lab8$ make
+make: Nothing to be done for 'all'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./ [Khello john sue\[K
+hello john
+hello sue
+ctran20@remote05:~/tmp/lab8/work/lab8$ git commit -a -m 'merged master'
+[hello-multi 889a02c] merged master
+ 2 files changed, 1 insertion(+)
+ctran20@remote05:~/tmp/lab8/work/lab8$ p[Kgit pui[Ksh
+ctran20@remote.cs.binghamton.edu's password: 
+Enumerating objects: 11, done.
+Counting objects:   9% (1/11)   Counting objects:  18% (2/11)   Counting objects:  27% (3/11)   Counting objects:  36% (4/11)   Counting objects:  45% (5/11)   Counting objects:  54% (6/11)   Counting objects:  63% (7/11)   Counting objects:  72% (8/11)   Counting objects:  81% (9/11)   Counting objects:  90% (10/11)   Counting objects: 100% (11/11)   Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  16% (1/6)   Writing objects:  33% (2/6)   Writing objects:  50% (3/6)   Writing objects:  66% (4/6)   Writing objects:  83% (5/6)   Writing objects: 100% (6/6)   Writing objects: 100% (6/6), 563 bytes | 281.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git
+   578f69c..889a02c  hello-multi -> hello-multi
+ctran20@remote05:~/tmp/lab8/work/lab8$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+ctran20@remote05:~/tmp/lab8/work/lab8$ git merge hello-multi
+Updating bb80833..889a02c
+Fast-forward
+ work/lab8/hello   | Bin [31m19136[m -> [32m19216[m bytes
+ work/lab8/hello.c |   9 [32m+++++[m[31m----[m
+ 2 files changed, 5 insertions(+), 4 deletions(-)
+ctran20@remote05:~/tmp/lab8/work/lab8$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello john sue
+hello john
+hello sue
+ctran20@remote05:~/tmp/lab8/work/lab8$ ./hello john sue[C[1@.
+bash: ../hello: No such file or directory
+ctran20@remote05:~/tmp/lab8/work/lab8$ git branch -l
+[?1h=  hello-multi[m[m
+* [32mmaster[m[m
+[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ git shortlog hello.c
+[?1h=Cat Tran (6):[m
+      working with warnings[m
+      working clean compile[m
+      send usage message to stderr[m
+      added return at the end of main()[m
+      allow greeting multiple names[m
+      merged master[m
+[m
+[K[?1l>ctran20@remote05:~/tmp/lab8/work/lab8$ git commit -a -m 'merged hello-mult'
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+ctran20@remote05:~/tmp/lab8/work/lab8$ git commit -a -m 'merged hello-mult'i'
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+ctran20@remote05:~/tmp/lab8/work/lab8$ git push
+ctran20@remote.cs.binghamton.edu's password: 
+Total 0 (delta 0), reused 0 (delta 0)
+To ssh://remote.cs.binghamton.edu/home/ctran20/git-repos/lab8.git
+   bb80833..889a02c  master -> master
+ctran20@remote05:~/tmp/lab8/work/lab8$ cd ~/i22X #[K[K[Ka[K0a
+ctran20@remote05:~/i220a$ exit
+
+Script done on 2019-10-13 11:12:56-04:00 [COMMAND_EXIT_CODE="0"]
