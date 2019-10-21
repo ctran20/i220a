@@ -1,0 +1,1083 @@
+Script started on 2019-10-17 09:56:50-04:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="24"]
+ctran20@g7-12:~/i220a/work/lab9$ cp -r ~/cs220/labs/lab6/files/* .[1P[1@9
+ctran20@g7-12:~/i220a/work/lab9$ ls
+hello.c  lab9.log  Makefile  mystery.o
+ctran20@g7-12:~/i220a/work/lab9$ mao[Kke
+cc -g -Wall  -std=c11    hello.c   -o hello
+cc -g -Wall  -std=c11 -S hello.c
+ctran20@g7-12:~/i220a/work/lab9$ gedit hello.c
+ctran20@g7-12:~/i220a/work/lab9$ ./hello Cat
+hello Cat
+ctran20@g7-12:~/i220a/work/lab9$ ./hello Cat[K[K[K[K
+usage: ./hello NAME...
+ctran20@g7-12:~/i220a/work/lab9$ ./hello Cat Tran
+hello Cat
+hello Tran
+ctran20@g7-12:~/i220a/work/lab9$ size hello
+   text	   data	    bss	    dec	    hex	filename
+   1874	    592	     48	   2514	    9d2	hello
+ctran20@g7-12:~/i220a/work/lab9$ size -A hello
+hello  :
+section              size    addr
+.interp                28     680
+.note.ABI-tag          32     708
+.note.gnu.build-id     36     740
+.gnu.hash              48     776
+.dynsym               240     824
+.dynstr               152    1064
+.gnu.version           20    1216
+.gnu.version_r         32    1240
+.rela.dyn             240    1272
+.rela.plt              48    1512
+.init                  23    4096
+.plt                   48    4128
+.plt.got                8    4176
+.text                 513    4192
+.fini                   9    4708
+.rodata                33    8192
+.eh_frame_hdr          68    8228
+.eh_frame             296    8296
+.init_array             8   15848
+.fini_array             8   15856
+.dynamic              480   15864
+.got                   40   16344
+.got.plt               40   16384
+.data                  16   16424
+.bss                   48   16448
+.comment               28       0
+.debug_aranges         48       0
+.debug_info           860       0
+.debug_abbrev         287       0
+.debug_line           308       0
+.debug_str            585       0
+Total                4630
+
+
+ctran20@g7-12:~/i220a/work/lab9$ objdump -d hello > hello.objdemp
+ctran20@g7-12:~/i220a/work/lab9$ objdump -d hello > hello.objdemp[C[1Pmpump
+ctran20@g7-12:~/i220a/work/lab9$ ls
+hello	 hello.objdemp	hello.s   Makefile
+hello.c  hello.objdump	lab9.log  mystery.o
+ctran20@g7-12:~/i220a/work/lab9$ rrm [K[K[Km hello.objdemp
+ctran20@g7-12:~/i220a/work/lab9$ ls
+hello  hello.c	hello.objdump  hello.s	lab9.log  Makefile  mystery.o
+ctran20@g7-12:~/i220a/work/lab9$ ^C
+ctran20@g7-12:~/i220a/work/lab9$ gedit hw[Kello.objdump 
+ctran20@g7-12:~/i220a/work/lab9$ gedit hello.objdump 
+ctran20@g7-12:~/i220a/work/lab9$ gedit hello.objdump 
+ctran20@g7-12:~/i220a/work/lab9$ objdump -d -s -x hello > hello.objdump
+ctran20@g7-12:~/i220a/work/lab9$ objdump -d -s -x hello > hello.objdump[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[18Pgedit hello.objdump 
+ctran20@g7-12:~/i220a/work/lab9$ objdump -d hello | grep -A40 main.:
+0000000000001174 <main>:
+    1174:	55                   	push   %rbp
+    1175:	48 89 e5             	mov    %rsp,%rbp
+    1178:	48 83 ec 20          	sub    $0x20,%rsp
+    117c:	89 7d ec             	mov    %edi,-0x14(%rbp)
+    117f:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+    1183:	83 7d ec 01          	cmpl   $0x1,-0x14(%rbp)
+    1187:	75 2c                	jne    11b5 <main+0x41>
+    1189:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    118d:	48 8b 10             	mov    (%rax),%rdx
+    1190:	48 8b 05 c9 2e 00 00 	mov    0x2ec9(%rip),%rax        # 4060 <stderr@@GLIBC_2.2.5>
+    1197:	48 8d 35 70 0e 00 00 	lea    0xe70(%rip),%rsi        # 200e <_IO_stdin_used+0xe>
+    119e:	48 89 c7             	mov    %rax,%rdi
+    11a1:	b8 00 00 00 00       	mov    $0x0,%eax
+    11a6:	e8 85 fe ff ff       	callq  1030 <fprintf@plt>
+    11ab:	bf ef be ad de       	mov    $0xdeadbeef,%edi
+    11b0:	e8 8b fe ff ff       	callq  1040 <exit@plt>
+    11b5:	c7 45 fc 01 00 00 00 	movl   $0x1,-0x4(%rbp)
+    11bc:	eb 2d                	jmp    11eb <main+0x77>
+    11be:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    11c1:	48 98                	cltq   
+    11c3:	48 8d 14 c5 00 00 00 	lea    0x0(,%rax,8),%rdx
+    11ca:	00 
+    11cb:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    11cf:	48 01 d0             	add    %rdx,%rax
+    11d2:	48 8b 10             	mov    (%rax),%rdx
+    11d5:	48 8b 05 64 2e 00 00 	mov    0x2e64(%rip),%rax        # 4040 <stdout@@GLIBC_2.2.5>
+    11dc:	48 89 d6             	mov    %rdx,%rsi
+    11df:	48 89 c7             	mov    %rax,%rdi
+    11e2:	e8 5e ff ff ff       	callq  1145 <hello>
+    11e7:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+    11eb:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    11ee:	3b 45 ec             	cmp    -0x14(%rbp),%eax
+    11f1:	7c cb                	jl     11be <main+0x4a>
+    11f3:	b8 00 00 00 00       	mov    $0x0,%eax
+    11f8:	c9                   	leaveq 
+    11f9:	c3                   	retq   
+    11fa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+0000000000001200 <__libc_csu_init>:
+    1200:	41 57                	push   %r15
+ctran20@g7-12:~/i220a/work/lab9$ la [K[Ks -l hello
+-rwxr-xr-x 1 ctran20 ctran20 19368 Oct 17 09:58 hello
+ctran20@g7-12:~/i220a/work/lab9$ strip hello
+ctran20@g7-12:~/i220a/work/lab9$ strip hellols -l[C[C[C[C[C[C
+-rwxr-xr-x 1 ctran20 ctran20 14416 Oct 17 10:17 hello
+ctran20@g7-12:~/i220a/work/lab9$ clean
+bash: clean: command not found
+ctran20@g7-12:~/i220a/work/lab9$ make clean
+rm -f hello hello.s *.objdump *~
+ctran20@g7-12:~/i220a/work/lab9$ c[Kls
+hello.c  lab9.log  lab9_output.txt  Makefile  mystery.o
+ctran20@g7-12:~/i220a/work/lab9$ ./[K[Kmake
+cc -g -Wall  -std=c11    hello.c   -o hello
+cc -g -Wall  -std=c11 -S hello.c
+ctran20@g7-12:~/i220a/work/lab9$ ls
+hello  hello.c	hello.s  lab9.log  lab9_output.txt  Makefile  mystery.o
+ctran20@g7-12:~/i220a/work/lab9$ ./identify
+bash: ./identify: No such file or directory
+ctran20@g7-12:~/i220a/work/lab9$ gedit mystery.o
+ctran20@g7-12:~/i220a/work/lab9$ ls
+hello  hello.c	hello.s  lab9.log  lab9_output.txt  Makefile  mystery.o
+ctran20@g7-12:~/i220a/work/lab9$ ,.[K[K./identify
+bash: ./identify: No such file or directory
+ctran20@g7-12:~/i220a/work/lab9$ ./hello
+usage: ./hello NAME...
+ctran20@g7-12:~/i220a/work/lab9$ ./hello 0xaaaaaaaaaaaaaa
+hello 0xaaaaaaaaaaaaaa
+ctran20@g7-12:~/i220a/work/lab9$ ./hello 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+hello 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ctran20@g7-12:~/i220a/work/lab9$ ./hello 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa
+hello 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ctran20@g7-12:~/i220a/work/lab9$ ./hello 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+hello 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ctran20@g7-12:~/i220a/work/lab9$ ./hello 0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KA[K[K[KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAA
+hello AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+ctran20@g7-12:~/i220a/work/lab9$ A[K./hello AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ka
+hello AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ctran20@g7-12:~/i220a/work/lab9$ ls
+hello  hello.c	hello.s  lab9.log  lab9_output.txt  Makefile  mystery.o
+ctran20@g7-12:~/i220a/work/lab9$ objdump -f mystery.o 
+
+mystery.o:     file format elf64-x86-64
+architecture: i386:x86-64, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x0000000000000000
+
+ctran20@g7-12:~/i220a/work/lab9$ objdump -f mystery.o [1P[1@f
+
+mystery.o:     file format elf64-x86-64
+architecture: i386:x86-64, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x0000000000000000
+
+ctran20@g7-12:~/i220a/work/lab9$ objdump -f mystery.o [C[1P[1@d
+
+mystery.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <mystery>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	89 7d fc             	mov    %edi,-0x4(%rbp)
+   7:	8b 45 fc             	mov    -0x4(%rbp),%eax
+   a:	25 ff ff 7f 00       	and    $0x7fffff,%eax
+   f:	c9                   	leaveq 
+  10:	c3                   	retq   
+ctran20@g7-12:~/i220a/work/lab9$ soz[K[Kize -A ms[Kystery.o 
+mystery.o  :
+section           size   addr
+.text               17      0
+.data                0      0
+.bss                 0      0
+.debug_abbrev       71      0
+.debug_info        103      0
+.debug_line         61      0
+.debug_loc          96      0
+.debug_pubnames     30      0
+.debug_aranges      48      0
+.debug_str          84      0
+.comment            43      0
+.note.GNU-stack      0      0
+.eh_frame           56      0
+Total              609
+
+
+ctran20@g7-12:~/i220a/work/lab9$ size -A mystery.o [3@objdump -d[C[C[C[C[C[C[C[C[C[C[C
+
+mystery.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <mystery>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	89 7d fc             	mov    %edi,-0x4(%rbp)
+   7:	8b 45 fc             	mov    -0x4(%rbp),%eax
+   a:	25 ff ff 7f 00       	and    $0x7fffff,%eax
+   f:	c9                   	leaveq 
+  10:	c3                   	retq   
+ctran20@g7-12:~/i220a/work/lab9$ objdump -d mystery.o [K[K[K[K[K[K[K[K[K[Khello
+
+hello:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	48 83 ec 08          	sub    $0x8,%rsp
+    1004:	48 8b 05 dd 2f 00 00 	mov    0x2fdd(%rip),%rax        # 3fe8 <__gmon_start__>
+    100b:	48 85 c0             	test   %rax,%rax
+    100e:	74 02                	je     1012 <_init+0x12>
+    1010:	ff d0                	callq  *%rax
+    1012:	48 83 c4 08          	add    $0x8,%rsp
+    1016:	c3                   	retq   
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 e2 2f 00 00    	pushq  0x2fe2(%rip)        # 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 e4 2f 00 00    	jmpq   *0x2fe4(%rip)        # 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000001030 <fprintf@plt>:
+    1030:	ff 25 e2 2f 00 00    	jmpq   *0x2fe2(%rip)        # 4018 <fprintf@GLIBC_2.2.5>
+    1036:	68 00 00 00 00       	pushq  $0x0
+    103b:	e9 e0 ff ff ff       	jmpq   1020 <.plt>
+
+0000000000001040 <exit@plt>:
+    1040:	ff 25 da 2f 00 00    	jmpq   *0x2fda(%rip)        # 4020 <exit@GLIBC_2.2.5>
+    1046:	68 01 00 00 00       	pushq  $0x1
+    104b:	e9 d0 ff ff ff       	jmpq   1020 <.plt>
+
+Disassembly of section .plt.got:
+
+0000000000001050 <__cxa_finalize@plt>:
+    1050:	ff 25 a2 2f 00 00    	jmpq   *0x2fa2(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1056:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+0000000000001060 <_start>:
+    1060:	31 ed                	xor    %ebp,%ebp
+    1062:	49 89 d1             	mov    %rdx,%r9
+    1065:	5e                   	pop    %rsi
+    1066:	48 89 e2             	mov    %rsp,%rdx
+    1069:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    106d:	50                   	push   %rax
+    106e:	54                   	push   %rsp
+    106f:	4c 8d 05 ea 01 00 00 	lea    0x1ea(%rip),%r8        # 1260 <__libc_csu_fini>
+    1076:	48 8d 0d 83 01 00 00 	lea    0x183(%rip),%rcx        # 1200 <__libc_csu_init>
+    107d:	48 8d 3d f0 00 00 00 	lea    0xf0(%rip),%rdi        # 1174 <main>
+    1084:	ff 15 56 2f 00 00    	callq  *0x2f56(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.2.5>
+    108a:	f4                   	hlt    
+    108b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000001090 <deregister_tm_clones>:
+    1090:	48 8d 3d a1 2f 00 00 	lea    0x2fa1(%rip),%rdi        # 4038 <__TMC_END__>
+    1097:	48 8d 05 9a 2f 00 00 	lea    0x2f9a(%rip),%rax        # 4038 <__TMC_END__>
+    109e:	48 39 f8             	cmp    %rdi,%rax
+    10a1:	74 15                	je     10b8 <deregister_tm_clones+0x28>
+    10a3:	48 8b 05 2e 2f 00 00 	mov    0x2f2e(%rip),%rax        # 3fd8 <_ITM_deregisterTMCloneTable>
+    10aa:	48 85 c0             	test   %rax,%rax
+    10ad:	74 09                	je     10b8 <deregister_tm_clones+0x28>
+    10af:	ff e0                	jmpq   *%rax
+    10b1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    10b8:	c3                   	retq   
+    10b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000010c0 <register_tm_clones>:
+    10c0:	48 8d 3d 71 2f 00 00 	lea    0x2f71(%rip),%rdi        # 4038 <__TMC_END__>
+    10c7:	48 8d 35 6a 2f 00 00 	lea    0x2f6a(%rip),%rsi        # 4038 <__TMC_END__>
+    10ce:	48 29 fe             	sub    %rdi,%rsi
+    10d1:	48 c1 fe 03          	sar    $0x3,%rsi
+    10d5:	48 89 f0             	mov    %rsi,%rax
+    10d8:	48 c1 e8 3f          	shr    $0x3f,%rax
+    10dc:	48 01 c6             	add    %rax,%rsi
+    10df:	48 d1 fe             	sar    %rsi
+    10e2:	74 14                	je     10f8 <register_tm_clones+0x38>
+    10e4:	48 8b 05 05 2f 00 00 	mov    0x2f05(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable>
+    10eb:	48 85 c0             	test   %rax,%rax
+    10ee:	74 08                	je     10f8 <register_tm_clones+0x38>
+    10f0:	ff e0                	jmpq   *%rax
+    10f2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    10f8:	c3                   	retq   
+    10f9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001100 <__do_global_dtors_aux>:
+    1100:	80 3d 61 2f 00 00 00 	cmpb   $0x0,0x2f61(%rip)        # 4068 <completed.7325>
+    1107:	75 2f                	jne    1138 <__do_global_dtors_aux+0x38>
+    1109:	55                   	push   %rbp
+    110a:	48 83 3d e6 2e 00 00 	cmpq   $0x0,0x2ee6(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1111:	00 
+    1112:	48 89 e5             	mov    %rsp,%rbp
+    1115:	74 0c                	je     1123 <__do_global_dtors_aux+0x23>
+    1117:	48 8b 3d 12 2f 00 00 	mov    0x2f12(%rip),%rdi        # 4030 <__dso_handle>
+    111e:	e8 2d ff ff ff       	callq  1050 <__cxa_finalize@plt>
+    1123:	e8 68 ff ff ff       	callq  1090 <deregister_tm_clones>
+    1128:	c6 05 39 2f 00 00 01 	movb   $0x1,0x2f39(%rip)        # 4068 <completed.7325>
+    112f:	5d                   	pop    %rbp
+    1130:	c3                   	retq   
+    1131:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1138:	c3                   	retq   
+    1139:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001140 <frame_dummy>:
+    1140:	e9 7b ff ff ff       	jmpq   10c0 <register_tm_clones>
+
+0000000000001145 <hello>:
+    1145:	55                   	push   %rbp
+    1146:	48 89 e5             	mov    %rsp,%rbp
+    1149:	48 83 ec 10          	sub    $0x10,%rsp
+    114d:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+    1151:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
+    1155:	48 8b 55 f0          	mov    -0x10(%rbp),%rdx
+    1159:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    115d:	48 8d 35 a0 0e 00 00 	lea    0xea0(%rip),%rsi        # 2004 <_IO_stdin_used+0x4>
+    1164:	48 89 c7             	mov    %rax,%rdi
+    1167:	b8 00 00 00 00       	mov    $0x0,%eax
+    116c:	e8 bf fe ff ff       	callq  1030 <fprintf@plt>
+    1171:	90                   	nop
+    1172:	c9                   	leaveq 
+    1173:	c3                   	retq   
+
+0000000000001174 <main>:
+    1174:	55                   	push   %rbp
+    1175:	48 89 e5             	mov    %rsp,%rbp
+    1178:	48 83 ec 20          	sub    $0x20,%rsp
+    117c:	89 7d ec             	mov    %edi,-0x14(%rbp)
+    117f:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+    1183:	83 7d ec 01          	cmpl   $0x1,-0x14(%rbp)
+    1187:	75 2c                	jne    11b5 <main+0x41>
+    1189:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    118d:	48 8b 10             	mov    (%rax),%rdx
+    1190:	48 8b 05 c9 2e 00 00 	mov    0x2ec9(%rip),%rax        # 4060 <stderr@@GLIBC_2.2.5>
+    1197:	48 8d 35 70 0e 00 00 	lea    0xe70(%rip),%rsi        # 200e <_IO_stdin_used+0xe>
+    119e:	48 89 c7             	mov    %rax,%rdi
+    11a1:	b8 00 00 00 00       	mov    $0x0,%eax
+    11a6:	e8 85 fe ff ff       	callq  1030 <fprintf@plt>
+    11ab:	bf ef be ad de       	mov    $0xdeadbeef,%edi
+    11b0:	e8 8b fe ff ff       	callq  1040 <exit@plt>
+    11b5:	c7 45 fc 01 00 00 00 	movl   $0x1,-0x4(%rbp)
+    11bc:	eb 2d                	jmp    11eb <main+0x77>
+    11be:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    11c1:	48 98                	cltq   
+    11c3:	48 8d 14 c5 00 00 00 	lea    0x0(,%rax,8),%rdx
+    11ca:	00 
+    11cb:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    11cf:	48 01 d0             	add    %rdx,%rax
+    11d2:	48 8b 10             	mov    (%rax),%rdx
+    11d5:	48 8b 05 64 2e 00 00 	mov    0x2e64(%rip),%rax        # 4040 <stdout@@GLIBC_2.2.5>
+    11dc:	48 89 d6             	mov    %rdx,%rsi
+    11df:	48 89 c7             	mov    %rax,%rdi
+    11e2:	e8 5e ff ff ff       	callq  1145 <hello>
+    11e7:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+    11eb:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    11ee:	3b 45 ec             	cmp    -0x14(%rbp),%eax
+    11f1:	7c cb                	jl     11be <main+0x4a>
+    11f3:	b8 00 00 00 00       	mov    $0x0,%eax
+    11f8:	c9                   	leaveq 
+    11f9:	c3                   	retq   
+    11fa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+0000000000001200 <__libc_csu_init>:
+    1200:	41 57                	push   %r15
+    1202:	49 89 d7             	mov    %rdx,%r15
+    1205:	41 56                	push   %r14
+    1207:	49 89 f6             	mov    %rsi,%r14
+    120a:	41 55                	push   %r13
+    120c:	41 89 fd             	mov    %edi,%r13d
+    120f:	41 54                	push   %r12
+    1211:	4c 8d 25 d0 2b 00 00 	lea    0x2bd0(%rip),%r12        # 3de8 <__frame_dummy_init_array_entry>
+    1218:	55                   	push   %rbp
+    1219:	48 8d 2d d0 2b 00 00 	lea    0x2bd0(%rip),%rbp        # 3df0 <__init_array_end>
+    1220:	53                   	push   %rbx
+    1221:	4c 29 e5             	sub    %r12,%rbp
+    1224:	48 83 ec 08          	sub    $0x8,%rsp
+    1228:	e8 d3 fd ff ff       	callq  1000 <_init>
+    122d:	48 c1 fd 03          	sar    $0x3,%rbp
+    1231:	74 1b                	je     124e <__libc_csu_init+0x4e>
+    1233:	31 db                	xor    %ebx,%ebx
+    1235:	0f 1f 00             	nopl   (%rax)
+    1238:	4c 89 fa             	mov    %r15,%rdx
+    123b:	4c 89 f6             	mov    %r14,%rsi
+    123e:	44 89 ef             	mov    %r13d,%edi
+    1241:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+    1245:	48 83 c3 01          	add    $0x1,%rbx
+    1249:	48 39 dd             	cmp    %rbx,%rbp
+    124c:	75 ea                	jne    1238 <__libc_csu_init+0x38>
+    124e:	48 83 c4 08          	add    $0x8,%rsp
+    1252:	5b                   	pop    %rbx
+    1253:	5d                   	pop    %rbp
+    1254:	41 5c                	pop    %r12
+    1256:	41 5d                	pop    %r13
+    1258:	41 5e                	pop    %r14
+    125a:	41 5f                	pop    %r15
+    125c:	c3                   	retq   
+    125d:	0f 1f 00             	nopl   (%rax)
+
+0000000000001260 <__libc_csu_fini>:
+    1260:	c3                   	retq   
+
+Disassembly of section .fini:
+
+0000000000001264 <_fini>:
+    1264:	48 83 ec 08          	sub    $0x8,%rsp
+    1268:	48 83 c4 08          	add    $0x8,%rsp
+    126c:	c3                   	retq   
+ctran20@g7-12:~/i220a/work/lab9$ objdump -d hellomystery.o 
+
+mystery.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <mystery>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	89 7d fc             	mov    %edi,-0x4(%rbp)
+   7:	8b 45 fc             	mov    -0x4(%rbp),%eax
+   a:	25 ff ff 7f 00       	and    $0x7fffff,%eax
+   f:	c9                   	leaveq 
+  10:	c3                   	retq   
+ctran20@g7-12:~/i220a/work/lab9$ make
+make: Nothing to be done for 'all'.
+ctran20@g7-12:~/i220a/work/lab9$ make clean
+rm -f hello hello.s *.objdump *~
+ctran20@g7-12:~/i220a/work/lab9$ make
+cc -g -Wall  -std=c11    hello.c   -o hello
+cc -g -Wall  -std=c11 -S hello.c
+ctran20@g7-12:~/i220a/work/lab9$ gdb hello
+GNU gdb (Debian 8.2.1-2) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) b main
+Breakpoint 1 at 0x1183: file hello.c, line 16.
+(gdb) r
+Starting program: /import/linux/home1/ctran20/git-repos/i220a/work/lab9/hello 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe7b8) at hello.c:16
+16	  if (argc == 1) {
+(gdb) l
+11	
+12	/** Say hello to 1-or-more command-line arguments. */
+13	int
+14	main(int argc, const char *argv[])
+15	{
+16	  if (argc == 1) {
+17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+18	    exit(0xdeadbeef);
+19	  }
+20	  for (int i = 1; i < argc; i++) {
+(gdb) disas /m
+Dump of assembler code for function main:
+15	{
+   0x0000555555555174 <+0>:	push   %rbp
+   0x0000555555555175 <+1>:	mov    %rsp,%rbp
+   0x0000555555555178 <+4>:	sub    $0x20,%rsp
+   0x000055555555517c <+8>:	mov    %edi,-0x14(%rbp)
+   0x000055555555517f <+11>:	mov    %rsi,-0x20(%rbp)
+
+16	  if (argc == 1) {
+=> 0x0000555555555183 <+15>:	cmpl   $0x1,-0x14(%rbp)
+   0x0000555555555187 <+19>:	jne    0x5555555551b5 <main+65>
+
+17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+   0x0000555555555189 <+21>:	mov    -0x20(%rbp),%rax
+   0x000055555555518d <+25>:	mov    (%rax),%rdx
+   0x0000555555555190 <+28>:	mov    0x2ec9(%rip),%rax        # 0x555555558060 <stderr@@GLIBC_2.2.5>
+   0x0000555555555197 <+35>:	lea    0xe70(%rip),%rsi        # 0x55555555600e
+   0x000055555555519e <+42>:	mov    %rax,%rdi
+   0x00005555555551a1 <+45>:	mov    $0x0,%eax
+   0x00005555555551a6 <+50>:	callq  0x555555555030 <fprintf@plt>
+
+18	    exit(0xdeadbeef);
+--Type <RET> for more, q to quit, c to continue without paging--i
+   0x00005555555551ab <+55>:	mov    $0xdeadbeef,%edi
+   0x00005555555551b0 <+60>:	callq  0x555555555040 <exit@plt>
+
+19	  }
+20	  for (int i = 1; i < argc; i++) {
+   0x00005555555551b5 <+65>:	movl   $0x1,-0x4(%rbp)
+   0x00005555555551bc <+72>:	jmp    0x5555555551eb <main+119>
+   0x00005555555551e7 <+115>:	addl   $0x1,-0x4(%rbp)
+   0x00005555555551eb <+119>:	mov    -0x4(%rbp),%eax
+   0x00005555555551ee <+122>:	cmp    -0x14(%rbp),%eax
+   0x00005555555551f1 <+125>:	jl     0x5555555551be <main+74>
+
+21	    hello(stdout, argv[i]);
+   0x00005555555551be <+74>:	mov    -0x4(%rbp),%eax
+   0x00005555555551c1 <+77>:	cltq   
+   0x00005555555551c3 <+79>:	lea    0x0(,%rax,8),%rdx
+   0x00005555555551cb <+87>:	mov    -0x20(%rbp),%rax
+   0x00005555555551cf <+91>:	add    %rdx,%rax
+   0x00005555555551d2 <+94>:	mov    (%rax),%rdx
+   0x00005555555551d5 <+97>:	mov    0x2e64(%rip),%rax        # 0x555555558040 <stdout@@GLIBC_2.2.5>
+   0x00005555555551dc <+104>:	mov    %rdx,%rsi
+   0x00005555555551df <+107>:	mov    %rax,%rdi
+--Type <RET> for more, q to quit, c to continue without paging--i reg
+   0x00005555555551e2 <+110>:	callq  0x555555555145 <hello>
+
+22	  }
+23	  return 0;
+   0x00005555555551f3 <+127>:	mov    $0x0,%eax
+
+24	}
+   0x00005555555551f8 <+132>:	leaveq 
+   0x00005555555551f9 <+133>:	retq   
+
+End of assembler dump.
+(gdb) p argc
+$1 = 1
+(gdb) p *($rbp - 20)
+Attempt to dereference a generic pointer.
+(gdb) p *($rbp - 20)[C[C[1@([1@i[1@n[1@t[1@*[1@)
+$2 = 1
+(gdb) p argv
+$3 = (const char **) 0x7fffffffe7b8
+(gdb) p *(const char ***)($rbp -32)
+$4 = (const char **) 0x7fffffffe7b8
+(gdb) p argv[0]
+$5 = 0x7fffffffea98 "/import/linux/home1/ctran20/git-repos/i220a/work/lab9/hello"
+(gdb) p (*(const char ***)($rbp - 0x20))[0]
+$6 = 0x7fffffffea98 "/import/linux/home1/ctran20/git-repos/i220a/work/lab9/hello"
+(gdb) /i *$pcp (*(const char ***)($rbp - 0x20))[0][C[C[C[C[C[C/i *$pc[K
+Undefined command: "".  Try "help".
+(gdb) display /i *p[K$pc
+1: x/i *$pc
+=> 0x555555555183 <main+15>:	cmpl   $0x1,-0x14(%rbp)
+(gdb) p $eflags
+$7 = [ IF ]
+(gdb) nexti
+0x0000555555555187	16	  if (argc == 1) {
+1: x/i *$pc
+=> 0x555555555187 <main+19>:	jne    0x5555555551b5 <main+65>
+(gdb) nextip $eflags
+$8 = [ PF ZF IF ]
+(gdb) ni\[K
+17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x555555555189 <main+21>:	mov    -0x20(%rbp),%rax
+(gdb) p (char*)0x555555555189
+$9 = 0x555555555189 <main+21> "H\213E\340H\213\020H\213\005\311."
+(gdb) ni
+0x000055555555518d	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x55555555518d <main+25>:	mov    (%rax),%rdx
+(gdb) ni
+0x0000555555555190	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x555555555190 <main+28>:	
+    mov    0x2ec9(%rip),%rax        # 0x555555558060 <stderr@@GLIBC_2.2.5>
+(gdb) nip (char*)0x555555555189[C[C[C[C[C[Cni[Kp (char*)0x5555555551890x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[1P0x000055555555518d[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Px000055555555518d[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+$10 = 0x55555555518d <main+25> "H\213\020H\213\005\311."
+(gdb) p (char*)0x000055555555518d[C[C[C[C[C[Cni[K
+0x0000555555555197	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x555555555197 <main+35>:	lea    0xe70(%rip),%rsi        # 0x55555555600e
+(gdb) nip (char*)0x000055555555518d=[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K55555555600e
+$11 = 0x55555555600e "usage: %s NAME...\n"
+(gdb) p (char*)0x55555555600e[K[K[K[K[K[K[K[K[K[K[K[Kex70
+Invalid number "0xex70".
+(gdb) p (char*)0xex70[1P70
+$12 = 0xe70 <error: Cannot access memory at address 0xe70>
+(gdb) p (char*)0xe70x7055555555600e
+$13 = 0x55555555600e "usage: %s NAME...\n"
+(gdb) ni
+0x000055555555519e	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x55555555519e <main+42>:	mov    %rax,%rdi
+(gdb) ni
+0x00005555555551a1	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x5555555551a1 <main+45>:	mov    $0x0,%eax
+(gdb) ni
+0x00005555555551a6	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x5555555551a6 <main+50>:	callq  0x555555555030 <fprintf@plt>
+(gdb) ni
+usage: /import/linux/home1/ctran20/git-repos/i220a/work/lab9/hello NAME...
+18	    exit(0xdeadbeef);
+1: x/i *$pc
+=> 0x5555555551ab <main+55>:	mov    $0xdeadbeef,%edi
+(gdb) ni
+0x00005555555551b0	18	    exit(0xdeadbeef);
+1: x/i *$pc
+=> 0x5555555551b0 <main+60>:	callq  0x555555555040 <exit@plt>
+(gdb) ni
+[Inferior 1 (process 23783) exited with code 0357]
+(gdb) q
+ctran20@g7-12:~/i220a/work/lab9$ gdb hello
+GNU gdb (Debian 8.2.1-2) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) b hello()
+Function "hello()" not defined.
+Make breakpoint pending on future shared library load? (y or [n]) b hello()[K[K
+Please answer y or [n].
+Make breakpoint pending on future shared library load? (y or [n]) n
+(gdb) b main
+Breakpoint 1 at 0x1183: file hello.c, line 16.
+(gdb) q
+ctran20@g7-12:~/i220a/work/lab9$ b[Kgdb hello
+GNU gdb (Debian 8.2.1-2) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) b hello
+Breakpoint 1 at 0x1155: file hello.c, line 8.
+(gdb) r joe
+Starting program: /import/linux/home1/ctran20/git-repos/i220a/work/lab9/hello joe
+
+Breakpoint 1, hello (out=0x7ffff7f92760 <_IO_2_1_stdout_>, 
+    who=0x7fffffffead0 "joe") at hello.c:8
+8	  fprintf(out, "hello %s\n", who);
+(gdb) p who
+$1 = 0x7fffffffead0 "joe"
+(gdb) i [K[Kdisas /m
+Dump of assembler code for function hello:
+7	{
+   0x0000555555555145 <+0>:	push   %rbp
+   0x0000555555555146 <+1>:	mov    %rsp,%rbp
+   0x0000555555555149 <+4>:	sub    $0x10,%rsp
+   0x000055555555514d <+8>:	mov    %rdi,-0x8(%rbp)
+   0x0000555555555151 <+12>:	mov    %rsi,-0x10(%rbp)
+
+8	  fprintf(out, "hello %s\n", who);
+=> 0x0000555555555155 <+16>:	mov    -0x10(%rbp),%rdx
+   0x0000555555555159 <+20>:	mov    -0x8(%rbp),%rax
+   0x000055555555515d <+24>:	lea    0xea0(%rip),%rsi        # 0x555555556004
+   0x0000555555555164 <+31>:	mov    %rax,%rdi
+   0x0000555555555167 <+34>:	mov    $0x0,%eax
+   0x000055555555516c <+39>:	callq  0x555555555030 <fprintf@plt>
+
+9	}
+   0x0000555555555171 <+44>:	nop
+   0x0000555555555172 <+45>:	leaveq 
+   0x0000555555555173 <+46>:	retq   
+
+End of assembler dump.
+(gdb) i reg
+rax            0x7ffff7f92760      140737353688928
+rbx            0x0                 0
+rcx            0x7ffff7f91718      140737353684760
+rdx            0x7fffffffead0      140737488349904
+rsi            0x7fffffffead0      140737488349904
+rdi            0x7ffff7f92760      140737353688928
+rbp            0x7fffffffe6a0      0x7fffffffe6a0
+rsp            0x7fffffffe690      0x7fffffffe690
+r8             0x7ffff7f92d80      140737353690496
+r9             0x7ffff7f92d80      140737353690496
+r10            0x7                 7
+r11            0x2                 2
+r12            0x555555555060      93824992235616
+r13            0x7fffffffe7b0      140737488349104
+r14            0x0                 0
+r15            0x0                 0
+rip            0x555555555155      0x555555555155 <hello+16>
+eflags         0x206               [ PF IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+--Type <RET> for more, q to quit, c to continue without paging--p [K[Ki reg
+gs             0x0                 0
+(gdb) p argc
+No symbol "argc" in current context.
+(gdb) p argc[K[K[K[K[K *($rbp [K[K[K[K[Kint*)$rbp - [K[K[K[K[K[K[K($rbp - 0x8([K)
+$2 = -134666400
+(gdb) p argc
+No symbol "argc" in current context.
+(gdb) p argc[Kv
+No symbol "argv" in current context.
+(gdb) ls[K
+10	
+11	
+12	/** Say hello to 1-or-more command-line arguments. */
+13	int
+14	main(int argc, const char *argv[])
+15	{
+16	  if (argc == 1) {
+17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+18	    exit(0xdeadbeef);
+19	  }
+(gdb) ni[K[Kdiplay /i *pc
+Undefined command: "diplay".  Try "help".
+(gdb) diplay /i *pc[1@s
+No symbol "pc" in current context.
+(gdb) display /i *pc$pc
+1: x/i *$pc
+=> 0x555555555155 <hello+16>:	mov    -0x10(%rbp),%rdx
+(gdb) ni
+0x0000555555555159	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555159 <hello+20>:	mov    -0x8(%rbp),%rax
+(gdb) ni
+0x000055555555515d	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x55555555515d <hello+24>:	lea    0xea0(%rip),%rsi        # 0x555555556004
+(gdb) p (char*)0x555555556004
+$3 = 0x555555556004 "hello %s\n"
+(gdb) p (char*)0x555555556004[C[C[C[C[C[Cni[K
+0x0000555555555164	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555164 <hello+31>:	mov    %rax,%rdi
+(gdb) nip (char*)0x555555556004[C[K[K[K[K[K[K[K
+[1]+  Stopped                 gdb hello
+ctran20@g7-12:~/i220a/work/lab9$ gdb hello
+GNU gdb (Debian 8.2.1-2) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) r joe
+Starting program: /import/linux/home1/ctran20/git-repos/i220a/work/lab9/hello joe
+hello joe
+[Inferior 1 (process 29349) exited normally]
+(gdb) b hello
+Breakpoint 1 at 0x555555555155: file hello.c, line 8.
+(gdb) r joe
+Starting program: /import/linux/home1/ctran20/git-repos/i220a/work/lab9/hello joe
+
+Breakpoint 1, hello (out=0x7ffff7f92760 <_IO_2_1_stdout_>, 
+    who=0x7fffffffead0 "joe") at hello.c:8
+8	  fprintf(out, "hello %s\n", who);
+(gdb) gisplay[K[K[K[K[K[K[Kdisplay /i *$pc
+1: x/i *$pc
+=> 0x555555555155 <hello+16>:	mov    -0x10(%rbp),%rdx
+(gdb) ni
+0x0000555555555159	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555159 <hello+20>:	mov    -0x8(%rbp),%rax
+(gdb) ni
+0x000055555555515d	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x55555555515d <hello+24>:	lea    0xea0(%rip),%rsi        # 0x555555556004
+(gdb) ni[K[Kchar[K[K[K[Kp char*)(char*)[C[C[C[C[C[C0x555555556004
+$1 = 0x555555556004 "hello %s\n"
+(gdb) p (char*)0x555555556004[C[C[C[C[C[Cni[K
+0x0000555555555164	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555164 <hello+31>:	mov    %rax,%rdi
+(gdb) nip (char*)0x555555556004
+$2 = 0x555555556004 "hello %s\n"
+(gdb) p (char*)0x555555556004[C[C[C[C[C[Cni[K
+0x0000555555555167	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555167 <hello+34>:	mov    $0x0,%eax
+(gdb) nip (char*)0x555555556004
+$3 = 0x555555556004 "hello %s\n"
+(gdb) p (char*)0x555555556004[C[C[C[C[C[Cni[K
+0x000055555555516c	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x55555555516c <hello+39>:	callq  0x555555555030 <fprintf@plt>
+(gdb) nip (char*)0x555555556004
+$4 = 0x555555556004 "hello %s\n"
+(gdb) p (char*)0x5555555560040x555555555030[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K0x555555555030
+$5 = 0x555555555030 <fprintf@plt> "\377%\342/"
+(gdb) p (char*)0x5555555550306004[C[C[C[C[C[Cni[K
+hello joe
+9	}
+1: x/i *$pc
+=> 0x555555555171 <hello+44>:	nop
+(gdb) nip (char*)0x5555555550306004[C[C[C[C[C[Cni[K[K[Kb hello
+Note: breakpoint 1 also set at pc 0x555555555155.
+Breakpoint 2 at 0x555555555155: file hello.c, line 8.
+(gdb) r h[Kjoe
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /import/linux/home1/ctran20/git-repos/i220a/work/lab9/hello joe
+
+Breakpoint 1, hello (out=0x7ffff7f92760 <_IO_2_1_stdout_>, 
+    who=0x7fffffffead0 "joe") at hello.c:8
+8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555155 <hello+16>:	mov    -0x10(%rbp),%rdx
+(gdb) r joeb helloni[K[K[Kde[Kisplay /i *$pc
+2: x/i *$pc
+=> 0x555555555155 <hello+16>:	mov    -0x10(%rbp),%rdx
+(gdb) ni
+0x0000555555555159	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555159 <hello+20>:	mov    -0x8(%rbp),%rax
+2: x/i *$pc
+=> 0x555555555159 <hello+20>:	mov    -0x8(%rbp),%rax
+(gdb) ni
+0x000055555555515d	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x55555555515d <hello+24>:	lea    0xea0(%rip),%rsi        # 0x555555556004
+2: x/i *$pc
+=> 0x55555555515d <hello+24>:	lea    0xea0(%rip),%rsi        # 0x555555556004
+(gdb) nidisplay /i *$pc[C[C[C[C[C[C[10Pr joeb helloni[Kp (char*)0x555555555030[K[K[K[K6004
+$6 = 0x555555556004 "hello %s\n"
+(gdb) p (char*)0x555555556004[C[C[C[C[C[Cni[K
+0x0000555555555164	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555164 <hello+31>:	mov    %rax,%rdi
+2: x/i *$pc
+=> 0x555555555164 <hello+31>:	mov    %rax,%rdi
+(gdb) nip (char*)0x555555556004[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Krax
+No symbol "rax" in current context.
+(gdb) p rax[K[K[Knip (char*)0x555555556004[K[K[K=[K[K[K[K[K[K[K[K[K[K[K[K0x555555555164
+$7 = 0x555555555164 <hello+31> "H\211Ǹ"
+(gdb) p (char*)0x555555555164[C[C[C[C[C[C[C[C[Kni
+0x0000555555555167	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555167 <hello+34>:	mov    $0x0,%eax
+2: x/i *$pc
+=> 0x555555555167 <hello+34>:	mov    $0x0,%eax
+(gdb) nip (char*)0x555555555164[C[C[C[C[C[C[C[C[Knip (char*)0x555555556004[C[C[C[C[C[Cni[Kp (char*)0x555555556004[C[C[C[C[C[Cni[Kp (char*)0x555555555164[K7\
+ni[K[K
+$8 = 0x555555555167 <hello+34> "\270"
+(gdb) p (char*)0x555555555167
+$9 = 0x555555555167 <hello+34> "\270"
+(gdb) p (char*)0x555555555167[C[C[C[C[C[Cni[K
+0x000055555555516c	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x55555555516c <hello+39>:	callq  0x555555555030 <fprintf@plt>
+2: x/i *$pc
+=> 0x55555555516c <hello+39>:	callq  0x555555555030 <fprintf@plt>
+(gdb) nip (char*)0x555555555167[K[K[K[K[K[K[K[K[K[K[K[K[K[K0x555555555030 
+$10 = 0x555555555030 <fprintf@plt> "\377%\342/"
+(gdb) p (char*)0x555555555030 [C[C[C[C[C[Cni[K
+hello joe
+9	}
+1: x/i *$pc
+=> 0x555555555171 <hello+44>:	nop
+2: x/i *$pc
+=> 0x555555555171 <hello+44>:	nop
+(gdb) nip (char*)0x555555555030 [K[K[K[K171
+$11 = 0x555555555171 <hello+44> "\220\311\303UH\211\345H\203\354 \211}\354H\211u\340\203}\354\001u,H\213E\340H\213\020H\213\005\311."
+(gdb) p (char*)0x555555555171[C[C[C[C[C[Cni[K
+0x0000555555555172	9	}
+1: x/i *$pc
+=> 0x555555555172 <hello+45>:	leaveq 
+2: x/i *$pc
+=> 0x555555555172 <hello+45>:	leaveq 
+(gdb) ni
+0x0000555555555173	9	}
+1: x/i *$pc
+=> 0x555555555173 <hello+46>:	retq   
+2: x/i *$pc
+=> 0x555555555173 <hello+46>:	retq   
+(gdb) ni
+main (argc=2, argv=0x7fffffffe7b8) at hello.c:20
+20	  for (int i = 1; i < argc; i++) {
+1: x/i *$pc
+=> 0x5555555551e7 <main+115>:	addl   $0x1,-0x4(%rbp)
+2: x/i *$pc
+=> 0x5555555551e7 <main+115>:	addl   $0x1,-0x4(%rbp)
+(gdb) ni
+0x00005555555551eb	20	  for (int i = 1; i < argc; i++) {
+1: x/i *$pc
+=> 0x5555555551eb <main+119>:	mov    -0x4(%rbp),%eax
+2: x/i *$pc
+=> 0x5555555551eb <main+119>:	mov    -0x4(%rbp),%eax
+(gdb) ni
+0x00005555555551ee	20	  for (int i = 1; i < argc; i++) {
+1: x/i *$pc
+=> 0x5555555551ee <main+122>:	cmp    -0x14(%rbp),%eax
+2: x/i *$pc
+=> 0x5555555551ee <main+122>:	cmp    -0x14(%rbp),%eax
+(gdb) ni
+0x00005555555551f1	20	  for (int i = 1; i < argc; i++) {
+1: x/i *$pc
+=> 0x5555555551f1 <main+125>:	jl     0x5555555551be <main+74>
+2: x/i *$pc
+=> 0x5555555551f1 <main+125>:	jl     0x5555555551be <main+74>
+(gdb) ni
+23	  return 0;
+1: x/i *$pc
+=> 0x5555555551f3 <main+127>:	mov    $0x0,%eax
+2: x/i *$pc
+=> 0x5555555551f3 <main+127>:	mov    $0x0,%eax
+(gdb) ni
+24	}
+1: x/i *$pc
+=> 0x5555555551f8 <main+132>:	leaveq 
+2: x/i *$pc
+=> 0x5555555551f8 <main+132>:	leaveq 
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 29904] will be killed.
+
+Quit anyway? (y or n) y
+ctran20@g7-12:~/i220a/work/lab9$ gdb hello
+GNU gdb (Debian 8.2.1-2) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) b hello
+Breakpoint 1 at 0x1155: file hello.c, line 8.
+(gdb) j[Kni
+The program is not being run.
+(gdb) r joe
+Starting program: /import/linux/home1/ctran20/git-repos/i220a/work/lab9/hello joe
+
+Breakpoint 1, hello (out=0x7ffff7f92760 <_IO_2_1_stdout_>, 
+    who=0x7fffffffead0 "joe") at hello.c:8
+8	  fprintf(out, "hello %s\n", who);
+(gdb) ni
+0x0000555555555159	8	  fprintf(out, "hello %s\n", who);
+(gdb) n
+hello joe
+9	}
+(gdb) ni
+0x0000555555555172	9	}
+(gdb) ni
+0x0000555555555173	9	}
+(gdb) ni
+main (argc=2, argv=0x7fffffffe7b8) at hello.c:20
+20	  for (int i = 1; i < argc; i++) {
+(gdb) ni
+0x00005555555551eb	20	  for (int i = 1; i < argc; i++) {
+(gdb) p argv
+$1 = (const char **) 0x7fffffffe7b8
+(gdb) p argv[Kc
+$2 = 2
+(gdb) n
+23	  return 0;
+(gdb) n
+24	}
+(gdb) n
+__libc_start_main (main=0x555555555174 <main>, argc=2, argv=0x7fffffffe7b8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fffffffe7a8) at ../csu/libc-start.c:342
+342	../csu/libc-start.c: No such file or directory.
+(gdb) n
+[Inferior 1 (process 509) exited normally]
+(gdb) np argcv[K[K[K[K[K[Kq
+ctran20@g7-12:~/i220a/work/lab9$ gdb hello
+GNU gdb (Debian 8.2.1-2) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) n[Kb hello
+Breakpoint 1 at 0x1155: file hello.c, line 8.
+(gdb) r joe
+Starting program: /import/linux/home1/ctran20/git-repos/i220a/work/lab9/hello joe
+
+Breakpoint 1, hello (out=0x7ffff7f92760 <_IO_2_1_stdout_>, 
+    who=0x7fffffffead0 "joe") at hello.c:8
+8	  fprintf(out, "hello %s\n", who);
+(gdb) s[Kdisplay /i *$pc
+1: x/i *$pc
+=> 0x555555555155 <hello+16>:	mov    -0x10(%rbp),%rdx
+(gdb) ni
+0x0000555555555159	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555159 <hello+20>:	mov    -0x8(%rbp),%rax
+(gdb) ni
+0x000055555555515d	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x55555555515d <hello+24>:	lea    0xea0(%rip),%rsi        # 0x555555556004
+(gdb) ni[K[Knidisplay /i *$pc[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kp *(int *)($rbp - 20)[1P)[1P)0)x)8)[C[1P8)[1P8)
+$1 = -134666400
+(gdb) p *(int *)($rbp - 8)[C[1P[1P[1P[1P[1@([1@c[1@o[1@n[1@s[1@t[C[1@ [1@c[1@h[1@a[1@r
+$2 = 96 '`'
+(gdb) p *(const char *)($rbp - 8)[1@*[1@*
+$3 = (const char **) 0x7ffff7f92760 <_IO_2_1_stdout_>
+(gdb) p *(const char ***)($rbp - 8)[C[C[C[C[C[C[C[C[C[C[1P)1)0)
+$4 = (const char **) 0x7ffff7f927600000
+(gdb) p *(const char ***)($rbp - 10)[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kni
+0x0000555555555164	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555164 <hello+31>:	mov    %rax,%rdi
+(gdb) ni
+0x0000555555555167	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x555555555167 <hello+34>:	mov    $0x0,%eax
+(gdb) ni
+0x000055555555516c	8	  fprintf(out, "hello %s\n", who);
+1: x/i *$pc
+=> 0x55555555516c <hello+39>:	callq  0x555555555030 <fprintf@plt>
+(gdb) nip *(const char ***)($rbp - 10)[1P0)
+$5 = (const char **) 0x7fffffffe6d0
+(gdb) p *(const char ***)($rbp - 0)[C[C[C[C[C[C[C[C[C[C[C[C[1P[1@i[1P[1P[1@s[1@i
+$6 = (const char **) 0x7325206f6c6c6568
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 784] will be killed.
+
+Quit anyway? (y or n) y
+ctran20@g7-12:~/i220a/work/lab9$ exit
+There are stopped jobs.
+ctran20@g7-12:~/i220a/work/lab9$ exit
+Exception ignored in: <gdb.GdbOutputFile object at 0x7f90f59231d0>
+Traceback (most recent call last):
+  File "/usr/share/gdb/python/gdb/__init__.py", line 43, in flush
+    def flush(self):
+KeyboardInterrupt
+
+Script done on 2019-10-17 11:21:04-04:00 [COMMAND_EXIT_CODE="0"]
