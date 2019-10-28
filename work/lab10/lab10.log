@@ -1,0 +1,111 @@
+Script started on 2019-10-24 10:07:26-04:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="24"]
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ gedit rotate/[K.c
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ ls
+cpuid1	cpuid2	lab10.log  lab10_output.txt  parity  rip  rotate  rsp
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ cd  r[K[Kr
+bash: cd: r: No such file or directory
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ cd rr[Kotate/
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/rotate$ ls
+Makefile  rotate.c
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/rotate$ c[Kgedit roa[Ktate.c 
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/rotate$ make
+cc -S -Wall -Og -std=c11 rotate.c
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/rotate$ ls
+Makefile  rotate.c  rotate.s
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/rotate$ lsmakegedit rotate.c [K[Ks
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/rotate$ gedit rotate.s[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmakegedit rotate.c 
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/rotate$ gedit rotate.c [1Ps
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/rotate$ gedit rotate.sc 
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/rotate$ ls
+Makefile  rotate.c  rotate.s
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/rotate$ cd ..
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ cd cpuid1
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid1$ ls
+cpuid.s  main.c  Makefile
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid1$ make
+cc -g -Wall -std=c11 -Og   -c -o main.o main.c
+cc -c -g -Wall -std=c11 -Og cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid1$ ls
+cpuid  cpuid.o	cpuid.s  main.c  main.o  Makefile
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid1$ gedit cpuid.o [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ko
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid1$ gedit cpuid.o [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ks
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid1$ gedit cpuid.s [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[Kmain.c
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid1$ ./cpuid 
+cpuid: eax = 0xd; ebx = 0x756e6547; edx = 0x49656e69; ecx = 0x6c65746e
+vendor: GenuineIntel
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid1$ cd ..
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ cd cpuid2
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid2$ gedit main.c
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid2$ gedit main.c[K[K[K[K[K[Kcpuid.s 
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid2$ cd ..
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ cdc[K cpuid1
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid1$ cd cpuid1[4P..gedit cpuid.s [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ks
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid1$ cd ..
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ cd cpuid2
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid2$ ls
+cpuid.s  main.c  Makefile
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid2$ lscd cpuid2[4P..gedit cpuid.s [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pcd cpuid1
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4P..gedit cpuid.s [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Pmain.c
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid2$ make
+cc -g -Wall -std=c11 -Og   -c -o main.o main.c
+cc -c -g -Wall -std=c11 -Og cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid2$ ls
+cpuid  cpuid.o	cpuid.s  main.c  main.o  Makefile
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid2$ ./cpuid 
+usage: ./cpuid CPUID_OP
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid2$ ./cpuid 0
+Segmentation fault
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/cpuid2$ cd ..
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ ls
+cpuid1	cpuid2	lab10.log  lab10_output.txt  parity  rip  rotate  rsp
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ l
+bash: l: command not found
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ ls
+cpuid1	cpuid2	lab10.log  lab10_output.txt  parity  rip  rotate  rsp
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10$ cd parity/
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ ls
+main.c	Makefile  parity.s
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ gedit pr[K[Kparity.s 
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ ls
+main.c	Makefile  parity.s
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ make
+cc -g -Wall -std=c11 -Og   -c -o main.o main.c
+cc -c -g -Wall -std=c11 -Og parity.s -o parity.o
+cc main.o parity.o -o parity
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ ks[K[Kls
+main.c	main.o	Makefile  parity  parity.o  parity.s
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ ls[K[Kgedit main.
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ gedit main.c
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ ls
+main.c	main.o	Makefile  parity  parity.o  parity.s
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ make
+cc -c -g -Wall -std=c11 -Og parity.s -o parity.o
+parity.s: Assembler messages:
+parity.s:7: Error: number of operands mismatch for `test'
+parity.s:8: Error: no such instruction: `jnpe .A'
+make: *** [Makefile:9: parity.o] Error 1
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ make
+cc -c -g -Wall -std=c11 -Og parity.s -o parity.o
+parity.s: Assembler messages:
+parity.s:7: Error: number of operands mismatch for `test'
+make: *** [Makefile:9: parity.o] Error 1
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ make
+cc -c -g -Wall -std=c11 -Og parity.s -o parity.o
+parity.s: Assembler messages:
+parity.s:7: Error: number of operands mismatch for `test'
+make: *** [Makefile:9: parity.o] Error 1
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ make
+cc -c -g -Wall -std=c11 -Og parity.s -o parity.o
+parity.s: Assembler messages:
+parity.s:7: Error: number of operands mismatch for `test'
+make: *** [Makefile:9: parity.o] Error 1
+ctran20@g7-11:/import/linux/home1/ctran20/i220a/work/lab10/parity$ ^C
+
+Script done on 2019-10-24 11:21:31-04:00 [COMMAND_EXIT_CODE="130"]

@@ -1,0 +1,5 @@
+Exercise 1:
+The compiler has replaced rotl() and rotr() calls with simple rotl and rotr instructions respectively.
+
+Exercise 3:
+Raushan said skip this one
