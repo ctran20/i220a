@@ -3,3 +3,5 @@ The compiler has replaced rotl() and rotr() calls with simple rotl and rotr inst
 
 Exercise 3:
 Raushan said skip this one
+
+Note: I accidently pushed it on work and later moved to submit
