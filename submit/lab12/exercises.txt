@@ -1,0 +1,63 @@
+Exercise 1:
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls *'$'*
+'1$2'  'a$b'
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls *"'"*
+"'12"  "a'b"
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls *'\'*
+'\\ab'
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls ??
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 '**'
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls -- ??
+'**'   -l
+
+Exercise 2:
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ p=$PATH
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo $p
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ export PATH=
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo $PATH
+
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls
+bash: ls: No such file or directory
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ export PATH=$p
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l   lab12.log
+
+Exercise 5:
+ctran20@g7-10:~$ grep -i | wc -l 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`
+   47 /home/ctran20/cs220/projects/prj1/prj1-sol/bits-to-ints.h
+   30 /home/ctran20/cs220/projects/prj1/prj1-sol/errors.c
+   14 /home/ctran20/cs220/projects/prj1/prj1-sol/errors.h
+   54 /home/ctran20/cs220/projects/prj1/prj1-sol/bits-to-ints.c
+   58 /home/ctran20/cs220/projects/prj1/prj1-sol/main.c
+  178 /home/ctran20/cs220/projects/prj1-sol/bits-to-ints.c
+   46 /home/ctran20/cs220/projects/prj1-sol/bits-to-ints.h
+   30 /home/ctran20/cs220/projects/prj1-sol/errors.c
+   14 /home/ctran20/cs220/projects/prj1-sol/errors.h
+   58 /home/ctran20/cs220/projects/prj1-sol/main.c
+   87 /home/ctran20/cs220/projects/prj2/prj2-sol/big-bits.c
+   61 /home/ctran20/cs220/projects/prj2/prj2-sol/big-bits.h
+   30 /home/ctran20/cs220/projects/prj2/prj2-sol/errors.c
+   14 /home/ctran20/cs220/projects/prj2/prj2-sol/errors.h
+   49 /home/ctran20/cs220/projects/prj2/prj2-sol/hex-util.c
+   18 /home/ctran20/cs220/projects/prj2/prj2-sol/hex-util.h
+  302 /home/ctran20/cs220/projects/prj2/prj2-sol/main.c
+   52 /home/ctran20/cs220/projects/prj2/prj2-sol/stack.h
+   75 /home/ctran20/cs220/projects/prj2/prj2-sol/stack.c
+  140 /home/ctran20/cs220/projects/prj2-sol/alt-big-bits.c
+  184 /home/ctran20/cs220/projects/prj2-sol/big-bits.c
+   61 /home/ctran20/cs220/projects/prj2-sol/big-bits.h
+   30 /home/ctran20/cs220/projects/prj2-sol/errors.c
+   14 /home/ctran20/cs220/projects/prj2-sol/errors.h
+   49 /home/ctran20/cs220/projects/prj2-sol/hex-util.c
+   18 /home/ctran20/cs220/projects/prj2-sol/hex-util.h
+  302 /home/ctran20/cs220/projects/prj2-sol/main.c
+   75 /home/ctran20/cs220/projects/prj2-sol/stack.c
+   52 /home/ctran20/cs220/projects/prj2-sol/stack.h
+ 2142 total
+
+Exercise 6:
+ctran20@g7-10:~$ sleep 5 && echo 123
+123
+
+

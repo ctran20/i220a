@@ -1,0 +1,438 @@
+Script started on 2019-11-07 10:34:40-05:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="24"]
+
+************************************************************************
+				Exercise 1
+************************************************************************
+
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l   lab12.log
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo \\
+\
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo \'
+'
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo \*
+*
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo \$HOME\"\\
+$HOME"\
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ \$HOME\"\\[K[K[K[K[K[K[K[K[K[Kecho '/[K\'
+\
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ 
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo '\'[K[K\\'
+\\
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo '\\'[K[K[K*$![K~'
+*$~
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ c[Kecho '\''
+> '
+\
+
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo '\''
+
+'[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C*$~'
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P\\'*$~'[1P\''
+
+'
+[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P''H''e''l''l''o''
+> World
+> '
+Hello
+World
+
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo '[K"\"\\"
+"\
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo \
+> abc\[K \
+> 123
+abc 123
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ e[Kls *$*
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 '**'
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 '1$2'
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 "'12"
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 '1"2'
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 'a$b'
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 '\\ab'
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 'a"b'
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 "a'b"
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:34  lab12.log
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls *$*'*'$'*
+'1$2'  'a$b'
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls *"'"*
+"'12"  "a'b"
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls *"'"*[C[C[C[1P*[1P*[1P*'*\*'*
+'\\ab'
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls *'\'*[1P*[1P*[1P*[K[K??
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 '**'
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls ?? --
+-rw-r--r-- 1 ctran20 ctran20 0 Nov  7 10:31 '**'
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls ?? --[C[K[K[K[K[K-- ??
+'**'   -l
+
+************************************************************************
+				Exercise 2
+************************************************************************
+
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ env
+SHELL=/bin/bash
+SESSION_MANAGER=local/g7-10:@/tmp/.ICE-unix/24646,unix/g7-10:/tmp/.ICE-unix/24646
+WINDOWID=52428803
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session12
+XDG_MENU_PREFIX=xfce-
+SSH_AUTH_SOCK=/tmp/ssh-pmZmZfCFx23n/agent.24601
+DESKTOP_SESSION=lightdm-xsession
+SSH_AGENT_PID=24636
+GTK_MODULES=gail:atk-bridge
+XDG_SEAT=seat0
+PWD=/home/ctran20/i220a/work/lab12/quote-files
+KRB5CCNAME=FILE:/tmp/krb5cc_14797_AeWG54
+LOGNAME=ctran20
+XDG_SESSION_DESKTOP=lightdm-xsession
+XDG_SESSION_TYPE=x11
+XAUTHORITY=/home/ctran20/.Xauthority
+XDG_GREETER_DATA_DIR=/var/lib/lightdm/data/ctran20
+HOME=/home/ctran20
+LANG=en_US.UTF-8
+XDG_CURRENT_DESKTOP=XFCE
+VTE_VERSION=5402
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+GLADE_CATALOG_PATH=:
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+USER=ctran20
+DISPLAY=:2.0
+SHLVL=2
+XDG_VTNR=9
+XDG_SESSION_ID=40
+GLADE_MODULE_PATH=:
+XDG_RUNTIME_DIR=/run/user/14797
+GLADE_PIXMAP_PATH=:
+XDG_DATA_DIRS=/usr/share/xfce4:/usr/local/share/:/usr/share/:/usr/share
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+GDMSESSION=lightdm-xsession
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/14797/bus
+OLDPWD=/home/ctran20/i220a/work/lab12
+_=/usr/bin/env
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo $HOME
+/home/ctran20
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo $HOME[K[K[K[KPT[KATH
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo $xxx
+
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ xxx = 123
+bash: xxx: command not found
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo $xx[K[K[K[K[K[K[K[K$xxx = 123
+bash: =: command not found
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ $xxx = 123[K[K[K[K[K[K[K[K[K[Kxxx=123
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ xxx=123$xxx = 123[1P[C[C[C[C[C[C[C[C[Cecho $xxx
+123
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ env | grep xxx
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ export xxx
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ export xxx[4@nv | grep[C[C[C[C
+xxx=123
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ export xx [K=456
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ export xx=456nv | grep xxx[K
+xxx=123
+xx=456
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ p=$PATH
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echp [K[Ko $p
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ export PATH=null
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo $PATH
+null
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ echo $PATHxport PATH=null[K[K[K[K
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ export PATH=[2Pcho $PATH
+
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls
+bash: ls: No such file or directory
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ lsecho $PATHxport PATH=$p
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ export PATH=$pls[K
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l   lab12.log
+
+************************************************************************
+				Exercise 3
+************************************************************************
+
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ ls ; wc *
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l   lab12.log
+0 **
+0 1$2
+0 '12
+0 1"2
+0 a$b
+0 \\ab
+0 a"b
+0 a'b
+0 lab12.log
+0 total
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ find -L ~/cs220 -name '*.c' | wc -l
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K
+/home/ctran20/cs220/labs/lab2/files/ex1/hello.c
+/home/ctran20/cs220/labs/lab2/files/ex3/main.c
+/home/ctran20/cs220/labs/lab2/files/ex3/quadr.c
+/home/ctran20/cs220/labs/lab2/files/ex4/key-value.c
+/home/ctran20/cs220/labs/lab2/files/ex4/main.c
+/home/ctran20/cs220/labs/lab2/files/ex4/process-file.c
+/home/ctran20/cs220/labs/lab3/files/ex1/hello.c
+/home/ctran20/cs220/labs/lab3/files/ex2/hello.c
+/home/ctran20/cs220/labs/lab4/files/ex1/uints.c
+/home/ctran20/cs220/labs/lab4/files/ex2/ints.c
+/home/ctran20/cs220/labs/lab4/files/ex3/identify.c
+/home/ctran20/cs220/labs/lab4/files/ex4/negeq.c
+/home/ctran20/cs220/labs/lab4/files/ex6/0.1.c
+/home/ctran20/cs220/labs/lab4/files/ex7/nan.c
+/home/ctran20/cs220/labs/lab4/files/ex8/ulp.c
+/home/ctran20/cs220/labs/lab4/files/ex9/loop.c
+/home/ctran20/cs220/labs/lab5/files/ex1/pointers.c
+/home/ctran20/cs220/labs/lab5/files/ex2/in-pointers.c
+/home/ctran20/cs220/labs/lab5/files/ex3/bad-types.c
+/home/ctran20/cs220/labs/lab5/files/ex4/cast-types.c
+/home/ctran20/cs220/labs/lab5/files/ex5/void-pointers.c
+/home/ctran20/cs220/labs/lab5/files/ex6/in-voids.c
+/home/ctran20/cs220/labs/lab6/files/brk/brk.c
+/home/ctran20/cs220/labs/lab6/files/bug-program/bug-program.c
+/home/ctran20/cs220/labs/lab6/files/process-memory/process-memory.c
+/home/ctran20/cs220/labs/lab7/files/libgeom/circ.c
+/home/ctran20/cs220/labs/lab7/files/libgeom/rect.c
+/home/ctran20/cs220/labs/lab7/files/libgeom/testgeom.c
+/home/ctran20/cs220/labs/lab7/files/libvec/addvec.c
+/home/ctran20/cs220/labs/lab7/files/libvec/multvec.c
+/home/ctran20/cs220/labs/lab7/files/libvec/testvec.c
+/home/ctran20/cs220/labs/lab7/files/log10/log10.c
+/home/ctran20/cs220/labs/lab7/files/multiple-defs/f.c
+/home/ctran20/cs220/labs/lab7/files/multiple-defs/main.c
+/home/ctran20/cs220/labs/lab7/files/multiple-symbols/def1.c
+/home/ctran20/cs220/labs/lab7/files/multiple-symbols/def2.c
+/home/ctran20/cs220/labs/lab7/files/multiple-symbols/main.c
+/home/ctran20/cs220/labs/lab7/files/static-dynamic/log10.c
+/home/ctran20/cs220/labs/lab8/files/hello-multi.c
+/home/ctran20/cs220/labs/lab8/files/hello-one.c
+/home/ctran20/cs220/labs/lab9/files/hello.c
+/home/ctran20/cs220/labs/lab10/files/cpuid1/main.c
+/home/ctran20/cs220/labs/lab10/files/cpuid2/main.c
+/home/ctran20/cs220/labs/lab10/files/parity/main.c
+/home/ctran20/cs220/labs/lab10/files/rip/rip.c
+/home/ctran20/cs220/labs/lab10/files/rotate/rotate.c
+/home/ctran20/cs220/labs/lab10/files/rsp/rsp.c
+/home/ctran20/cs220/labs/lab11/files/coverage/coverage.c
+/home/ctran20/cs220/labs/lab11/files/int-search/binary-search.c
+/home/ctran20/cs220/labs/lab11/files/int-search/int_compare.c
+/home/ctran20/cs220/labs/lab11/files/int-search/linear-search.c
+/home/ctran20/cs220/labs/lab11/files/int-search/main.c
+/home/ctran20/cs220/labs/lab11/files/matmul-cache/main.c
+/home/ctran20/cs220/labs/lab11/files/matmul-cache/simple-matmul.c
+/home/ctran20/cs220/labs/lab11/files/matmul-cache/transpose-matmul.c
+/home/ctran20/cs220/labs/lab11/files/parity/main.c
+/home/ctran20/cs220/labs/lab11/files/parity/parity-c.c
+/home/ctran20/cs220/labs/lab11/files/parity/parity-s.c
+/home/ctran20/cs220/misc/bin-num/220a/bin-num.c
+/home/ctran20/cs220/misc/bin-num/220a/main.c
+/home/ctran20/cs220/misc/bin-num/220b/bin-num.c
+/home/ctran20/cs220/misc/bin-num/220b/main.c
+/home/ctran20/cs220/misc/shapes/cs220a/shapes.c
+/home/ctran20/cs220/misc/shapes/cs220b/shapes.c
+/home/ctran20/cs220/projects/prj1/prj1-sol/errors.c
+/home/ctran20/cs220/projects/prj1/prj1-sol/bits-to-ints.c
+/home/ctran20/cs220/projects/prj1/prj1-sol/main.c
+/home/ctran20/cs220/projects/prj1-sol/bits-to-ints.c
+/home/ctran20/cs220/projects/prj1-sol/errors.c
+/home/ctran20/cs220/projects/prj1-sol/main.c
+/home/ctran20/cs220/projects/prj2/prj2-sol/big-bits.c
+/home/ctran20/cs220/projects/prj2/prj2-sol/errors.c
+/home/ctran20/cs220/projects/prj2/prj2-sol/hex-util.c
+/home/ctran20/cs220/projects/prj2/prj2-sol/main.c
+/home/ctran20/cs220/projects/prj2/prj2-sol/stack.c
+/home/ctran20/cs220/projects/prj2-sol/alt-big-bits.c
+/home/ctran20/cs220/projects/prj2-sol/big-bits.c
+/home/ctran20/cs220/projects/prj2-sol/errors.c
+/home/ctran20/cs220/projects/prj2-sol/hex-util.c
+/home/ctran20/cs220/projects/prj2-sol/main.c
+/home/ctran20/cs220/projects/prj2-sol/stack.c
+/home/ctran20/cs220/slides/c-intro/code/bases.c
+/home/ctran20/cs220/slides/c-intro/code/out-bits.c
+/home/ctran20/cs220/slides/c-intro/code/sum.c
+/home/ctran20/cs220/slides/c-intro/code/count-1s-1.c
+/home/ctran20/cs220/slides/c-intro/code/count-1s-2.c
+/home/ctran20/cs220/slides/c-intro/code/endian.c
+/home/ctran20/cs220/slides/c-intro/code/integer-sizes.c
+/home/ctran20/cs220/slides/c-intro/code/kilo-powers.c
+/home/ctran20/cs220/slides/c-intro/code/ptr-sum.c
+/home/ctran20/cs220/slides/c-intro/code/robust-sum.c
+/home/ctran20/cs220/slides/c-intro/code/sum-args.c
+/home/ctran20/cs220/slides/c-intro/code/wc.c
+/home/ctran20/cs220/slides/intro/code/hello.c
+/home/ctran20/cs220/slides/adts/code/stack.c
+/home/ctran20/cs220/slides/x86/code/arith.c
+/home/ctran20/cs220/slides/x86/code/conditional-move.c
+/home/ctran20/cs220/slides/x86/code/div-mod.c
+/home/ctran20/cs220/slides/x86/code/dynamic-array.c
+/home/ctran20/cs220/slides/x86/code/find.c
+/home/ctran20/cs220/slides/x86/code/mstore/main.c
+/home/ctran20/cs220/slides/x86/code/mstore/mstore.c
+/home/ctran20/cs220/slides/x86/code/abs-diff.c
+/home/ctran20/cs220/slides/x86/code/cmp-sets.c
+/home/ctran20/cs220/slides/x86/code/fact-do-while.c
+/home/ctran20/cs220/slides/x86/code/fact-while.c
+/home/ctran20/cs220/slides/x86/code/indirect-goto.c
+/home/ctran20/cs220/slides/x86/code/scale.c
+/home/ctran20/cs220/slides/x86/code/sum-dist-origin.c
+/home/ctran20/cs220/slides/x86/code/sum.c
+/home/ctran20/cs220/slides/x86/code/sum-dist-origin-s.c
+/home/ctran20/cs220/slides/x86/code/switch.c
+/home/ctran20/cs220/slides/x86/code/point3.c
+/home/ctran20/cs220/slides/x86/code/read-point.c
+/home/ctran20/cs220/slides/x86/code/stack-frame.c
+/home/ctran20/cs220/slides/x86/code/structs.c
+/home/ctran20/cs220/slides/x86/code/array-access.c
+/home/ctran20/cs220/slides/x86/code/move.c
+/home/ctran20/cs220/slides/x86/code/rec-fact.c
+/home/ctran20/cs220/slides/x86/code/vframe.c
+/home/ctran20/cs220/slides/x86/code/acc-fact.c
+/home/ctran20/cs220/slides/advanced-c/code/enum-strings.c
+/home/ctran20/cs220/slides/advanced-c/code/oo-shapes/circle.c
+/home/ctran20/cs220/slides/advanced-c/code/oo-shapes/main.c
+/home/ctran20/cs220/slides/advanced-c/code/oo-shapes/rect.c
+/home/ctran20/cs220/slides/advanced-c/code/oo-shapes/shape.c
+/home/ctran20/cs220/slides/advanced-c/code/stack/main.c
+/home/ctran20/cs220/slides/advanced-c/code/stack/stack.c
+/home/ctran20/cs220/slides/advanced-c/code/float-decode.c
+/home/ctran20/cs220/exercises/questions/src/x86/fns-asm.c
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ find -L ~/cs220 -name '*.c' | wc -l
+130
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ $ find / -name '*.c' 2>/dev/null
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ find / -name '*.c' 2>/dev/null >c-files.lst &
+[1] 32330
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ jobs
+[1]+  Running                 find / -name '*.c' 2> /dev/null > c-files.lst &
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ kill %l[K1
+
+************************************************************************
+				Exercise 4
+************************************************************************
+
+ctran20@g7-10:~/i220a/work/lab12/quote-files$ cd ~
+[1]+  Terminated              find / -name '*.c' 2> /dev/null > c-files.lst  (wd: ~/i220a/work/lab12/quote-files)
+(wd now: ~)
+ctran20@g7-10:~$ pwd
+/home/ctran20
+ctran20@g7-10:~$ xx=123
+ctran20@g7-10:~$ pwd; echo$[K $xx [K; (xx=abc; cd /; pwd; echo $xx); pwd; echo $xx
+/home/ctran20
+123
+/
+abc
+/home/ctran20
+123
+
+************************************************************************
+				Exercise 5
+************************************************************************
+
+ctran20@g7-10:~$ grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`
+/home/ctran20/cs220/projects/prj1/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/ctran20/cs220/projects/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/ctran20/cs220/projects/prj2/prj2-sol/main.c:main()
+/home/ctran20/cs220/projects/prj2-sol/main.c:main()
+ctran20@g7-10:~$ wc -l
+d ^C
+ctran20@g7-10:~$ wc -lgrep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C|wc -l
+4
+ctran20@g7-10:~$ grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`|wc -l[C[1P[1@;[1@ 
+/home/ctran20/cs220/projects/prj1/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/ctran20/cs220/projects/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/ctran20/cs220/projects/prj2/prj2-sol/main.c:main()
+/home/ctran20/cs220/projects/prj2-sol/main.c:main()
+^C
+ctran20@g7-10:~$ grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`; wc -l[K[K[K[K[K[K[K[C `|`[C `w`c` `-`l`
+grep: 29: No such file or directory
+ctran20@g7-10:~$ grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]' | wc -l`[1P`[1P`[1P`[1P`[1P`[1P`[1P`[1P`[1@e[1@c[1@ [1P[1P[1P[1@e[1@c[1@ [1@-[1P[1P[1P[1P[1@w[1@c[1@ [1@-[1@ [1@l[1P[1P[1@;[1@ [1P[1P[1@l[1@ 
+wc: invalid option -- 'i'
+Try 'wc --help' for more information.
+ctran20@g7-10:~$ wc -l grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`[C[1@ [1@<
+bash: grep: No such file or directory
+ctran20@g7-10:~$ wc -l < grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`[1P[1@|
+/home/ctran20/cs220/projects/prj1/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/ctran20/cs220/projects/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/ctran20/cs220/projects/prj2/prj2-sol/main.c:main()
+/home/ctran20/cs220/projects/prj2-sol/main.c:main()
+^C
+ctran20@g7-10:~$ wc -l | grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`[1P[1@'[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C'
+bash: syntax error near unexpected token `('
+ctran20@g7-10:~$ wc -l 'grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`'[C[K"[1P[1@"
+wc: 'grep -i '\''MAIN('\'' /home/ctran20/cs220/projects/prj1/prj1-sol/bits-to-ints.h'$'\n''/home/ctran20/cs220/projects/prj1/prj1-sol/errors.c'$'\n''/home/ctran20/cs220/projects/prj1/prj1-sol/errors.h'$'\n''/home/ctran20/cs220/projects/prj1/prj1-sol/bits-to-ints.c'$'\n''/home/ctran20/cs220/projects/prj1/prj1-sol/main.c'$'\n''/home/ctran20/cs220/projects/prj1-sol/bits-to-ints.c'$'\n''/home/ctran20/cs220/projects/prj1-sol/bits-to-ints.h'$'\n''/home/ctran20/cs220/projects/prj1-sol/errors.c'$'\n''/home/ctran20/cs220/projects/prj1-sol/errors.h'$'\n''/home/ctran20/cs220/projects/prj1-sol/main.c'$'\n''/home/ctran20/cs220/projects/prj2/prj2-sol/big-bits.c'$'\n''/home/ctran20/cs220/projects/prj2/prj2-sol/big-bits.h'$'\n''/home/ctran20/cs220/projects/prj2/prj2-sol/errors.c'$'\n''/home/ctran20/cs220/projects/prj2/prj2-sol/errors.h'$'\n''/home/ctran20/cs220/projects/prj2/prj2-sol/hex-util.c'$'\n''/home/ctran20/cs220/projects/prj2/prj2-sol/hex-util.h'$'\n''/home/ctran20/cs220/projects/prj2/prj2-sol/main.c'$'\n''/home/ctran20/cs220/projects/prj2/prj2-sol/stack.h'$'\n''/home/ctran20/cs220/projects/prj2/prj2-sol/stack.c'$'\n''/home/ctran20/cs220/projects/prj2-sol/alt-big-bits.c'$'\n''/home/ctran20/cs220/projects/prj2-sol/big-bits.c'$'\n''/home/ctran20/cs220/projects/prj2-sol/big-bits.h'$'\n''/home/ctran20/cs220/projects/prj2-sol/errors.c'$'\n''/home/ctran20/cs220/projects/prj2-sol/errors.h'$'\n''/home/ctran20/cs220/projects/prj2-sol/hex-util.c'$'\n''/home/ctran20/cs220/projects/prj2-sol/hex-util.h'$'\n''/home/ctran20/cs220/projects/prj2-sol/main.c'$'\n''/home/ctran20/cs220/projects/prj2-sol/stack.c'$'\n''/home/ctran20/cs220/projects/prj2-sol/stack.h': No such file or directory
+ctran20@g7-10:~$ wc -l "grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`"[K\[1P[1@\
+> 
+wc: invalid option -- 'i'
+Try 'wc --help' for more information.
+ctran20@g7-10:~$ wc -l \grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`\
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C"grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`"
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C'grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`'
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C| grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C<[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgrep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]' | wc -l`[1P`; wc -l[1P|[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwc -l[Kgrep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`
+/home/ctran20/cs220/projects/prj1/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/ctran20/cs220/projects/prj1-sol/main.c:main(int argc, const char *argv[])
+/home/ctran20/cs220/projects/prj2/prj2-sol/main.c:main()
+/home/ctran20/cs220/projects/prj2-sol/main.c:main()
+ctran20@g7-10:~$ grep -i 'MAIN(' `find ~/cs220/projects -name '*.[ch]'`[C[C[C[C[C[C[C[C[1@|[1@ [1P[1@ [1@w[1@c[1@-[1P[1@ [1@-[1@l[1@ 
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+wc: 'MAIN(': No such file or directory
+   47 /home/ctran20/cs220/projects/prj1/prj1-sol/bits-to-ints.h
+   30 /home/ctran20/cs220/projects/prj1/prj1-sol/errors.c
+   14 /home/ctran20/cs220/projects/prj1/prj1-sol/errors.h
+   54 /home/ctran20/cs220/projects/prj1/prj1-sol/bits-to-ints.c
+   58 /home/ctran20/cs220/projects/prj1/prj1-sol/main.c
+  178 /home/ctran20/cs220/projects/prj1-sol/bits-to-ints.c
+   46 /home/ctran20/cs220/projects/prj1-sol/bits-to-ints.h
+   30 /home/ctran20/cs220/projects/prj1-sol/errors.c
+   14 /home/ctran20/cs220/projects/prj1-sol/errors.h
+   58 /home/ctran20/cs220/projects/prj1-sol/main.c
+   87 /home/ctran20/cs220/projects/prj2/prj2-sol/big-bits.c
+   61 /home/ctran20/cs220/projects/prj2/prj2-sol/big-bits.h
+   30 /home/ctran20/cs220/projects/prj2/prj2-sol/errors.c
+   14 /home/ctran20/cs220/projects/prj2/prj2-sol/errors.h
+   49 /home/ctran20/cs220/projects/prj2/prj2-sol/hex-util.c
+   18 /home/ctran20/cs220/projects/prj2/prj2-sol/hex-util.h
+  302 /home/ctran20/cs220/projects/prj2/prj2-sol/main.c
+   52 /home/ctran20/cs220/projects/prj2/prj2-sol/stack.h
+   75 /home/ctran20/cs220/projects/prj2/prj2-sol/stack.c
+  140 /home/ctran20/cs220/projects/prj2-sol/alt-big-bits.c
+  184 /home/ctran20/cs220/projects/prj2-sol/big-bits.c
+   61 /home/ctran20/cs220/projects/prj2-sol/big-bits.h
+   30 /home/ctran20/cs220/projects/prj2-sol/errors.c
+   14 /home/ctran20/cs220/projects/prj2-sol/errors.h
+   49 /home/ctran20/cs220/projects/prj2-sol/hex-util.c
+   18 /home/ctran20/cs220/projects/prj2-sol/hex-util.h
+  302 /home/ctran20/cs220/projects/prj2-sol/main.c
+   75 /home/ctran20/cs220/projects/prj2-sol/stack.c
+   52 /home/ctran20/cs220/projects/prj2-sol/stack.h
+ 2142 total
+
+************************************************************************
+				Exercise 6
+************************************************************************
+
+ctran20@g7-10:~$ echo $?
+1
+ctran20@g7-10:~$ fl[Kalse; echo 123
+123
+ctran20@g7-10:~$ false; echo 123[1P[1P[1P[1P[1P[1@t[1@r[1@u[1@e
+123
+ctran20@g7-10:~$ false && echo 123
+ctran20@g7-10:~$ false && echo 123[C[1P[1P[1P[1P[1P[1@t[1@r[1@u[1@e
+123
+ctran20@g7-10:~$ true && echo 123[C[1P[1P[1P[C[1@ [1@|[1@|
+ctran20@g7-10:~$ true || echo 123[C[C[C[2@^?[2P[1P[1P[1P[1P[1@f[1@a[1@l[1@s[1@e
+123
+ctran20@g7-10:~$ sleep 5
+ctran20@g7-10:~$ sleep 5 && eco[Kho 123
+123
+ctran20@g7-10:~$ exit
+
+Script done on 2019-11-07 11:22:40-05:00 [COMMAND_EXIT_CODE="0"]
