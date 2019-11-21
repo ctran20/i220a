@@ -1,0 +1,131 @@
+GAS LISTING poll.s 			page 1
+
+
+   1              			#dos starts all .com programs at this offset
+   2 0000 00000000 			.org	0x100
+   2      00000000 
+   2      00000000 
+   2      00000000 
+   2      00000000 
+   3              	
+   4              		        .code16
+   5              	
+   6              	#Define constants
+   7              	DOS_INT 	=       0x21
+   8              	COUNT  		=        50
+   9              	QUIT   		= 	'q'
+  10              	DELAY_LO 	=	0x0
+  11              	DELAY_HI 	=	0x2
+  12              	
+  13              	#Entered at program startup.
+  14 0100 EB02     			jmp	main
+  15              	
+  16              	
+  17              	#data area	
+  18 0102 00       	inChar:		.byte	0
+  19 0103 01       	hasKey:		.byte   1
+  20              	
+  21              	main:
+  22              	main1:	
+  23 0104 E83300   			call    getchar         #read input char into inChar
+  24 0107 A00201   			mov	inChar, %al	#al set to char read
+  25 010a 3C71     			cmp	$QUIT, %al	#is it a QUIT character?
+  26 010c 741F     			jz	main3		#quit if got QUIT character
+  27 010e B93200   			mov     $COUNT, %cx     #set output counter
+  28              	main2:
+  29 0111 E81C00   		        call    checkKey	#check if key has been pressed
+  30 0114 A00301   			mov	hasKey, %al	#put checkKey result into al
+  31 0117 84C0     			test	%al, %al	#non-zero if keyboard has char
+  32 0119 7407     		        jz	main4           #no key press
+  33 011b 30C0     		        xor	%al, %al
+  34 011d A20301   			mov	%al, hasKey     #reset hasKey flag
+  35 0120 EBE2     			jmp	main1         #read new input key
+  36              	main4:	
+  37 0122 E81F00   		        call    putchar         #output inChar to console
+  38 0125 E82D00   			call    delay           #delay for time proportional to DELAY
+  39 0128 49       	                dec	%cx             #decrement loop counter
+  40 0129 75E6     			jnz     main2           #loop if output counter nonzero
+  41 012b EBD7     			jmp     main1           #back to read next char
+  42 012d E81F00   	main3:		call	exit
+  43              	
+  44              	#Set hasKey to non-zero if key has been pressed
+  45              	checkKey:
+  46 0130 50       			push    %ax
+  47 0131 B40B     			movb    $0xb, %ah       #specify fn: get stdin status
+  48 0133 CD21     			int     $DOS_INT
+  49 0135 A20301   			mov     %al, hasKey     #0 iff no key pressed
+  50 0138 58       			pop     %ax
+  51 0139 C3       			ret
+  52              	
+  53              		
+GAS LISTING poll.s 			page 2
+
+
+  54              	
+  55              	#Read next char from stdin into inChar.  Quit if ^C
+  56              	getchar:
+  57 013a 50       			push	%ax
+  58 013b B408     			mov     $0x08,%ah       #specify fn: read without echo into al
+  59 013d CD21     			int     $DOS_INT        #read stdin into %al
+  60 013f A20201   			mov     %al,inChar      #mov char read to inChar
+  61 0142 58       			pop	%ax
+  62 0143 C3       			ret
+  63              	
+  64              	#Write inChar to console	
+  65              	putchar:
+  66 0144 50       			push	%ax
+  67 0145 B402     			movb    $02,%ah         #specify fn: output dl to stdout
+  68 0147 8A160201 			movb    inChar,%dl      #char to output
+  69 014b CD21     			int     $DOS_INT        #output inChar
+  70 014d 58       			pop	%ax
+  71 014e C3       			ret
+  72              	
+  73              	exit:
+  74 014f B44C     			mov	$0x4c,%ah      	#specify fn: program exit
+  75 0151 B000     			mov	$0x0,%al        #setup exit status
+  76 0153 CD21     			int	$DOS_INT        #exit program
+  77              		
+  78              		
+  79              	
+  80              	#spin loop for delay time proportional to value in DELAY_HI_DELAY_LO
+  81 0155 50       	delay:		push	%ax
+  82 0156 53       			push	%bx
+  83 0157 51       			push	%cx
+  84 0158 BB0200   			mov	$DELAY_HI, %bx
+  85 015b B90000   	delay1:		mov     $DELAY_LO, %cx
+  86 015e B8A0F0   	delay2:		mov     $0x0f0a0, %ax
+  87 0161 F6E9     		        imul    %cl
+  88 0163 49       		        dec     %cx
+  89 0164 75F8     		        jnz     delay2
+  90 0166 4B       		        dec     %bx
+  91 0167 75F2     		        jnz	delay1
+  92 0169 59       		        pop	%cx
+  93 016a 5B       			pop	%bx
+  94 016b 58       			pop	%ax
+  95 016c C3       			ret
+  96              	
+GAS LISTING poll.s 			page 3
+
+
+DEFINED SYMBOLS
+              poll.s:7      *ABS*:0000000000000021 DOS_INT
+              poll.s:8      *ABS*:0000000000000032 COUNT
+              poll.s:9      *ABS*:0000000000000071 QUIT
+              poll.s:10     *ABS*:0000000000000000 DELAY_LO
+              poll.s:11     *ABS*:0000000000000002 DELAY_HI
+              poll.s:21     .text:0000000000000104 main
+              poll.s:18     .text:0000000000000102 inChar
+              poll.s:19     .text:0000000000000103 hasKey
+              poll.s:22     .text:0000000000000104 main1
+              poll.s:56     .text:000000000000013a getchar
+              poll.s:42     .text:000000000000012d main3
+              poll.s:28     .text:0000000000000111 main2
+              poll.s:45     .text:0000000000000130 checkKey
+              poll.s:36     .text:0000000000000122 main4
+              poll.s:65     .text:0000000000000144 putchar
+              poll.s:81     .text:0000000000000155 delay
+              poll.s:73     .text:000000000000014f exit
+              poll.s:85     .text:000000000000015b delay1
+              poll.s:86     .text:000000000000015e delay2
+
+NO UNDEFINED SYMBOLS

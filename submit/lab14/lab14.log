@@ -1,0 +1,284 @@
+Script started on 2019-11-21 10:17:47-05:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="80" LINES="24"]
+ctran20@g7-11:~/i220a/work/lab14$ dosbox &
+[1] 14650
+ctran20@g7-11:~/i220a/work/lab14$ DOSBox version 0.74-2
+Copyright 2002-2018 DOSBox Team, published under GNU GPL.
+---
+CONFIG: Generating default configuration.
+Writing it to /home/ctran20/.dosbox/dosbox-0.74-2.conf
+CONFIG:Loading primary settings from config file /home/ctran20/.dosbox/dosbox-0.74-2.conf
+MIXER:Got different values from SDL: freq 44100, blocksize 512
+ALSA:Can't subscribe to MIDI port (65:0) nor (17:0)
+MIDI:Opened device:none
+mount [K[K[K[K[K[Km[Kls
+block.s  key-int.s  lab14.log  Makefile  poll.s
+ctran20@g7-11:~/i220a/work/lab14$ make block.com
+as --32 -a=block.lst block.s -o block.o
+objcopy -O binary block.o block.bin
+rm block.o
+dd if=block.bin of=block.com bs=256 skip=1
+0+1 records in
+0+1 records out
+81 bytes copied, 0.00140767 s, 57.5 kB/s
+rm block.bin
+ctran20@g7-11:~/i220a/work/lab14$ od -x block.com
+0000000 01eb e800 0018 02a0 3c01 7471 b90e 0032
+0000020 15e8 e800 0023 7549 ebf7 e8e8 0015 b450
+0000040 cd08 a221 0102 c358 b450 8a02 0216 cd01
+0000060 5821 b4c3 b04c cd00 5021 5153 02bb b900
+0000100 0000 a0b8 f6f0 49e9 f875 754b 59f2 585b
+0000120 00c3
+0000121
+ctran20@g7-11:~/i220a/work/lab14$ ls
+block.com  block.lst  block.s  key-int.s  lab14.log  Makefile  poll.s
+ctran20@g7-11:~/i220a/work/lab14$ lsod -x block.com[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmake block.comls[Kmake block.com
+make: 'block.com' is up to date.
+ctran20@g7-11:~/i220a/work/lab14$ dosbox &
+[2] 16921
+[1]   Done                    dosbox
+ctran20@g7-11:~/i220a/work/lab14$ DOSBox version 0.74-2
+Copyright 2002-2018 DOSBox Team, published under GNU GPL.
+---
+CONFIG:Loading primary settings from config file /home/ctran20/.dosbox/dosbox-0.74-2.conf
+MIXER:Got different values from SDL: freq 44100, blocksize 512
+ALSA:Can't subscribe to MIDI port (65:0) nor (17:0)
+MIDI:Opened device:none
+ls
+block.com  block.lst  block.s  key-int.s  lab14.log  Makefile  poll.s
+ctran20@g7-11:~/i220a/work/lab14$ vim block.com
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"block.com" [noeol][converted] 1L, 112C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1Hë[34m^A^@[mè[1;7H[34m^X^@[m [34m^B^A[m<qt[34m^N[m¹[1;22H[31m2[m[34m^@[mè[1;26H[34m^U^@[mè[1;31H#[34m^@[mIu÷[1;37Hëè[1;39Hè[1;40H[34m^U^@[mP´[1;46H[34m^H[mÍ!¢[34m^B^A[mXÃP´[1;59H[34m^B<8a>^V^B^A[mÍ!XÃ´[1;76HL°[1;78H[34m^@[mÍ [2;1H!PSQ»[34m^B^@[m¹[2;11H[34m^@^@[m¸[2;16H ð[2;18Höé[2;20HIuø[2;23HKuò[2;26HY[35m[[mXÃ
+[94m~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H1,1[11CAll]2;block.com (~/git-repos/i220a/work/lab14) - VIM]1;block.com[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002h[27m[23m[29m[m[H[2J[?25l[1;1Hë[38;5;81m^A^@[mè[1;7H[38;5;81m^X^@[m [38;5;81m^B^A[m<qt[38;5;81m^N[m¹[1;22H[95m2[m[38;5;81m^@[mè[1;26H[38;5;81m^U^@[mè[1;31H#[38;5;81m^@[mIu÷[1;37Hëè[1;39Hè[1;40H[38;5;81m^U^@[mP´[1;46H[38;5;81m^H[mÍ!¢[38;5;81m^B^A[mXÃP´[1;59H[38;5;81m^B<8a>^V^B^A[mÍ!XÃ´[1;76HL°[1;78H[38;5;81m^@[mÍ [2;1H!PSQ»[38;5;81m^B^@[m¹[2;11H[38;5;81m^@^@[m¸[2;16H ð[2;18Höé[2;20HIuø[2;23HKuò[2;26HY[38;5;224m[[mXÃ
+[94m~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H1,1[11CAll"block.com" [noeol][converted] 1L, 112C[1;1H[?25h[?25l[24;53H^[[1;1H[24;53H  [1;1H[24;53H^[[1;1H[24;53H  [1;1H[?25h[?25l[24;53H:[1;1H[24;1H[K[24;1H:[?2004h[?25hq[?25l[?25h1[?25l[?25h[?25l[24;3H[K[24;3H[?25h![?25l[?25h[?25l[?1006l[?1002l[?2004l]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t[24;1H[K[24;1H[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@g7-11:~/i220a/work/lab14$ vim block.com[K[K[K[K[K[K[K[K[Kblock.lst
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"block.lst" 108L, 4379C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[36mGAS[m [36mLISTING[m [36mblock[m[38;5;130m.s[m[21C[36mpage[m [31m1[4;4H1[m[36C[34m#dos starts all .com programs at this off[5;1Hfset[m
+   [31m2[m [31m0000[m [31m00000000[m[22C[38;5;130m.org[m    [31m0x100
+[m   [31m2[m      [31m00000000
+[m   [31m2[m      [31m00000000
+[m   [31m2[m      [31m00000000
+[m   [31m2[m      [31m00000000
+[m   [31m3
+[m   [31m4[m[36C[38;5;130m.code16[m
+   [31m5
+[m   [31m6[m[20C[34m#Define constants[m
+   [31m7[m[20C[36mDOS_INT[m[9C=[7C[31m0x21
+[m   [31m8[m[20C[36mCOUNT[m[11C=[7C[31m50
+[m   [31m9[m[20C[36mQUIT[m[12C=[7C'[36mq[m'
+  [31m10[m[20C[36mDELAY_LO[m[8C=[7C[31m0x0
+[m  [31m11[m[20C[36mDELAY_HI[m[8C=[7C[31m0x2
+[m  [31m12
+[m  [31m13[m[20C[34m#Entered at program startup.[m
+  [31m14[m [31m0100[m [36mEB01[26Cjmp[m     [36mmain[m
+  [31m15[m[24;63H1,1[11CTop]2;block.lst (~/git-repos/i220a/work/lab14) - VIM]1;block.lst[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002h[27m[23m[29m[m[H[2J[?25l[1;1H[1m[96mGAS[m [1m[96mLISTING[m [1m[96mblock[m[93m.s[m[21C[1m[96mpage[m [95m1[4;4H1[m[36C[96m#dos starts all .com programs at this off[5;1Hfset[m
+   [95m2[m [95m0000[m [95m00000000[m[22C[93m.org[m    [95m0x100
+[m   [95m2[m      [95m00000000
+[m   [95m2[m      [95m00000000
+[m   [95m2[m      [95m00000000
+[m   [95m2[m      [95m00000000
+[m   [95m3
+[m   [95m4[m[36C[93m.code16[m
+   [95m5
+[m   [95m6[m[20C[96m#Define constants[m
+   [95m7[m[20C[1m[96mDOS_INT[m[9C=[7C[95m0x21
+[m   [95m8[m[20C[1m[96mCOUNT[m[11C=[7C[95m50
+[m   [95m9[m[20C[1m[96mQUIT[m[12C=[7C'[1m[96mq[m'
+  [95m10[m[20C[1m[96mDELAY_LO[m[8C=[7C[95m0x0
+[m  [95m11[m[20C[1m[96mDELAY_HI[m[8C=[7C[95m0x2
+[m  [95m12
+[m  [95m13[m[20C[96m#Entered at program startup.[m
+  [95m14[m [95m0100[m [1m[96mEB01[26Cjmp[m     [1m[96mmain[m
+  [95m15[m[24;63H1,1[11CTop"block.lst" 108L, 4379C[1;1H[?25h[?25l[24;63H8,8[9;8H[?25h[?25l[24;63H15,38-50[16;50H[?25h[?25l[24;53H~@k[16;50H[24;53H   [17;50H[24;64H6,33[17;50H[?25h[?25l[24;53H~@k[17;50H[24;53H   [17;51H[24;67H4-51[17;51H[?25h[?25l[24;53H~@k[17;51H[24;53H   [16;50H[24;64H5,38-50[16;50H[?25h[?25l[24;53H~@k[16;50H[24;53H   [15;51H[24;64H4,39-51[15;51H[?25h[?25l[24;53H~@k[15;51H[24;53H   [16;50H[24;64H5,38-50[16;50H[?25h[?25l[24;53H~@k[16;50H[24;53H   [16;50H[?25h[?25l[24;53H~@k[16;50H[24;53H   [16;50H[24;1H[1m-- INSERT --[m[24;13H[K[24;63H15,38-50      Top[16;50H[?25h[?25l[24;67H9-51[16;51H[?25h[?25l[16;50H[K[24;67H8-50]2;block.lst + (~/git-repos/i220a/work/lab14) - VIM]1;block.lst[16;50H[?25h[?25l[16;49H[K[24;67H7-49[16;49H[?25h[?25l[95m2[m[24;67H8-50[16;50H[?25h[?25l[95m5[m[24;67H9-51[16;51H[?25h[?25l[24;64H6,34[17;51H[?25h[?25l[24;64H7[18;51H[?25h[?25l[24;67H5-52[18;52H[?25h[?25l[1;23r[23;1H
+[1;24r[23;3H[95m16[m[24;63H[K[24;63H18,35-52[7C1%[18;52H[?25h[?25l0[1m[96mx[m[18;51H[K[24;67H4-51[18;51H[?25h[?25l[95m0x1[m[24;67H5-52[18;52H[?25h[24;1H[K[18;51H[?25l[24;53H^[[18;51H[24;53H  [18;52H[24;63H18,34-51[7C1%[18;51H[?25h[?25l[24;53H:[18;51H[24;53H[K[24;1H:[?2004h[?25hq[?25l[?25hw[?25l[?25h[?25l[97m[41mE492: Not an editor command: qw[18;51H[m[24;63H18,34-51[7C1%[18;51H[?25h[?25l[24;53H:[18;51H[24;1H[K[24;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1006l[?1002l[?2004l"block.lst" 108L, 4379C written]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@g7-11:~/i220a/work/lab14$ make block.com
+make: 'block.com' is up to date.
+ctran20@g7-11:~/i220a/work/lab14$ dosbox &
+[3] 17576
+[2]   Done                    dosbox
+ctran20@g7-11:~/i220a/work/lab14$ DOSBox version 0.74-2
+Copyright 2002-2018 DOSBox Team, published under GNU GPL.
+---
+CONFIG:Loading primary settings from config file /home/ctran20/.dosbox/dosbox-0.74-2.conf
+MIXER:Got different values from SDL: freq 44100, blocksize 512
+ALSA:Can't subscribe to MIDI port (65:0) nor (17:0)
+MIDI:Opened device:none
+ls
+block.com  block.lst  block.s  key-int.s  lab14.log  Makefile  poll.s
+ctran20@g7-11:~/i220a/work/lab14$ vim l[Kblock.lst
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"block.lst" 108L, 4379C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[3;4H[31m1[m[36C[34m#dos starts all .com programs at this off[4;1Hfset[m
+   [31m2[m [31m0000[m [31m00000000[m[22C[38;5;130m.org[m    [31m0x100
+[m   [31m2[m      [31m00000000
+[m   [31m2[m      [31m00000000
+[m   [31m2[m      [31m00000000
+[m   [31m2[m      [31m00000000
+[m   [31m3
+[m   [31m4[m[36C[38;5;130m.code16[m
+   [31m5
+[m   [31m6[m[20C[34m#Define constants[m
+   [31m7[m[20C[36mDOS_INT[m[9C=[7C[31m0x21
+[m   [31m8[m[20C[36mCOUNT[m[11C=[7C[31m25
+[m   [31m9[m[20C[36mQUIT[m[12C=[7C'[36mq[m'
+  [31m10[m[20C[36mDELAY_LO[m[8C=[7C[31m0x0
+[m  [31m11[m[20C[36mDELAY_HI[m[8C=[7C[31m0x1
+[m  [31m12
+[m  [31m13[m[20C[34m#Entered at program startup.[m
+  [31m14[m [31m0100[m [36mEB01[26Cjmp[m     [36mmain[m
+  [31m15
+[m  [31m16[m[24;63H18,34-51[7C1%]2;block.lst (~/git-repos/i220a/work/lab14) - VIM]1;block.lst[18;51H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002h[27m[23m[29m[m[H[2J[?25l[3;4H[95m1[m[36C[96m#dos starts all .com programs at this off[4;1Hfset[m
+   [95m2[m [95m0000[m [95m00000000[m[22C[93m.org[m    [95m0x100
+[m   [95m2[m      [95m00000000
+[m   [95m2[m      [95m00000000
+[m   [95m2[m      [95m00000000
+[m   [95m2[m      [95m00000000
+[m   [95m3
+[m   [95m4[m[36C[93m.code16[m
+   [95m5
+[m   [95m6[m[20C[96m#Define constants[m
+   [95m7[m[20C[1m[96mDOS_INT[m[9C=[7C[95m0x21
+[m   [95m8[m[20C[1m[96mCOUNT[m[11C=[7C[95m25
+[m   [95m9[m[20C[1m[96mQUIT[m[12C=[7C'[1m[96mq[m'
+  [95m10[m[20C[1m[96mDELAY_LO[m[8C=[7C[95m0x0
+[m  [95m11[m[20C[1m[96mDELAY_HI[m[8C=[7C[95m0x1
+[m  [95m12
+[m  [95m13[m[20C[96m#Entered at program startup.[m
+  [95m14[m [95m0100[m [1m[96mEB01[26Cjmp[m     [1m[96mmain[m
+  [95m15
+[m  [95m16[m[24;63H18,34-51[7C1%"block.lst" 108L, 4379C[18;51H[?25h[?25l[24;64H0,19-24[10;24H[?25h[?25l[24;64H5,38-50[15;50H[?25h[?25l[24;53H~@k[15;50H[24;53H   [15;50H[24;1H[1m-- INSERT --[m[24;13H[K[24;63H15,38-50[7C1%[15;50H[?25h[?25l[24;67H9-51[15;51H[?25h[?25l[15;50H[K[24;67H8-50]2;block.lst + (~/git-repos/i220a/work/lab14) - VIM]1;block.lst[15;50H[?25h[?25l[15;49H[K[24;67H7-49[15;49H[?25h[?25l[95m2[m[24;67H8-50[15;50H[?25h[?25l[24;64H4,41-53[14;53H[?25h[?25l:[24;67H2-54[14;54H[?25h[?25l[14;53H[K[24;67H1-53[14;53H[?25h[24;1H[K[14;52H[?25l[24;53H^[[14;52H[24;53H  [14;53H[24;63H14,40-52[7C1%[14;52H[?25h[?25l[24;53H:[14;52H[24;53H[K[24;1H:[?2004h[?25hq[?25l[?25hw[?25l[?25h[?25l[97m[41mE492: Not an editor command: qw[14;52H[m[24;63H14,40-52[7C1%[14;52H[?25h[?25l[24;53H:[14;52H[24;1H[K[24;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1006l[?1002l[?2004l"block.lst" 108L, 4378C written]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@g7-11:~/i220a/work/lab14$ make block.com
+make: 'block.com' is up to date.
+ctran20@g7-11:~/i220a/work/lab14$ make block.com[K[K[K[K[K[K[K[K[K[K[K[K[K[Kc[Kod -x block/c[K[K.com
+0000000 01eb e800 0018 02a0 3c01 7471 b90e 0032
+0000020 15e8 e800 0023 7549 ebf7 e8e8 0015 b450
+0000040 cd08 a221 0102 c358 b450 8a02 0216 cd01
+0000060 5821 b4c3 b04c cd00 5021 5153 02bb b900
+0000100 0000 a0b8 f6f0 49e9 f875 754b 59f2 585b
+0000120 00c3
+0000121
+ctran20@g7-11:~/i220a/work/lab14$ ls
+block.com  block.lst  block.s  key-int.s  lab14.log  Makefile  poll.s
+[3]+  Done                    dosbox
+ctran20@g7-11:~/i220a/work/lab14$ make clean
+rm -f *.com *.lst *.o *~
+ctran20@g7-11:~/i220a/work/lab14$ ls
+block.s  key-int.s  lab14.log  Makefile  poll.s
+ctran20@g7-11:~/i220a/work/lab14$ make block.com
+as --32 -a=block.lst block.s -o block.o
+objcopy -O binary block.o block.bin
+rm block.o
+dd if=block.bin of=block.com bs=256 skip=1
+0+1 records in
+0+1 records out
+81 bytes copied, 0.00103402 s, 78.3 kB/s
+rm block.bin
+ctran20@g7-11:~/i220a/work/lab14$ ls
+block.com  block.lst  block.s  key-int.s  lab14.log  Makefile  poll.s
+ctran20@g7-11:~/i220a/work/lab14$ vim block.lst
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"block.lst" 108L, 4379C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[36mGAS[m [36mLISTING[m [36mblock[m[38;5;130m.s[m[21C[36mpage[m [31m1[4;4H1[m[36C[34m#dos starts all .com programs at this off[5;1Hfset[m
+   [31m2[m [31m0000[m [31m00000000[m[22C[38;5;130m.org[m    [31m0x100
+[m   [31m2[m      [31m00000000
+[m   [31m2[m      [31m00000000
+[m   [31m2[m      [31m00000000
+[m   [31m2[m      [31m00000000
+[m   [31m3
+[m   [31m4[m[36C[38;5;130m.code16[m
+   [31m5
+[m   [31m6[m[20C[34m#Define constants[m
+   [31m7[m[20C[36mDOS_INT[m[9C=[7C[31m0x21
+[m   [31m8[m[20C[36mCOUNT[m[11C=[7C[31m50
+[m   [31m9[m[20C[36mQUIT[m[12C=[7C'[36mq[m'
+  [31m10[m[20C[36mDELAY_LO[m[8C=[7C[31m0x0
+[m  [31m11[m[20C[36mDELAY_HI[m[8C=[7C[31m0x2
+[m  [31m12
+[m  [31m13[m[20C[34m#Entered at program startup.[m
+  [31m14[m [31m0100[m [36mEB01[26Cjmp[m     [36mmain[m
+  [31m15[m[24;63H14,40-52      Top]2;block.lst (~/git-repos/i220a/work/lab14) - VIM]1;block.lst[15;52H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002h[27m[23m[29m[m[H[2J[?25l[1;1H[1m[96mGAS[m [1m[96mLISTING[m [1m[96mblock[m[93m.s[m[21C[1m[96mpage[m [95m1[4;4H1[m[36C[96m#dos starts all .com programs at this off[5;1Hfset[m
+   [95m2[m [95m0000[m [95m00000000[m[22C[93m.org[m    [95m0x100
+[m   [95m2[m      [95m00000000
+[m   [95m2[m      [95m00000000
+[m   [95m2[m      [95m00000000
+[m   [95m2[m      [95m00000000
+[m   [95m3
+[m   [95m4[m[36C[93m.code16[m
+   [95m5
+[m   [95m6[m[20C[96m#Define constants[m
+   [95m7[m[20C[1m[96mDOS_INT[m[9C=[7C[95m0x21
+[m   [95m8[m[20C[1m[96mCOUNT[m[11C=[7C[95m50
+[m   [95m9[m[20C[1m[96mQUIT[m[12C=[7C'[1m[96mq[m'
+  [95m10[m[20C[1m[96mDELAY_LO[m[8C=[7C[95m0x0
+[m  [95m11[m[20C[1m[96mDELAY_HI[m[8C=[7C[95m0x2
+[m  [95m12
+[m  [95m13[m[20C[96m#Entered at program startup.[m
+  [95m14[m [95m0100[m [1m[96mEB01[26Cjmp[m     [1m[96mmain[m
+  [95m15[m[24;63H14,40-52      Top"block.lst" 108L, 4379C[15;52H[?25h[?25l[24;63H7,19    [8;19H[?25h[?25l[24;53H^[[8;19H[24;53H  [8;19H[24;53H^[[8;19H[24;53H  [8;19H[?25h[?25l[24;53H:[8;19H[24;1H[K[24;1H:[?2004h[?25hq[?25l[?25h1[?25l[?25h[?25l[24;3H[K[24;3H[?25h![?25l[?25h[?25l[?1006l[?1002l[?2004l]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t[24;1H[K[24;1H[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@g7-11:~/i220a/work/lab14$ vim block.s
+[?1000h[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"block.s" 76L, 1751C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;17H[34m#dos starts all .com programs at this offset[m[2;17H[38;5;130m.org[m    [31m0x100[m[4;17H[38;5;130m.code16[m
+
+[34m#Define constants[m
+[36mDOS_INT[m[9C=[7C[31m0x21[m
+[36mCOUNT[m[11C=[7C[31m50[m
+[36mQUIT[m[12C=[7C'[36mq[m'
+[36mDELAY_LO[m[8C=[7C[31m0x0[m
+[36mDELAY_HI[m[8C=[7C[31m0x2[m
+
+[34m#Entered at program startup.[m[14;17H[36mjmp[m     [36mmain[m
+
+
+[34m#data area      [m
+[36minChar[m:[9C[38;5;130m.byte[m   [31m0[m
+
+[36mmain[m:
+[36mmain1[m:[22;17H[36mcall[m    [36mgetchar[m[9C[34m#read input char into inChar[m[23;17H[36mmov[m     [36minChar[m, %[36mal[m     [34m#al set to char read[m[24;63H1,1-8[9CTop]2;block.s (~/git-repos/i220a/work/lab14) - VIM]1;block.s[1;8H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002h[27m[23m[29m[m[H[2J[?25l[1;17H[96m#dos starts all .com programs at this offset[m[2;17H[93m.org[m    [95m0x100[m[4;17H[93m.code16[m
+
+[96m#Define constants[m
+[1m[96mDOS_INT[m[9C=[7C[95m0x21[m
+[1m[96mCOUNT[m[11C=[7C[95m50[m
+[1m[96mQUIT[m[12C=[7C'[1m[96mq[m'
+[1m[96mDELAY_LO[m[8C=[7C[95m0x0[m
+[1m[96mDELAY_HI[m[8C=[7C[95m0x2[m
+
+[96m#Entered at program startup.[m[14;17H[1m[96mjmp[m     [1m[96mmain[m
+
+
+[96m#data area      [m
+[1m[96minChar[m:[9C[93m.byte[m   [95m0[m
+
+[1m[96mmain[m:
+[1m[96mmain1[m:[22;17H[1m[96mcall[m    [1m[96mgetchar[m[9C[96m#read input char into inChar[m[23;17H[1m[96mmov[m     [1m[96minChar[m, %[1m[96mal[m     [96m#al set to char read[m[24;63H1,1-8[9CTop"block.s" 76L, 1751C[1;8H[?25h[?25l[24;53H~@k[1;8H[24;53H   [1;1H[24;1H[1m-- INSERT --[m[24;13H[K[24;63H1,1[11CTop[1;1H[?25h[?25l[24;63H8,19-26[8;26H[?25h[?25l[24;4H[1m(insert)- VISUAL --[m[24;63H[K[24;53H2[8;27H[24;63H8,20-27[7CTop[8;27H[95m[48;5;242m0[?25h[?25l[?25h[?25l[m[24;53H [8;27H[24;4H[1mINSERTt --[m[24;13H[K[24;63H8,20-27[7CTop[8;26H[95m0[?25h[?25l[m[8;26H[K[24;65H19-26]2;block.s + (~/git-repos/i220a/work/lab14) - VIM]1;block.s[8;26H[?25h[?25l[8;25H[K[24;66H8-25[8;25H[?25h[?25l[95m2[m[24;66H9-26[8;26H[?25h[?25l[95m5[m[24;65H20-27[8;27H[?25h[?25l[24;63H11,16-28[11;28H[?25h[?25l0[1m[96mx[m[11;27H[K[24;67H5-27[11;27H[?25h[?25l[95m0x1[m[24;67H6-28[11;28H[?25h[24;1H[K[11;27H[?25l[24;53H^[[11;27H[24;53H  [11;28H[24;63H11,15-27      Top[11;27H[?25h[?25l[24;53H:[11;27H[24;53H[K[24;1H:[?2004h[?25hq[?25l[?25hw[?25l[?25h[?25l[97m[41mE492: Not an editor command: qw[11;27H[m[24;63H11,15-27      Top[11;27H[?25h[?25l[24;53H:[11;27H[24;1H[K[24;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?1006l[?1002l[?2004l"block.s" 76L, 1751C written]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tctran20@g7-11:~/i220a/work/lab14$ make block.com
+as --32 -a=block.lst block.s -o block.o
+objcopy -O binary block.o block.bin
+rm block.o
+dd if=block.bin of=block.com bs=256 skip=1
+0+1 records in
+0+1 records out
+81 bytes copied, 0.000969445 s, 83.6 kB/s
+rm block.bin
+ctran20@g7-11:~/i220a/work/lab14$ dosbox &
+[1] 18146
+ctran20@g7-11:~/i220a/work/lab14$ DOSBox version 0.74-2
+Copyright 2002-2018 DOSBox Team, published under GNU GPL.
+---
+CONFIG:Loading primary settings from config file /home/ctran20/.dosbox/dosbox-0.74-2.conf
+MIXER:Got different values from SDL: freq 44100, blocksize 512
+ALSA:Can't subscribe to MIDI port (65:0) nor (17:0)
+MIDI:Opened device:none
+make poll.com
+as --32 -a=poll.lst poll.s -o poll.o
+objcopy -O binary poll.o poll.bin
+rm poll.o
+dd if=poll.bin of=poll.com bs=256 skip=1
+0+1 records in
+0+1 records out
+110 bytes copied, 0.0014614 s, 75.3 kB/s
+rm poll.bin
+ctran20@g7-11:~/i220a/work/lab14$ dosbox &
+[2] 18313
+[1]   Done                    dosbox
+ctran20@g7-11:~/i220a/work/lab14$ DOSBox version 0.74-2
+Copyright 2002-2018 DOSBox Team, published under GNU GPL.
+---
+CONFIG:Loading primary settings from config file /home/ctran20/.dosbox/dosbox-0.74-2.conf
+MIXER:Got different values from SDL: freq 44100, blocksize 512
+ALSA:Can't subscribe to MIDI port (65:0) nor (17:0)
+MIDI:Opened device:none
+make dosbox &make poll.com
+as --32 -a=poll.lst poll.s -o poll.o
+objcopy -O binary poll.o poll.bin
+rm poll.o
+dd if=poll.bin o
