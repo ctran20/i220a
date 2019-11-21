@@ -281,4 +281,104 @@ make dosbox &make poll.com
 as --32 -a=poll.lst poll.s -o poll.o
 objcopy -O binary poll.o poll.bin
 rm poll.o
-dd if=poll.bin o
+dd if=poll.bin of=poll.com bs=256 skip=1
+0+1 records in
+0+1 records out
+109 bytes copied, 0.00118658 s, 91.9 kB/s
+rm poll.bin
+[2]+  Done                    dosbox
+ctran20@g7-11:~/i220a/work/lab14$ make poll.com[5Pdosbox &
+[1] 19137
+ctran20@g7-11:~/i220a/work/lab14$ DOSBox version 0.74-2
+Copyright 2002-2018 DOSBox Team, published under GNU GPL.
+---
+CONFIG:Loading primary settings from config file /home/ctran20/.dosbox/dosbox-0.74-2.conf
+MIXER:Got different values from SDL: freq 44100, blocksize 512
+ALSA:Can't subscribe to MIDI port (65:0) nor (17:0)
+MIDI:Opened device:none
+ls
+block.com  block.s    lab14.log  poll.com  poll.s
+block.lst  key-int.s  Makefile	 poll.lst
+[1]+  Done                    dosbox
+ctran20@g7-11:~/i220a/work/lab14$ make key-int.s [K[Kcom
+as --32 -a=key-int.lst key-int.s -o key-int.o
+objcopy -O binary key-int.o key-int.bin
+rm key-int.o
+dd if=key-int.bin of=key-int.com bs=256 skip=1
+0+1 records in
+0+1 records out
+209 bytes copied, 0.00128525 s, 163 kB/s
+rm key-int.bin
+ctran20@g7-11:~/i220a/work/lab14$ dosbox &
+[1] 19345
+ctran20@g7-11:~/i220a/work/lab14$ DOSBox version 0.74-2
+Copyright 2002-2018 DOSBox Team, published under GNU GPL.
+---
+CONFIG:Loading primary settings from config file /home/ctran20/.dosbox/dosbox-0.74-2.conf
+MIXER:Got different values from SDL: freq 44100, blocksize 512
+ALSA:Can't subscribe to MIDI port (65:0) nor (17:0)
+MIDI:Opened device:none
+ls
+block.com  block.s	key-int.lst  lab14.log	poll.com  poll.s
+block.lst  key-int.com	key-int.s    Makefile	poll.lst
+[1]+  Done                    dosbox
+ctran20@g7-11:~/i220a/work/lab14$ do[K[Kdosbox &
+[1] 20389
+ctran20@g7-11:~/i220a/work/lab14$ DOSBox version 0.74-2
+Copyright 2002-2018 DOSBox Team, published under GNU GPL.
+---
+CONFIG:Loading primary settings from config file /home/ctran20/.dosbox/dosbox-0.74-2.conf
+MIXER:Got different values from SDL: freq 44100, blocksize 512
+ALSA:Can't subscribe to MIDI port (65:0) nor (17:0)
+MIDI:Opened device:none
+cd ..
+[1]+  Done                    dosbox  (wd: ~/i220a/work/lab14)
+(wd now: ~/i220a/work)
+ctran20@g7-11:~/i220a/work$ ls
+lab14  prj4-sol
+ctran20@g7-11:~/i220a/work$ cd ..
+ctran20@g7-11:~/i220a$ mv pr[K[Klab14 [K[K[K[K[K[Kwork/lab14 submit
+ctran20@g7-11:~/i220a$ ls
+grading  README.md  submit  work
+ctran20@g7-11:~/i220a$ cd submit/
+ctran20@g7-11:~/i220a/submit$ ls
+bomb43	lab10  lab12  lab14  lab3  lab5  lab7  lab9	 prj2-sol
+lab1	lab11  lab13  lab2   lab4  lab6  lab8  prj1-sol
+ctran20@g7-11:~/i220a/submit$ git pull[K[K[K[K[K[K[K[Kcd lab14/
+ctran20@g7-11:~/i220a/submit/lab14$ git add -A
+ctran20@g7-11:~/i220a/submit/lab14$ git commit -m "[K'C[Kcompleted pla[K[K[K[K[K[K[K[K[K[K[K[K[Ksubmie[Ktted lab14'
+[master d8515c1] submitted lab14
+ 20 files changed, 1437 insertions(+)
+ create mode 100644 submit/lab14/Makefile
+ create mode 100644 submit/lab14/block.com
+ create mode 100644 submit/lab14/block.lst
+ create mode 100644 submit/lab14/block.s
+ create mode 100644 submit/lab14/key-int.com
+ create mode 100644 submit/lab14/key-int.lst
+ create mode 100644 submit/lab14/key-int.s
+ create mode 100644 submit/lab14/lab14.log
+ create mode 100644 submit/lab14/poll.com
+ create mode 100644 submit/lab14/poll.lst
+ create mode 100644 submit/lab14/poll.s
+ create mode 100644 work/prj4-sol/.gitignore
+ create mode 100644 work/prj4-sol/Makefile
+ create mode 100644 work/prj4-sol/README
+ create mode 100755 work/prj4-sol/do-fn-trace
+ create mode 100644 work/prj4-sol/fn-trace.c
+ create mode 100644 work/prj4-sol/fn-trace.h
+ create mode 100644 work/prj4-sol/main.c
+ create mode 100644 work/prj4-sol/x86-64_lde.c
+ create mode 100644 work/prj4-sol/x86-64_lde.h
+ctran20@g7-11:~/i220a/submit/lab14$ git add[K[K[Kpush
+Enumerating objects: 27, done.
+Counting objects:   3% (1/27)   Counting objects:   7% (2/27)   Counting objects:  11% (3/27)   Counting objects:  14% (4/27)   Counting objects:  18% (5/27)   Counting objects:  22% (6/27)   Counting objects:  25% (7/27)   Counting objects:  29% (8/27)   Counting objects:  33% (9/27)   Counting objects:  37% (10/27)   Counting objects:  40% (11/27)   Counting objects:  44% (12/27)   Counting objects:  48% (13/27)   Counting objects:  51% (14/27)   Counting objects:  55% (15/27)   Counting objects:  59% (16/27)   Counting objects:  62% (17/27)   Counting objects:  66% (18/27)   Counting objects:  70% (19/27)   Counting objects:  74% (20/27)   Counting objects:  77% (21/27)   Counting objects:  81% (22/27)   Counting objects:  85% (23/27)   Counting objects:  88% (24/27)   Counting objects:  92% (25/27)   Counting objects:  96% (26/27)   Counting objects: 100% (27/27)   Counting objects: 100% (27/27), done.
+Delta compression using up to 8 threads
+Compressing objects:   4% (1/23)   Compressing objects:   8% (2/23)   Compressing objects:  13% (3/23)   Compressing objects:  17% (4/23)   Compressing objects:  21% (5/23)   Compressing objects:  26% (6/23)   Compressing objects:  30% (7/23)   Compressing objects:  34% (8/23)   Compressing objects:  39% (9/23)   Compressing objects:  43% (10/23)   Compressing objects:  47% (11/23)   Compressing objects:  52% (12/23)   Compressing objects:  56% (13/23)   Compressing objects:  60% (14/23)   Compressing objects:  65% (15/23)   Compressing objects:  69% (16/23)   Compressing objects:  73% (17/23)   Compressing objects:  78% (18/23)   Compressing objects:  82% (19/23)   Compressing objects:  86% (20/23)   Compressing objects:  91% (21/23)   Compressing objects:  95% (22/23)   Compressing objects: 100% (23/23)   Compressing objects: 100% (23/23), done.
+Writing objects:   4% (1/25)   Writing objects:   8% (2/25)   Writing objects:  12% (3/25)   Writing objects:  16% (4/25)   Writing objects:  20% (5/25)   Writing objects:  24% (6/25)   Writing objects:  36% (9/25)   Writing objects:  48% (12/25)   Writing objects:  52% (13/25)   Writing objects:  56% (14/25)   Writing objects:  60% (15/25)   Writing objects:  64% (16/25)   Writing objects:  68% (17/25)   Writing objects:  72% (18/25)   Writing objects:  76% (19/25)   Writing objects:  80% (20/25)   Writing objects:  88% (22/25)   Writing objects:  92% (23/25)   Writing objects:  96% (24/25)   Writing objects: 100% (25/25)   Writing objects: 100% (25/25), 15.25 KiB | 1.27 MiB/s, done.
+Total 25 (delta 8), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/8)[Kremote: Resolving deltas:  62% (5/8)[Kremote: Resolving deltas:  75% (6/8)[Kremote: Resolving deltas:  87% (7/8)[Kremote: Resolving deltas: 100% (8/8)[Kremote: Resolving deltas: 100% (8/8), completed with 2 local objects.[K
+To github.com:ctran20/i220a.git
+   d798417..d8515c1  master -> master
+ctran20@g7-11:~/i220a/submit/lab14$ c[Kexit
+
+Script done on 2019-11-21 11:27:54-05:00 [COMMAND_EXIT_CODE="0"]
