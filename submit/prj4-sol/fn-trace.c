@@ -33,10 +33,26 @@ new_fns_data(void *rootFn)
 {
   //verify assumption used when decoding call address
   assert(sizeof(int) == 4);
-  FnInfo temp;
-  //get_op_length(rootFn);
   
-  return temp;
+  int inCalls =  0;
+  int outCalls = 0;
+  
+  FnsData *retVal = calloc(1, sizeof(int));
+  FnInfo *temp = calloc(1, sizeof(FnInfo));
+  
+  temp = next_fn_info(retVal, temp); 
+  
+  while(){
+	if(is_call()) inCalls++;
+	esle if(is_ret()) outCalls++;
+  }
+  
+  temp->address = rootFn;
+  temp->length = get_op_length(rootFn);
+  temp->nInCalls = inCalls;
+  temp->nOutCalls = outCalls;
+  
+  return retVal;
 }
 
 /** Free all resources occupied by fnsData. fnsData must have been
@@ -65,9 +81,11 @@ free_fns_data(FnsData *fnsData)
 const FnInfo *
 next_fn_info(const FnsData *fnsData, const FnInfo *lastFnInfo)
 {
-  //for (FnInfo *fnInfoP = next_fn_info(fnsData, NULL); fnInfoP != NULL;
-  //     fnInfoP = next_fn_info(fnsData, fnInfoP)) {
-  //	   return lastFnInfo;
-  //}
-  return NULL;
+  FnInfo *temp = calloc(1, sizeof(FnInfo));
+  for (FnInfo *fnInfoP = next_fn_info(fnsData, NULL); fnInfoP != NULL;
+       fnInfoP = next_fn_info(fnsData, fnInfoP)) {
+		  temp = fnInfoP;  
+  }
+  qsort(temp);
+  return temp;
 }
