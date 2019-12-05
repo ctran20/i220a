@@ -8,6 +8,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+struct FnsData {
+  int size;             /** current # of elements allocated for fnsData. */
+  int nextIndex;        /** current # of elements used in fnsData. */
+  FnInfo *fnsData;      /** point to base of allocated FnInfo's. */
+};
+
+/** Return index of function at address.  < 0 if not found. */
+static int
+get_fn_index(FnsData *fnsDataP, void *address)
+{
+  for (int i = 0; i < fnsDataP->nextIndex; i++) {
+    if (fnsDataP->fnsData[i].address == address) return i;
+  }
+  return -1;
+}
+
+static int
+new_fn(FnsData *fnsDataP, void *address)
+{
+  if (fnsDataP->nextIndex >= fnsDataP->size) {
+    int newSize = (fnsDataP->size == 0) ? 2 : fnsDataP->size*2;
+    fnsDataP->fnsData = reallocChk(fnsDataP->fnsData, newSize*sizeof(FnInfo));
+    fnsDataP->size = newSize;
+  }
+  FnInfo *fnInfoP = &fnsDataP->fnsData[fnsDataP->nextIndex];
+  fnInfoP->address = address; fnInfoP->length = 0;
+  fnInfoP->nInCalls = 0; fnInfoP->nOutCalls = 0;
+  return fnsDataP->nextIndex++;
+}
+
 enum {
   CALL_OP = 0xE8,
   RET_FAR_OP = 0xCB,
@@ -23,6 +53,52 @@ static inline bool is_ret(unsigned op) {
     op == RET_FAR_OP || op == RET_FAR_WITH_POP_OP;
 }
 
+/** Recursively trace fn and all functions called by it, recording
+ *  information about traced functions in fnsData.
+ */
+static void
+trace_fn(void *fn, FnsData *fnsDataP)
+{
+  int fnIndex = new_fn(fnsDataP, fn);
+  fnsDataP->fnsData[fnIndex].nInCalls++;
+  unsigned char *p = fn;
+  int length = 0;
+  int nCalls = 0;
+  unsigned int op;
+  do {
+    op = *p;
+    int n = get_op_length(p);
+    if (n < 0) {
+      fprintf(stderr, "cannot get length for op %d at %p in fn %p\n",
+              *p, p, fn);
+      break;
+    }
+    length += n;
+    unsigned char *p0 = p;
+    p += n;
+    if (is_call(op)) {
+      nCalls++;
+      int disp = *(int *)(p0 + 1);
+      void *callAddress = p + disp;
+      int callFnIndex = get_fn_index(fnsDataP, callAddress);
+      if (callFnIndex < 0) {
+        trace_fn(callAddress, fnsDataP);
+      }
+      else {
+        fnsDataP->fnsData[callFnIndex].nInCalls++;
+      }
+    }
+  } while (!is_ret(op));
+  fnsDataP->fnsData[fnIndex].length = length;
+  fnsDataP->fnsData[fnIndex].nOutCalls = nCalls;
+}
+
+static int cmp_fn_infos(const void *p1, const void *p2) {
+  const FnInfo *fnInfoP1 = (const FnInfo *)p1;
+  const FnInfo *fnInfoP2 = (const FnInfo *)p2;
+  return ((char *)fnInfoP1->address) - ((char *)fnInfoP2->address);
+}
+
 
 /** Return pointer to opaque data structure containing collection of
  *  FnInfo's for functions which are callable directly or indirectly
@@ -31,28 +107,11 @@ static inline bool is_ret(unsigned op) {
 const FnsData *
 new_fns_data(void *rootFn)
 {
-  //verify assumption used when decoding call address
   assert(sizeof(int) == 4);
-  
-  int inCalls =  0;
-  int outCalls = 0;
-  
-  FnsData *retVal = calloc(1, sizeof(int));
-  FnInfo *temp = calloc(1, sizeof(FnInfo));
-  
-  temp = next_fn_info(retVal, temp); 
-  
-  while(){
-	if(is_call()) inCalls++;
-	esle if(is_ret()) outCalls++;
-  }
-  
-  temp->address = rootFn;
-  temp->length = get_op_length(rootFn);
-  temp->nInCalls = inCalls;
-  temp->nOutCalls = outCalls;
-  
-  return retVal;
+  FnsData *fnsDataP = callocChk(1, sizeof(struct FnsData));
+  trace_fn(rootFn, fnsDataP);
+  qsort(fnsDataP->fnsData, fnsDataP->nextIndex, sizeof(FnInfo), cmp_fn_infos);
+  return fnsDataP;
 }
 
 /** Free all resources occupied by fnsData. fnsData must have been
@@ -62,6 +121,7 @@ new_fns_data(void *rootFn)
 void
 free_fns_data(FnsData *fnsData)
 {
+  free(fnsData->fnsData);
   free(fnsData);
 }
 
@@ -81,11 +141,9 @@ free_fns_data(FnsData *fnsData)
 const FnInfo *
 next_fn_info(const FnsData *fnsData, const FnInfo *lastFnInfo)
 {
-  FnInfo *temp = calloc(1, sizeof(FnInfo));
-  for (FnInfo *fnInfoP = next_fn_info(fnsData, NULL); fnInfoP != NULL;
-       fnInfoP = next_fn_info(fnsData, fnInfoP)) {
-		  temp = fnInfoP;  
-  }
-  qsort(temp);
-  return temp;
+  const FnsData *fnsDataP = fnsData;
+  int lastIndex = (lastFnInfo == NULL) ? -1 : lastFnInfo - fnsDataP->fnsData;
+  int nextIndex = lastIndex + 1;
+  return
+    nextIndex >= fnsDataP->nextIndex ? NULL : &fnsDataP->fnsData[nextIndex];
 }
